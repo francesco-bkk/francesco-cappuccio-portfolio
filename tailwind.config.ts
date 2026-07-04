@@ -13,7 +13,7 @@ const config: Config = {
         surface: "#ffffff",
         panel: "#ebe8e1",
         ivory: "#111111",
-        stone: "#6f6a62",
+        stone: "#4f4a43",
         brass: "#7c6f5d",
         "brass-deep": "#4d463b"
       },

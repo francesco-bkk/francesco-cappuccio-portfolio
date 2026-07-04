@@ -217,27 +217,27 @@ export default function Home() {
           <form className="grid gap-7 sm:gap-9">
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="First name"
               />
               <input
-                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Last name"
               />
             </div>
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Email*"
                 type="email"
               />
               <input
-                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Phone"
               />
             </div>
             <textarea
-              className="min-h-36 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
+              className="min-h-36 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
               placeholder="Message*"
             />
             <button
