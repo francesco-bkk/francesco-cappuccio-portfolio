@@ -241,7 +241,7 @@ export default function Home() {
               placeholder="Message*"
             />
             <button
-              className="w-full justify-self-stretch border border-ivory px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-ivory hover:text-obsidian sm:w-auto sm:justify-self-start"
+              className="w-full justify-self-stretch border-2 border-ivory bg-ivory px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-obsidian transition-colors duration-300 hover:bg-transparent hover:text-ivory sm:w-auto sm:justify-self-start sm:px-10"
               type="button"
             >
               Submit
