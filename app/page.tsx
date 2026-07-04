@@ -127,18 +127,18 @@ export default function Home() {
                 href={award.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group grid min-h-[240px] border-b border-ivory/10 py-8 transition-colors duration-300 hover:bg-surface md:border-r md:px-6 md:last:border-r-0"
+                className="group grid grid-cols-[104px_minmax(0,1fr)] items-center gap-6 border-b border-ivory/10 py-7 transition-colors duration-300 hover:bg-surface md:grid-cols-1 md:items-stretch md:gap-0 md:border-r md:px-6 md:py-8 md:last:border-r-0"
               >
-                <div className="relative h-20 w-full max-w-[230px] mix-blend-multiply grayscale opacity-75 transition duration-300 group-hover:opacity-100">
+                <div className="relative h-16 w-24 mix-blend-multiply grayscale opacity-75 transition duration-300 group-hover:opacity-100 md:h-20 md:w-full md:max-w-[230px]">
                   <Image
                     src={award.logo}
                     alt={`${award.title} logo`}
                     fill
-                    sizes="230px"
+                    sizes="(min-width: 768px) 230px, 96px"
                     className="object-contain object-left"
                   />
                 </div>
-                <div className="mt-10 self-end">
+                <div className="self-center md:mt-10 md:self-end">
                   <h3 className="font-body text-lg font-light leading-tight text-ivory">{award.title}</h3>
                   <p className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-stone">{award.work}</p>
                   <p className="mt-1 text-sm leading-6 text-stone">{award.year}</p>
@@ -208,40 +208,40 @@ export default function Home() {
       </section>
 
       <section id="contact" className="border-t border-ivory/10 bg-obsidian text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-8 lg:grid-cols-[0.72fr_1fr] lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:gap-16 lg:py-32">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Get in touch</p>
             <h2 className="mt-6 font-body text-4xl font-light leading-none text-ivory sm:text-5xl">Contact</h2>
             <p className="mt-10 max-w-xs text-sm leading-7 text-stone">{studio.address}</p>
           </div>
-          <form className="grid gap-9">
-            <div className="grid gap-9 sm:grid-cols-2">
+          <form className="grid gap-7 sm:gap-9">
+            <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-12 border-b border-ivory/20 bg-transparent px-1 text-ivory placeholder:text-stone focus:border-ivory focus:outline-none"
+                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="First name"
               />
               <input
-                className="h-12 border-b border-ivory/20 bg-transparent px-1 text-ivory placeholder:text-stone focus:border-ivory focus:outline-none"
+                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Last name"
               />
             </div>
-            <div className="grid gap-9 sm:grid-cols-2">
+            <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-12 border-b border-ivory/20 bg-transparent px-1 text-ivory placeholder:text-stone focus:border-ivory focus:outline-none"
+                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Email*"
                 type="email"
               />
               <input
-                className="h-12 border-b border-ivory/20 bg-transparent px-1 text-ivory placeholder:text-stone focus:border-ivory focus:outline-none"
+                className="h-14 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Phone"
               />
             </div>
             <textarea
-              className="min-h-32 border-b border-ivory/20 bg-transparent px-1 py-3 text-ivory placeholder:text-stone focus:border-ivory focus:outline-none"
+              className="min-h-36 w-full rounded-none border-b border-ivory/20 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
               placeholder="Message*"
             />
             <button
-              className="justify-self-start border border-ivory px-8 py-4 font-mono text-[11px] uppercase tracking-widest text-ivory transition-colors duration-300 hover:bg-ivory hover:text-obsidian"
+              className="w-full justify-self-stretch border border-ivory px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-ivory hover:text-obsidian sm:w-auto sm:justify-self-start"
               type="button"
             >
               Submit
