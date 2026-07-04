@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { ExpandableImage } from "@/components/ExpandableImage";
 import { getProject, projects } from "@/lib/content";
+import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
 type ProjectPageProps = {
   params: {
@@ -15,10 +17,41 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }: ProjectPageProps) {
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
   const project = getProject(params.slug);
+
+  if (!project) {
+    return {
+      title: "Project"
+    };
+  }
+
   return {
-    title: project ? `${project.title} | Cappuccio Design Studio` : "Project"
+    title: project.title,
+    description: project.summary,
+    alternates: {
+      canonical: absoluteUrl(`/work/${project.slug}`)
+    },
+    openGraph: {
+      type: "article",
+      title: `${project.title} | ${siteName}`,
+      description: project.summary,
+      url: absoluteUrl(`/work/${project.slug}`),
+      images: [
+        {
+          url: imageUrl(project.image),
+          width: 1200,
+          height: 1500,
+          alt: project.title
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${siteName}`,
+      description: project.summary,
+      images: [imageUrl(project.image)]
+    }
   };
 }
 
@@ -29,8 +62,30 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.summary,
+    url: absoluteUrl(`/work/${project.slug}`),
+    image: imageUrl(project.image),
+    creator: {
+      "@type": "Person",
+      name: "Francesco Cappuccio"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: absoluteUrl("/")
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
         <Link
           href="/work"

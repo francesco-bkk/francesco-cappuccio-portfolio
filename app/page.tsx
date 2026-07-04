@@ -1,13 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
 import { awards, featuredProjects, studio } from "@/lib/content";
+import { absoluteUrl, imageUrl, siteDescription, siteName } from "@/lib/seo";
 
 const landingProject = {
   title: "The Pavilion Crown",
   href: "/work/damansara",
   image: "/images/pavilion-crown-1.png"
+};
+
+export const metadata: Metadata = {
+  title: `${siteName} | Lighting, Furniture & Product Design`,
+  description: siteDescription,
+  alternates: {
+    canonical: absoluteUrl("/")
+  },
+  openGraph: {
+    title: `${siteName} | Lighting, Furniture & Product Design`,
+    description: siteDescription,
+    url: absoluteUrl("/"),
+    images: [
+      {
+        url: imageUrl(landingProject.image),
+        width: 1200,
+        height: 900,
+        alt: landingProject.title
+      }
+    ]
+  }
 };
 
 export default function Home() {

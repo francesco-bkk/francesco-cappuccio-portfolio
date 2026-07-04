@@ -1,11 +1,36 @@
+import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/lib/content";
+import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
 const categories = [
   { label: "Lighting", value: "lighting" },
   { label: "Furniture", value: "furniture" },
   { label: "Featured", value: "featured" }
 ];
+
+export const metadata: Metadata = {
+  title: `Work | ${siteName}`,
+  description:
+    "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, product design, and spatial works.",
+  alternates: {
+    canonical: absoluteUrl("/work")
+  },
+  openGraph: {
+    title: `Work | ${siteName}`,
+    description:
+      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, product design, and spatial works.",
+    url: absoluteUrl("/work"),
+    images: [
+      {
+        url: imageUrl("/images/project1.jpg"),
+        width: 1200,
+        height: 900,
+        alt: "Cappuccio Design Studio work"
+      }
+    ]
+  }
+};
 
 export default function WorkPage() {
   return (
