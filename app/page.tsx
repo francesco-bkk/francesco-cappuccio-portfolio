@@ -53,7 +53,7 @@ export default function Home() {
             />
           </Link>
 
-          <div className="mt-6 grid gap-6 border-b border-ivory/10 pb-10 md:grid-cols-[260px_1fr_auto] md:items-end">
+          <div className="mt-10 grid gap-6 border-b border-ivory/10 pb-10 sm:mt-12 lg:mt-14 md:grid-cols-[260px_1fr_auto] md:items-end">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Featured work</p>
               <h1 className="mt-2 font-body text-3xl font-light leading-none text-ivory sm:text-4xl">
