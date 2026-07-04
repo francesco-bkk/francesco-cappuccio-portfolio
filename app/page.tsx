@@ -144,27 +144,27 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-t border-ivory/10 bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[360px_minmax(0,680px)] lg:justify-center lg:gap-20 lg:py-28">
-          <div className="relative aspect-[4/5] w-full max-w-[340px] self-start overflow-hidden bg-panel lg:mt-2">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[360px_minmax(0,680px)] lg:justify-center lg:gap-20 lg:py-28">
+          <div className="relative aspect-[4/3] w-full max-w-none self-start overflow-hidden bg-panel sm:aspect-[4/5] sm:max-w-[340px] lg:mt-2">
             <Image
               src="/images/studio-portrait.jpg"
               alt="Francesco Cappuccio portrait"
               fill
-              sizes="(min-width: 1024px) 340px, 100vw"
-              className="object-cover grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
+              sizes="(min-width: 1024px) 340px, calc(100vw - 40px)"
+              className="object-cover object-[50%_28%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%] sm:object-center"
             />
           </div>
           <div className="max-w-[680px]">
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About the studio</p>
-            <p className="mt-8 max-w-[640px] font-body text-2xl font-light leading-[1.18] text-ivory sm:text-[2rem]">
+            <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
               {studio.intro}
             </p>
-            <div className="mt-12 grid max-w-[560px] gap-7 text-sm leading-7 text-stone">
+            <div className="mt-9 grid max-w-[560px] gap-6 text-[0.95rem] leading-7 text-stone sm:mt-12 sm:gap-7 sm:text-sm">
               {studio.paragraphs.slice(0, 3).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <div className="mt-14 grid gap-5 border-t border-ivory/10 pt-7 sm:grid-cols-4">
+            <div className="mt-10 grid gap-5 border-t border-ivory/10 pt-7 sm:mt-14 sm:grid-cols-4">
               {awards.map((award) => (
                 <a
                   key={award.title}
