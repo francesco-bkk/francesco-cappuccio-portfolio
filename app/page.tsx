@@ -17,7 +17,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:pb-20">
           <Link
             href={landingProject.href}
-            className="group relative block aspect-[16/7] min-h-[300px] overflow-hidden bg-panel"
+            className="group relative block aspect-[4/3] overflow-hidden bg-panel sm:aspect-[16/7] sm:min-h-[300px]"
             aria-label={`Open ${landingProject.title} project`}
           >
             <Image
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,520px)_minmax(460px,1fr)] lg:gap-20">
             <div className="max-w-[520px]">
-              <p className="font-body text-3xl font-light leading-[1.12] text-ivory sm:text-[2.6rem] lg:text-[2.9rem]">
+              <p className="font-body text-[clamp(1.9rem,9vw,2.6rem)] font-light leading-[1.12] text-ivory lg:text-[2.9rem]">
                 {studio.quote}
               </p>
               <p className="mt-8 font-mono text-[10px] uppercase tracking-widest2 text-stone">

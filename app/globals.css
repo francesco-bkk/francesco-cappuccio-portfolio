@@ -11,13 +11,26 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   margin: 0;
   background: #f7f5f0;
   color: #111111;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }
 
 ::selection {

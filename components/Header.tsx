@@ -19,7 +19,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link
           href="/"
-          className="font-mono text-[11px] font-medium uppercase tracking-widest2 text-ivory transition-colors duration-300 hover:text-stone sm:text-xs"
+          className="min-w-0 max-w-[calc(100vw-6rem)] truncate font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors duration-300 hover:text-stone sm:max-w-none sm:text-xs sm:tracking-widest2"
         >
           {studio.name}
         </Link>
