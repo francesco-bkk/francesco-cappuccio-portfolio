@@ -63,7 +63,7 @@ export default function Home() {
             <span className="hidden h-px bg-ivory/10 md:block" />
             <Link
               href="/work"
-              className="group inline-flex w-fit items-center gap-4 border-b border-ivory pb-1 font-mono text-[11px] uppercase tracking-widest text-ivory transition-colors duration-300 hover:text-stone"
+              className="group inline-flex w-fit items-center gap-4 border-b border-ivory pb-1 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-stone"
             >
               See all work
               <ArrowRight
