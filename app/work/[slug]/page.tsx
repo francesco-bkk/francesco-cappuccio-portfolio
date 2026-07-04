@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { ExpandableImage } from "@/components/ExpandableImage";
+import { ParallaxImage } from "@/components/ParallaxImage";
 import { getProject, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
@@ -213,9 +214,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           <div className="animate-fade-up delay-2 grid gap-6">
-            <div className="relative aspect-[4/5] overflow-hidden bg-panel">
-              <Image src={project.image} alt={project.title} fill priority className="object-cover grayscale contrast-[0.96]" />
-            </div>
+            <ParallaxImage
+              src={project.image}
+              alt={project.title}
+              priority
+              sizes="(min-width: 1024px) 55vw, calc(100vw - 40px)"
+              className="relative aspect-[4/5] overflow-hidden bg-panel"
+              imageClassName="grayscale contrast-[0.96]"
+            />
             <div className="grid gap-6 sm:grid-cols-2">
               {(project.detailImages ?? [`/images/${project.slug}-detail-1.jpg`, `/images/${project.slug}-detail-2.jpg`]).map(
                 (image, index) => (

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Maximize2, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { ParallaxImage } from "@/components/ParallaxImage";
 
 type ExpandableImageProps = {
   src: string;
@@ -46,7 +47,13 @@ export function ExpandableImage({ src, alt }: ExpandableImageProps) {
         className="group relative aspect-[4/5] w-full overflow-hidden bg-panel text-left"
         aria-label={`Open larger view of ${alt}`}
       >
-        <Image src={src} alt={alt} fill className="object-cover grayscale contrast-[0.96] transition duration-500 group-hover:grayscale-[70%]" />
+        <ParallaxImage
+          src={src}
+          alt={alt}
+          sizes="(min-width: 640px) 50vw, 100vw"
+          className="absolute inset-0"
+          imageClassName="grayscale contrast-[0.96] transition duration-500 group-hover:grayscale-[70%]"
+        />
         <span className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center bg-surface/80 text-ivory opacity-0 backdrop-blur transition group-hover:opacity-100">
           <Maximize2 aria-hidden="true" size={17} strokeWidth={1.5} />
         </span>

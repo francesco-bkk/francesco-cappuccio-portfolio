@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { ParallaxImage } from "@/components/ParallaxImage";
 import { ProjectCard } from "@/components/ProjectCard";
 import { awards, featuredProjects, studio } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteDescription, siteName } from "@/lib/seo";
@@ -43,13 +44,14 @@ export default function Home() {
             className="group relative block aspect-[4/3] overflow-hidden bg-panel sm:aspect-[16/7] sm:min-h-[300px]"
             aria-label={`Open ${landingProject.title} project`}
           >
-            <Image
+            <ParallaxImage
               src={landingProject.image}
               alt={landingProject.title}
-              fill
               priority
               sizes="(min-width: 1280px) 1184px, calc(100vw - 40px)"
-              className="object-cover grayscale contrast-[0.94] transition duration-700 group-hover:grayscale-[70%]"
+              className="absolute inset-0"
+              imageClassName="grayscale contrast-[0.94] transition duration-700 group-hover:grayscale-[70%]"
+              strength={18}
             />
           </Link>
 
