@@ -402,6 +402,51 @@ export const projects: Project[] = [
     image: "/images/bird-silk-thread-1.png"
   },
   {
+    slug: "framed",
+    title: "Framed",
+    category: "curated-art",
+    eyebrow: "Curated Art",
+    summary:
+      "A light sculpture for Sarath Ratanavadi that moves from framed constraint toward raw crystal, personal awakening, and inner light.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Art installation" },
+        { label: "Date", value: "July 2022" },
+        { label: "Location", value: "Bangkok" },
+        { label: "Client", value: "Sarath Ratanavadi" }
+      ],
+      paragraphs: [
+        "Framed is a light sculpture designed for Sarath Ratanavadi, the Thai billionaire and the founder and CEO of Gulf Energy Development.",
+        "Inspired by existentialist thought, the installation symbolizes the journey from societal confusion to personal awakening. The central frame represents the constraints of modern life: ignorance, conformity, and external influence.",
+        "As frames detach and transform into raw crystal, they embody the individual's search for truth, freedom, and inner light.",
+        "The piece invites viewers to transcend rational thought and imposed values, embracing self-guidance and conscious presence. It reflects the existential belief that meaning is self-created through experience and choice."
+      ],
+      features: [
+        {
+          title: "From frame to crystal",
+          body:
+            "Rigid geometric boundaries detach and dissolve into raw crystalline light, suggesting the transition from constraint to awakening."
+        },
+        {
+          title: "Existential journey",
+          body:
+            "The installation asks viewers to look beyond imposed systems and locate meaning through conscious experience and choice."
+        }
+      ]
+    },
+    detailImages: [
+      "/images/framed-2.png",
+      "/images/framed-3.png",
+      "/images/framed-4.png",
+      "/images/framed-5.png",
+      "/images/framed-6.png",
+      "/images/framed-7.png",
+      "/images/framed-8.png",
+      "/images/framed-9.png"
+    ],
+    image: "/images/framed-1.png"
+  },
+  {
     slug: "hill-bench-storage",
     title: "\"Hill\" 2-in-1 Bench & Storage",
     category: "furniture",
