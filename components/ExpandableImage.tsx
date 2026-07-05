@@ -9,9 +9,18 @@ import { ParallaxImage } from "@/components/ParallaxImage";
 type ExpandableImageProps = {
   src: string;
   alt: string;
+  priority?: boolean;
+  sizes?: string;
+  className?: string;
 };
 
-export function ExpandableImage({ src, alt }: ExpandableImageProps) {
+export function ExpandableImage({
+  src,
+  alt,
+  priority = false,
+  sizes = "(min-width: 640px) 50vw, 100vw",
+  className = "aspect-[4/5]"
+}: ExpandableImageProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -44,13 +53,14 @@ export function ExpandableImage({ src, alt }: ExpandableImageProps) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="group relative aspect-[4/5] w-full overflow-hidden bg-panel text-left"
+        className={`group relative w-full overflow-hidden bg-panel text-left ${className}`}
         aria-label={`Open larger view of ${alt}`}
       >
         <ParallaxImage
           src={src}
           alt={alt}
-          sizes="(min-width: 640px) 50vw, 100vw"
+          priority={priority}
+          sizes={sizes}
           className="absolute inset-0"
           imageClassName="grayscale contrast-[0.96] transition duration-500 group-hover:grayscale-[70%]"
         />
