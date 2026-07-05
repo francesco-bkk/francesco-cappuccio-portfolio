@@ -202,6 +202,13 @@ export const projects: Project[] = [
       paragraphs: [
         "Introducing Falcons by francescocappuccio, a collection of illuminated sculptures crafted from laser-cut aluminum, cast brass, and crystals. Perfect for prestigious museum galleries and upscale hotel lobbies in the Middle East, these pieces are designed to elevate the atmosphere and create a space that embodies artistic sophistication.",
         "In a historical tapestry rich with tradition, falcons were cherished partners in the hunt, vital to the sustenance of their communities. This ancient practice established an unbreakable bond between humans and these magnificent birds, an alliance forged in trust, respect, and a shared pursuit that transcends mere survival, turning each flight into a dance of devotion and harmony between two remarkable spirits."
+      ],
+      links: [
+        {
+          label: "Feature",
+          text: "Read on Designooor",
+          href: "https://designooor.com/falcons/"
+        }
       ]
     },
     detailImages: [
