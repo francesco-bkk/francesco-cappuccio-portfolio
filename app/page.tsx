@@ -169,14 +169,14 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-t border-ivory/10 bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:items-start lg:gap-24 lg:py-28">
-          <div className="relative aspect-square w-full self-start overflow-hidden bg-panel">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[0.86fr_1fr] lg:items-start lg:gap-24 lg:py-28">
+          <div className="relative aspect-square w-full self-start overflow-hidden bg-panel lg:aspect-[4/5]">
             <Image
               src="/images/studio-portrait.jpg"
               alt="Francesco Cappuccio portrait"
               fill
-              sizes="(min-width: 1024px) 50vw, calc(100vw - 40px)"
-              className="scale-[1.08] object-cover object-[50%_18%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
+              sizes="(min-width: 1024px) 45vw, calc(100vw - 40px)"
+              className="scale-[1.12] object-cover object-[50%_14%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
             />
           </div>
           <div className="max-w-none">
@@ -189,7 +189,7 @@ export default function Home() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <div className="mt-10 grid gap-6 border-t border-ivory/10 pt-7 sm:mt-14 sm:grid-cols-[1.45fr_1fr_1fr_1fr] sm:gap-8">
+            <div className="mt-10 grid gap-6 border-t border-ivory/10 pt-10 sm:mt-14 sm:grid-cols-[1.35fr_1fr_1.08fr_1fr] sm:gap-8">
               {awards.map((award) => (
                 <a
                   key={award.title}
@@ -199,7 +199,15 @@ export default function Home() {
                   className="group block"
                 >
                   <p className="font-mono text-[9px] uppercase tracking-widest2 text-stone transition-colors group-hover:text-ivory">
-                    {award.title}
+                    {award.title === "Archiproducts Design Awards"
+                      ? "Archiproducts Awards"
+                      : award.title === "Red Dot Design Award"
+                        ? "Red Dot Award"
+                        : award.title === "European Product Design Award"
+                          ? "European Design Award"
+                          : award.title === "LIT Lighting Design Awards"
+                            ? "LIT Design Awards"
+                            : award.title}
                   </p>
                   <p className="mt-3 text-xs leading-5 text-stone">
                     {award.title === "Archiproducts Design Awards" ? (
@@ -220,7 +228,7 @@ export default function Home() {
       </section>
 
       <section id="contact" className="border-t border-ivory/10 bg-obsidian text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:items-start lg:gap-16 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.58fr_1.25fr] lg:items-start lg:gap-12 lg:py-32">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Get in touch</p>
             <h2 className="mt-6 font-body text-4xl font-light leading-none text-ivory sm:text-5xl">Contact</h2>
@@ -229,27 +237,27 @@ export default function Home() {
           <form className="grid gap-7 sm:gap-9 lg:pt-[6.25rem]">
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="First name"
               />
               <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Last name"
               />
             </div>
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Email*"
                 type="email"
               />
               <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
+                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
                 placeholder="Phone"
               />
             </div>
             <textarea
-              className="min-h-36 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
+              className="min-h-36 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
               placeholder="Message*"
             />
             <button
