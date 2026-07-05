@@ -169,17 +169,17 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-t border-ivory/10 bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[360px_minmax(0,680px)] lg:justify-center lg:gap-20 lg:py-28">
-          <div className="relative aspect-[4/3] w-full max-w-none self-start overflow-hidden bg-panel sm:aspect-[4/5] sm:max-w-[340px] lg:mt-2">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:items-start lg:gap-24 lg:py-28">
+          <div className="relative aspect-square w-full self-start overflow-hidden bg-panel">
             <Image
               src="/images/studio-portrait.jpg"
               alt="Francesco Cappuccio portrait"
               fill
-              sizes="(min-width: 1024px) 340px, calc(100vw - 40px)"
-              className="object-cover object-[50%_28%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%] sm:object-center"
+              sizes="(min-width: 1024px) 50vw, calc(100vw - 40px)"
+              className="scale-[1.08] object-cover object-[50%_18%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
             />
           </div>
-          <div className="max-w-[680px]">
+          <div className="max-w-none">
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About the studio</p>
             <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
               {studio.intro}
@@ -189,7 +189,7 @@ export default function Home() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <div className="mt-10 grid gap-5 border-t border-ivory/10 pt-7 sm:mt-14 sm:grid-cols-4">
+            <div className="mt-10 grid gap-6 border-t border-ivory/10 pt-7 sm:mt-14 sm:grid-cols-[1.45fr_1fr_1fr_1fr] sm:gap-8">
               {awards.map((award) => (
                 <a
                   key={award.title}
@@ -201,7 +201,17 @@ export default function Home() {
                   <p className="font-mono text-[9px] uppercase tracking-widest2 text-stone transition-colors group-hover:text-ivory">
                     {award.title}
                   </p>
-                  <p className="mt-2 text-xs leading-5 text-stone">{award.year}</p>
+                  <p className="mt-3 text-xs leading-5 text-stone">
+                    {award.title === "Archiproducts Design Awards" ? (
+                      <>
+                        Winner 2024
+                        <br />
+                        Longlisted 2025
+                      </>
+                    ) : (
+                      award.year
+                    )}
+                  </p>
                 </a>
               ))}
             </div>
@@ -210,13 +220,13 @@ export default function Home() {
       </section>
 
       <section id="contact" className="border-t border-ivory/10 bg-obsidian text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:gap-16 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:items-start lg:gap-16 lg:py-32">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Get in touch</p>
             <h2 className="mt-6 font-body text-4xl font-light leading-none text-ivory sm:text-5xl">Contact</h2>
-            <p className="mt-10 max-w-xs text-sm leading-7 text-stone">{studio.address}</p>
+            <p className="mt-10 max-w-xs text-sm leading-7 text-stone lg:mt-14">{studio.address}</p>
           </div>
-          <form className="grid gap-7 sm:gap-9">
+          <form className="grid gap-7 sm:gap-9 lg:pt-[6.25rem]">
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
               <input
                 className="h-14 w-full rounded-none border-b-2 border-ivory/35 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
