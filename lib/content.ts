@@ -285,6 +285,13 @@ export const projects: Project[] = [
       paragraphs: [
         "Scacco Matto is inspired by the radical design movement of the 1960s and encourages audiences to explore and interact with shapes and light. This portable lamp features three magnetically connected elements that can be transformed into five different light sculptures, sparking renewed interest in how light influences the appearance, ambiance, and atmosphere of homes.",
         "It can serve as a vase, a sculpture, or as a way to direct light to a specific area. The five combinations evoke the game of chess, which is reflected in the name Scacco Matto, the Italian term for checkmate."
+      ],
+      links: [
+        {
+          label: "Archiproducts",
+          text: "View Lumere profile",
+          href: "https://www.archiproducts.com/en/lumere"
+        }
       ]
     },
     detailImages: [
