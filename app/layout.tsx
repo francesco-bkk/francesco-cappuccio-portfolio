@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, Inter } from "next/font/google";
-import { CursorSpotlight } from "@/components/CursorSpotlight";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { socialLinks, studio } from "@/lib/content";
@@ -104,7 +103,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-obsidian font-body font-light text-ivory antialiased">
-        <CursorSpotlight />
         <Header />
         {children}
         <Footer />

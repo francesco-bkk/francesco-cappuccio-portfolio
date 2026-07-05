@@ -45,65 +45,6 @@ textarea {
   outline-color: #b6884c;
 }
 
-.cursor-spotlight {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .has-custom-cursor,
-  .has-custom-cursor * {
-    cursor: none !important;
-  }
-
-  .cursor-spotlight {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    display: block;
-    width: 220px;
-    height: 220px;
-    pointer-events: none;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.38) 24%, rgba(182, 136, 76, 0.14) 48%, rgba(17, 17, 17, 0.06) 70%, transparent 76%);
-    filter: blur(12px);
-    mix-blend-mode: multiply;
-    opacity: 0;
-    transition:
-      opacity 180ms ease,
-      width 220ms ease,
-      height 220ms ease,
-      filter 220ms ease,
-      background 220ms ease;
-    will-change: transform, opacity;
-  }
-
-  .cursor-spotlight.is-visible {
-    opacity: 0.9;
-  }
-
-  .cursor-spotlight.is-inverting {
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.76) 28%, rgba(255, 255, 255, 0.18) 58%, transparent 74%);
-    filter: blur(8px);
-    mix-blend-mode: difference;
-    opacity: 0.72;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .has-custom-cursor,
-  .has-custom-cursor * {
-    cursor: auto !important;
-  }
-
-  .cursor-spotlight {
-    display: none !important;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
