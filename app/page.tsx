@@ -13,6 +13,8 @@ const landingProject = {
   image: "/images/pavilion-crown-1.png"
 };
 
+const homeShareImage = "/images/og-home.jpg";
+
 export const metadata: Metadata = {
   title: `${siteName} | Lighting, Furniture & Product Design`,
   description: siteDescription,
@@ -25,12 +27,18 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     images: [
       {
-        url: imageUrl(landingProject.image),
+        url: imageUrl(homeShareImage),
         width: 1200,
-        height: 900,
+        height: 630,
         alt: landingProject.title
       }
     ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Lighting, Furniture & Product Design`,
+    description: siteDescription,
+    images: [imageUrl(homeShareImage)]
   }
 };
 
