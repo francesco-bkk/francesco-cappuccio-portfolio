@@ -446,6 +446,51 @@ export const projects: Project[] = [
     featured: true
   },
   {
+    slug: "wai",
+    title: "WAI",
+    category: "lighting",
+    eyebrow: "Lighting & Products",
+    summary:
+      'A sculptural chandelier for Sofitel that transforms the Thai "Wai" greeting into orchid-like steel petals and 1200 handcrafted recycled-glass water droplets.',
+    details: {
+      meta: [
+        { label: "Designer", value: "Francesco Cappuccio" },
+        { label: "Interior design", value: "P49" },
+        { label: "Project type", value: "Sculptural chandelier" },
+        { label: "Material", value: "Recycled glass droplets / steel petals" }
+      ],
+      awardLogos: [
+        {
+          src: "/images/awards/muse-design-awards.png",
+          title: "Muse Design Awards",
+          href: "https://design.museaward.com/winners-info.php?id=17484"
+        }
+      ],
+      paragraphs: [
+        'Based on Sofitel\'s French heritage and Thailand\'s longstanding relationship with France, the sculptural chandelier reflects the traditional Thai gesture of greetings, known as the "Wai," which symbolizes respect and friendship between the two nations.',
+        "The Wai gesture involves a slight bow accompanied by the pressing together of palms in a prayer-like manner. We have aptly epitomized this gesture by arranging with precision two delicate petals from the orchid flower, imparting an illusionary perception of temporal suspension, graciously encapsulating the precise moment prior to the symmetrical culmination of said gesture.",
+        "The artistic creation has been then completed by incorporating a total of 1200 handcrafted water droplets made of recycled glass. The arrangement of these droplets has been orchestrated employing a meticulously crafted algorithm to enhance the water splash effect resulting from the union of the two steel petals.",
+        "The work also resembles the esteemed Songkran Festival, a symbolic commencement of the traditional Thai New Year which holds great significance within the auspicious calendar of the Buddhist faith.",
+        "The chandelier serves as a perpetual symbol of the importance of greetings. It quietly shares narratives of customs, inclusivity, and graciousness, mirroring the essence of Thailand. It recounts the tales of a country where its inhabitants radiate genuine kindness, embracing every visitor with open hearts and a genuine display of kindness."
+      ],
+      links: [
+        {
+          label: "Award page",
+          text: "View Muse Design Awards profile",
+          href: "https://design.museaward.com/winners-info.php?id=17484"
+        }
+      ]
+    },
+    detailImages: [
+      "/images/wai-2.png",
+      "/images/wai-3.png",
+      "/images/wai-4.png",
+      "/images/wai-5.png",
+      "/images/wai-6.png"
+    ],
+    image: "/images/wai-1.png"
+  },
+  {
     slug: "gio",
     title: "GIO'",
     category: "lighting",
