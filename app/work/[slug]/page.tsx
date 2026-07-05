@@ -207,7 +207,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         <iframe
                           src={project.details.video.embedUrl}
                           title={project.details.video.title}
-                          className="absolute inset-0 h-full w-full"
+                          className="absolute inset-0 h-full w-full grayscale contrast-[0.92]"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           referrerPolicy="strict-origin-when-cross-origin"
                           allowFullScreen
