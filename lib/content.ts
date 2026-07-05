@@ -510,11 +510,36 @@ export const projects: Project[] = [
   },
   {
     slug: "aries-sofa",
-    title: "Aries Sofa'",
+    title: "Aries Sofa",
     category: "furniture",
-    eyebrow: "Collectible pieces",
+    eyebrow: "Furniture",
     summary: "A furniture piece with a soft architectural profile and an intentionally calm presence.",
-    image: "/images/project8.jpg"
+    details: {
+      meta: [
+        { label: "Project type", value: "Sofa" },
+        { label: "Year", value: "2024" },
+        { label: "Material", value: "Sustainably sourced high-density wool / eco-friendly materials" }
+      ],
+      paragraphs: [
+        "Inspired by the spirit of Aries, this sofa embodies strength wrapped in softness. With its deep, enveloping shape and thick, cozy textures, Aries evokes the sensation of sinking into warm, natural wool, like being cradled in the protective coat of a ram.",
+        "Crafted from sustainably sourced, high-density wool and eco-friendly materials, the Aries Sofa offers a tactile connection to nature in interior spaces.",
+        "It is a sensory experience of warmth, texture, and grounding calm, a tribute to nature."
+      ],
+      features: [
+        {
+          title: "Strength wrapped in softness",
+          body:
+            "A deep, enveloping silhouette balances sculptural presence with a warm and protective sense of comfort."
+        },
+        {
+          title: "Natural tactile calm",
+          body:
+            "High-density wool and eco-conscious materials create a grounded, sensory furniture piece for quiet interiors."
+        }
+      ]
+    },
+    detailImages: ["/images/aries-sofa-2.png"],
+    image: "/images/aries-sofa-1.png"
   },
 ];
 
