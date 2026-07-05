@@ -1,4 +1,4 @@
-﻿export type ProjectCategory = "featured" | "lighting" | "furniture";
+﻿export type ProjectCategory = "featured" | "lighting" | "furniture" | "curated-art";
 
 export type Project = {
   slug: string;
@@ -364,6 +364,42 @@ export const projects: Project[] = [
     summary: "A preview collection of furniture and objects focused on material clarity and domestic rituals.",
     image: "/images/project5.jpg",
     featured: true
+  },
+  {
+    slug: "the-bird-and-the-silk-thread",
+    title: "The Bird and the Silk Thread",
+    category: "curated-art",
+    eyebrow: "Curated Art",
+    summary:
+      "A crystalline bird carries a single flowing silk thread, becoming a luminous tribute to the Silk Road and the bonds between East and West.",
+    details: {
+      meta: [
+        { label: "Field", value: "Curated art" },
+        { label: "Project type", value: "Light sculpture" },
+        { label: "Material", value: "Precision-cut crystal" }
+      ],
+      paragraphs: [
+        "Grace in motion, The Bird and the Silk Thread captures a moment of luminous flight, a crystalline bird carrying a single flowing ribbon, its silk thread.",
+        "This ethereal form becomes both a messenger and a symbol: a tribute to the ancient Silk Road, where caravans carried treasures, ideas, and cultures between East and West.",
+        "The bird's radiant wings, crafted from precision-cut crystal, refract light into shifting hues, echoing the endless horizons of that historic journey. The silk thread it carries speaks of connection, the invisible yet enduring bonds that link lands, people, and generations.",
+        "Light flows through the sculpture as trade once flowed along the Silk Road, weaving together stories of beauty, craftsmanship, and exchange.",
+        "Neither grounded nor bound, the bird rises as an emblem of aspiration and discovery, a timeless reminder that every journey, no matter how far, begins with a single, delicate thread."
+      ],
+      features: [
+        {
+          title: "Luminous flight",
+          body:
+            "A suspended crystalline figure turns movement, reflection, and transparency into an architectural gesture."
+        },
+        {
+          title: "Silk Road tribute",
+          body:
+            "The single flowing thread becomes a symbol of exchange, memory, and connection between cultures."
+        }
+      ]
+    },
+    detailImages: ["/images/bird-silk-thread-2.png"],
+    image: "/images/bird-silk-thread-1.png"
   },
   {
     slug: "hill-bench-storage",

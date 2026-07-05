@@ -6,20 +6,21 @@ import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 const categories = [
   { label: "Lighting", value: "lighting" },
   { label: "Furniture", value: "furniture" },
+  { label: "Curated Art", value: "curated-art" },
   { label: "Featured", value: "featured" }
 ];
 
 export const metadata: Metadata = {
   title: `Work | ${siteName}`,
   description:
-    "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, product design, and spatial works.",
+    "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
   alternates: {
     canonical: absoluteUrl("/work")
   },
   openGraph: {
     title: `Work | ${siteName}`,
     description:
-      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, product design, and spatial works.",
+      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
     url: absoluteUrl("/work"),
     images: [
       {
