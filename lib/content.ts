@@ -447,6 +447,41 @@ export const projects: Project[] = [
     image: "/images/framed-1.png"
   },
   {
+    slug: "original-sin",
+    title: "Original Sin",
+    category: "curated-art",
+    eyebrow: "Curated Art",
+    summary:
+      "A three-artist interpretive triptych merging Bangkok's hedonism with the cautionary tale of Adam and Eve from the Book of Genesis.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Art installation" },
+        { label: "Location", value: "Brenton Mauriello private collection, Bangkok" },
+        { label: "Artists", value: "Alexi Silk / Francesco Cappuccio / Grant Gramezy" }
+      ],
+      paragraphs: [
+        "An inspired trittico, Original Sin brings together three world-renowned artists who collectively create an interpretive vision that seamlessly merges the dangers and hedonism of Bangkok with the cautionary tale of Adam and Eve from the Book of Genesis.",
+        "Imbued with Thai silk motifs, the sensual and curvaceous bust of Eve, crafted by glass artist Alexi Silk, hangs serenely, as if magically suspended, above the exotic, bronzed Garden of Eden designed by Francesco Cappuccio.",
+        "However, this celestial scene is disrupted by the jarring presence of Serpentine and the defiled Apple of Temptation, created by glass artist Grant Gramezy.",
+        "As temptation takes hold, an ominous scene unfolds. A Thai king cobra lurks below, its head raised, ready to strike Eve and shatter the tranquility and beauty of the Garden of Eden, foreboding what is to come."
+      ],
+      features: [
+        {
+          title: "Three-part vision",
+          body:
+            "Glass, bronze, reflection, and myth converge in a contemporary reading of temptation, beauty, and consequence."
+        },
+        {
+          title: "Bangkok Eden",
+          body:
+            "Thai silk motifs and a bronzed garden setting relocate the Genesis narrative into a sensuous, urban Bangkok atmosphere."
+        }
+      ]
+    },
+    detailImages: ["/images/original-sin-2.jpg"],
+    image: "/images/original-sin-1.png"
+  },
+  {
     slug: "hill-bench-storage",
     title: "\"Hill\" 2-in-1 Bench & Storage",
     category: "furniture",
