@@ -292,7 +292,9 @@ export const projects: Project[] = [
           text: "View Lumere profile",
           href: "https://www.archiproducts.com/en/lumere"
         }
-      ]
+      ],
+      brand: "Lumere",
+      brandHref: "https://www.lumere.it"
     },
     detailImages: [
       "/images/scacco-matto-detail-1.jpg",
