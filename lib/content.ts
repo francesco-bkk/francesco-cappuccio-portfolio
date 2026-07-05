@@ -29,6 +29,12 @@ export type Project = {
       href: string;
       text: string;
     }[];
+    video?: {
+      label: string;
+      title: string;
+      embedUrl: string;
+      href: string;
+    };
   };
   detailImages?: string[];
   image: string;
@@ -301,11 +307,22 @@ export const projects: Project[] = [
         "At night, the DMX-controlled facade becomes a pixelated display for light shows during celebrations in Kuala Lumpur, while the use of recycled glass and aluminum keeps the material language aligned with the sustainability approach."
       ],
       awardLogo: "/images/awards/lit-lighting-design-awards-2023-winner.png",
+      video: {
+        label: "Video interview",
+        title: "The Pavilion Crown video interview",
+        embedUrl: "https://www.youtube.com/embed/jtcmoWLqPng?start=27",
+        href: "https://www.youtube.com/watch?v=jtcmoWLqPng&t=27s"
+      },
       links: [
         {
-          label: "Video interview",
-          text: "Watch on YouTube",
-          href: "https://www.youtube.com/watch?v=jtcmoWLqPng&t=27s"
+          label: "Feature",
+          text: "Read on Designooor",
+          href: "https://designooor.com/the-pavilion-crown/"
+        },
+        {
+          label: "Award page",
+          text: "View LIT winner profile",
+          href: "https://litawards.com/winners/winner.php?id=3565&mode=win"
         }
       ],
       brand: "Lightsculptures",

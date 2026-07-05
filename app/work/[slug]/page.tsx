@@ -175,6 +175,46 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       ))}
                     </div>
                   ) : null}
+                  {project.details.brand ? (
+                    <p className="border-t border-ivory/10 pt-6 font-mono text-xs uppercase tracking-widest text-stone">
+                      Brand:{" "}
+                      <a
+                        href={project.details.brandHref ?? "https://www.lightsculptures.co.th/"}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-ivory underline decoration-ivory/25 underline-offset-4 transition-colors hover:text-stone"
+                      >
+                        {project.details.brand}
+                      </a>
+                    </p>
+                  ) : null}
+                  {project.details.video ? (
+                    <div className="grid gap-4 border-t border-ivory/10 pt-7">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
+                          {project.details.video.label}
+                        </p>
+                        <a
+                          href={project.details.video.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-mono text-[10px] uppercase tracking-[0.18em] text-ivory underline decoration-ivory/25 underline-offset-4 transition-colors hover:text-stone"
+                        >
+                          Watch on YouTube
+                        </a>
+                      </div>
+                      <div className="relative aspect-video overflow-hidden bg-panel">
+                        <iframe
+                          src={project.details.video.embedUrl}
+                          title={project.details.video.title}
+                          className="absolute inset-0 h-full w-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  ) : null}
                   {project.details.links?.length ? (
                     <div className="grid gap-4 border-t border-ivory/10 pt-7">
                       {project.details.links.map((link) => (
@@ -192,19 +232,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         </a>
                       ))}
                     </div>
-                  ) : null}
-                  {project.details.brand ? (
-                    <p className="border-t border-ivory/10 pt-6 font-mono text-xs uppercase tracking-widest text-stone">
-                      Brand:{" "}
-                      <a
-                        href={project.details.brandHref ?? "https://www.lightsculptures.co.th/"}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-ivory underline decoration-ivory/25 underline-offset-4 transition-colors hover:text-stone"
-                      >
-                        {project.details.brand}
-                      </a>
-                    </p>
                   ) : null}
                 </>
               ) : (
