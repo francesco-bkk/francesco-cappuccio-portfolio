@@ -121,44 +121,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-ivory/10 bg-obsidian">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
-          <div className="flex items-center justify-between gap-8 border-t border-ivory/10 pt-8">
-            <h2 className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Major awards</h2>
-            <span className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
-              {String(awards.length).padStart(2, "0")}
-            </span>
-          </div>
-
-          <div className="mt-10 grid border-t border-ivory/10 md:grid-cols-4">
-            {awards.map((award) => (
-              <a
-                key={award.title}
-                href={award.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group grid grid-cols-[104px_minmax(0,1fr)] items-center gap-6 border-b border-ivory/10 py-7 transition-colors duration-300 hover:bg-surface md:grid-cols-1 md:items-stretch md:gap-0 md:border-r md:px-6 md:py-8 md:last:border-r-0"
-              >
-                <div className="relative h-16 w-24 mix-blend-multiply grayscale opacity-75 transition duration-300 group-hover:opacity-100 md:h-20 md:w-full md:max-w-[230px]">
-                  <Image
-                    src={award.logo}
-                    alt={`${award.title} logo`}
-                    fill
-                    sizes="(min-width: 768px) 230px, 96px"
-                    className="object-contain object-left"
-                  />
-                </div>
-                <div className="self-center md:mt-10 md:self-end">
-                  <h3 className="font-body text-lg font-light leading-tight text-ivory">{award.title}</h3>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-stone">{award.work}</p>
-                  <p className="mt-1 text-sm leading-6 text-stone">{award.year}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-obsidian">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="flex items-center justify-between gap-8 border-t border-ivory/10 pt-8">
@@ -177,57 +139,61 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-t border-ivory/10 bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[0.86fr_1fr] lg:items-start lg:gap-24 lg:py-28">
-          <div className="relative aspect-square w-full self-start overflow-hidden bg-panel lg:aspect-[4/5]">
-            <Image
-              src="/images/studio-portrait.jpg"
-              alt="Francesco Cappuccio portrait"
-              fill
-              sizes="(min-width: 1024px) 45vw, calc(100vw - 40px)"
-              className="scale-[1.12] object-cover object-[50%_14%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
-            />
-          </div>
-          <div className="max-w-none">
-            <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About the studio</p>
-            <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
-              {studio.intro}
-            </p>
-            <div className="mt-9 grid max-w-[560px] gap-6 text-[0.95rem] leading-7 text-stone sm:mt-12 sm:gap-7 sm:text-sm">
-              {studio.paragraphs.slice(0, 3).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+        <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:py-28">
+          <div className="grid gap-10 sm:gap-14 lg:grid-cols-[0.86fr_1fr] lg:items-start lg:gap-24">
+            <div className="relative aspect-square w-full self-start overflow-hidden bg-panel lg:aspect-[4/5]">
+              <Image
+                src="/images/studio-portrait.jpg"
+                alt="Francesco Cappuccio portrait"
+                fill
+                sizes="(min-width: 1024px) 45vw, calc(100vw - 40px)"
+                className="scale-[1.12] object-cover object-[50%_14%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
+              />
             </div>
-            <div className="mt-10 grid gap-6 border-t border-ivory/10 pt-10 sm:mt-14 sm:grid-cols-[1.35fr_1fr_1.08fr_1fr] sm:gap-8">
+            <div className="max-w-none">
+              <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About the studio</p>
+              <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
+                {studio.intro}
+              </p>
+              <div className="mt-9 grid max-w-[560px] gap-6 text-[0.95rem] leading-7 text-stone sm:mt-12 sm:gap-7 sm:text-sm">
+                {studio.paragraphs.slice(0, 3).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 border-t border-ivory/10 pt-8 sm:mt-20 lg:mt-24">
+            <div className="flex items-center justify-between gap-8">
+              <h2 className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Major awards</h2>
+              <span className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
+                {String(awards.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            <div className="mt-10 grid border-t border-ivory/10 md:grid-cols-4">
               {awards.map((award) => (
                 <a
                   key={award.title}
                   href={award.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group block"
+                  className="group grid grid-cols-[104px_minmax(0,1fr)] items-center gap-6 border-b border-ivory/10 py-7 transition-colors duration-300 hover:bg-obsidian md:grid-cols-1 md:items-stretch md:gap-0 md:border-r md:px-6 md:py-8 md:last:border-r-0"
                 >
-                  <p className="font-mono text-[9px] uppercase tracking-widest2 text-stone transition-colors group-hover:text-ivory">
-                    {award.title === "Archiproducts Design Awards"
-                      ? "Archiproducts Awards"
-                      : award.title === "Red Dot Design Award"
-                        ? "Red Dot Award"
-                        : award.title === "European Product Design Award"
-                          ? "European Design Award"
-                          : award.title === "LIT Lighting Design Awards"
-                            ? "LIT Design Awards"
-                            : award.title}
-                  </p>
-                  <p className="mt-3 text-xs leading-5 text-stone">
-                    {award.title === "Archiproducts Design Awards" ? (
-                      <>
-                        Winner 2024
-                        <br />
-                        Longlisted 2025
-                      </>
-                    ) : (
-                      award.year
-                    )}
-                  </p>
+                  <div className="relative h-16 w-24 mix-blend-multiply grayscale opacity-75 transition duration-300 group-hover:opacity-100 md:h-20 md:w-full md:max-w-[230px]">
+                    <Image
+                      src={award.logo}
+                      alt={`${award.title} logo`}
+                      fill
+                      sizes="(min-width: 768px) 230px, 96px"
+                      className="object-contain object-left"
+                    />
+                  </div>
+                  <div className="self-center md:mt-10 md:self-end">
+                    <h3 className="font-body text-lg font-light leading-tight text-ivory">{award.title}</h3>
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-stone">{award.work}</p>
+                    <p className="mt-1 text-sm leading-6 text-stone">{award.year}</p>
+                  </div>
                 </a>
               ))}
             </div>
