@@ -43,8 +43,8 @@ export type Project = {
 
 export const navigation = [
   { label: "WORK", href: "/work" },
-  { label: "ABOUT", href: "/#about" },
-  { label: "CONTACT", href: "/#contact" }
+  { label: "ABOUT", href: "/about" },
+  { label: "CONTACT", href: "/contact" }
 ];
 
 export const socialLinks = [

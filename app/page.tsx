@@ -13,7 +13,7 @@ const landingProject = {
   image: "/images/pavilion-crown-1.png"
 };
 
-const homeShareImage = "/images/og-home.jpg";
+const homeShareImage = "/og.png";
 
 export const metadata: Metadata = {
   title: `${siteName} | Lighting, Furniture & Product Design`,
@@ -138,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="border-t border-ivory/10 bg-surface">
+      <section className="border-t border-ivory/10 bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:py-28">
           <div className="grid gap-10 sm:gap-14 lg:grid-cols-[0.86fr_1fr] lg:items-start lg:gap-24">
             <div className="relative aspect-square w-full self-start overflow-hidden bg-panel lg:aspect-[4/5]">
@@ -155,11 +155,21 @@ export default function Home() {
               <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
                 {studio.intro}
               </p>
-              <div className="mt-9 grid max-w-[560px] gap-6 text-[0.95rem] leading-7 text-stone sm:mt-12 sm:gap-7 sm:text-sm">
-                {studio.paragraphs.slice(0, 3).map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
+              <p className="mt-9 max-w-[560px] text-[0.95rem] leading-7 text-stone sm:mt-12 sm:text-sm">
+                {studio.paragraphs[0]}
+              </p>
+              <Link
+                href="/about"
+                className="group mt-10 inline-flex items-center gap-4 border-b border-ivory pb-1 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-stone"
+              >
+                Discover the studio
+                <ArrowRight
+                  aria-hidden="true"
+                  size={16}
+                  strokeWidth={1.5}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
             </div>
           </div>
 
@@ -201,46 +211,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="border-t border-ivory/10 bg-obsidian text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.58fr_1.25fr] lg:items-start lg:gap-12 lg:py-32">
+      <section className="border-t border-ivory/10 bg-obsidian text-ivory">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.58fr_1.25fr] lg:items-end lg:gap-12 lg:py-32">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Get in touch</p>
-            <h2 className="mt-6 font-body text-4xl font-light leading-none text-ivory sm:text-5xl">Contact</h2>
-            <p className="mt-10 max-w-xs text-sm leading-7 text-stone lg:mt-14">{studio.address}</p>
+            <p className="mt-10 max-w-xs text-sm leading-7 text-stone">{studio.address}</p>
           </div>
-          <form className="grid gap-7 sm:gap-9 lg:pt-[6.25rem]">
-            <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
-              <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
-                placeholder="First name"
-              />
-              <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
-                placeholder="Last name"
-              />
-            </div>
-            <div className="grid gap-7 sm:grid-cols-2 sm:gap-9">
-              <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
-                placeholder="Email*"
-                type="email"
-              />
-              <input
-                className="h-14 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:h-12 sm:text-sm"
-                placeholder="Phone"
-              />
-            </div>
-            <textarea
-              className="min-h-36 w-full rounded-none border-b-2 border-ivory/55 bg-transparent px-1 py-3 text-base text-ivory placeholder:text-stone focus:border-ivory focus:outline-none sm:min-h-32 sm:text-sm"
-              placeholder="Message*"
+          <Link
+            href="/contact"
+            className="group flex items-end justify-between gap-8 border-b border-ivory/20 pb-5 font-body text-[clamp(2.6rem,8vw,7rem)] font-light leading-[0.84] tracking-[-0.04em] text-ivory transition-colors duration-500 hover:text-stone"
+          >
+            Start a project
+            <ArrowRight
+              aria-hidden="true"
+              size={32}
+              strokeWidth={1}
+              className="mb-1 shrink-0 transition-transform duration-500 group-hover:translate-x-2 sm:mb-3 sm:h-12 sm:w-12"
             />
-            <button
-              className="w-full justify-self-stretch border-2 border-ivory bg-ivory px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-obsidian transition-colors duration-300 hover:bg-transparent hover:text-ivory sm:w-auto sm:justify-self-start sm:px-10"
-              type="button"
-            >
-              Submit
-            </button>
-          </form>
+          </Link>
         </div>
       </section>
     </main>

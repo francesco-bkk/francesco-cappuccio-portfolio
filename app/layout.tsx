@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: imageUrl("/images/og-home.jpg"),
+        url: imageUrl("/og.png"),
         width: 1200,
         height: 630,
         alt: siteName
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} | Francesco Cappuccio`,
     description: siteDescription,
-    images: [imageUrl("/images/og-home.jpg")]
+    images: [imageUrl("/og.png")]
   },
   robots: {
     index: true,

@@ -10,6 +10,9 @@ export function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const isCurrent = (href: string) =>
+    href === "/work" ? pathname.startsWith("/work") : pathname === href;
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
@@ -27,12 +30,19 @@ export function Header() {
         <nav className="hidden items-center gap-10 sm:flex">
           {navigation.map((item) => (
             <Link
-          key={item.href}
-          href={item.href}
-              className="group relative font-mono text-[11px] uppercase tracking-widest text-stone transition-colors duration-300 hover:text-ivory"
+              key={item.href}
+              href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className={`group relative font-mono text-[11px] uppercase tracking-widest transition-colors duration-300 hover:text-ivory ${
+                isCurrent(item.href) ? "text-ivory" : "text-stone"
+              }`}
             >
               {item.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-ivory transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              <span
+                className={`absolute -bottom-1.5 left-0 h-px w-full origin-left bg-ivory transition-transform duration-300 ease-out group-hover:scale-x-100 ${
+                  isCurrent(item.href) ? "scale-x-100" : "scale-x-0"
+                }`}
+              />
             </Link>
           ))}
         </nav>
@@ -64,7 +74,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block border-b border-ivory/10 py-4 font-mono text-xs uppercase tracking-widest text-stone transition-colors duration-300 hover:text-ivory"
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+                className={`block border-b border-ivory/10 py-4 font-mono text-xs uppercase tracking-widest transition-colors duration-300 hover:text-ivory ${
+                  isCurrent(item.href) ? "text-ivory" : "text-stone"
+                }`}
               >
                 {item.label}
               </Link>
