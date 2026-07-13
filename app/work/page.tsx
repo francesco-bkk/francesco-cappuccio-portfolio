@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/lib/content";
-import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
+import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 
 const categories = [
   { label: "Lighting", value: "lighting" },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: `Selected Work | ${siteName}`,
     description:
       "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
-    images: [imageUrl("/og.png")]
+    images: [imageUrl(socialImage)]
   }
 };
 

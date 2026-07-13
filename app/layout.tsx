@@ -3,7 +3,7 @@ import { Cormorant_Garamond, IBM_Plex_Mono, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { socialLinks, studio } from "@/lib/content";
-import { contactEmail, imageUrl, siteDescription, siteName, siteUrl } from "@/lib/seo";
+import { contactEmail, imageUrl, siteDescription, siteName, siteUrl, socialImage } from "@/lib/seo";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -28,7 +28,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Francesco Cappuccio`,
+    default: `${siteName} | Designer`,
     template: `%s | ${siteName}`
   },
   description: siteDescription,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "lighting design",
     "furniture design",
     "product design",
-    "Bangkok design studio"
+    "Bangkok designer"
   ],
   applicationName: siteName,
   creator: "Francesco Cappuccio",
@@ -54,11 +54,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: `${siteName} | Francesco Cappuccio`,
+    title: `${siteName} | Designer`,
     description: siteDescription,
     images: [
       {
-        url: imageUrl("/og.png"),
+        url: imageUrl(socialImage),
         width: 1200,
         height: 630,
         alt: siteName
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Francesco Cappuccio`,
+    title: `${siteName} | Designer`,
     description: siteDescription,
-    images: [imageUrl("/og.png")]
+    images: [imageUrl(socialImage)]
   },
   robots: {
     index: true,
@@ -98,12 +98,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#studio`,
-        name: siteName,
-        alternateName: studio.name,
-        description: siteDescription,
+        name: "Cappuccio Design Studio",
+        alternateName: "CappuccioDesignStudio",
+        description:
+          "The Bangkok-based design practice led by Francesco Cappuccio.",
         url: siteUrl,
         email: contactEmail,
-        image: imageUrl("/og.png"),
+        image: imageUrl(socialImage),
         founder: { "@id": `${siteUrl}/#francesco-cappuccio` },
         address: {
           "@type": "PostalAddress",
@@ -120,7 +121,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@id": `${siteUrl}/#francesco-cappuccio`,
         name: "Francesco Cappuccio",
         jobTitle: "Designer and Architect",
+        url: siteUrl,
+        email: contactEmail,
+        image: imageUrl("/images/studio-portrait.jpg"),
         worksFor: { "@id": `${siteUrl}/#studio` },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Bangkok",
+          addressCountry: "TH"
+        },
         sameAs: socialLinks.map((link) => link.href)
       },
       {
@@ -129,7 +138,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         name: siteName,
         url: siteUrl,
         description: siteDescription,
-        publisher: { "@id": `${siteUrl}/#studio` },
+        publisher: { "@id": `${siteUrl}/#francesco-cappuccio` },
         inLanguage: "en"
       }
     ]

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { socialLinks, studio } from "@/lib/content";
-import { absoluteUrl, contactEmail, imageUrl, siteName } from "@/lib/seo";
+import { absoluteUrl, contactEmail, imageUrl, siteName, socialImage } from "@/lib/seo";
 
 const description =
   "Contact Cappuccio Design Studio in Bangkok for lighting, furniture, product, and spatial design collaborations.";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Contact | ${siteName}`,
     description,
-    images: [imageUrl("/og.png")]
+    images: [imageUrl(socialImage)]
   }
 };
 

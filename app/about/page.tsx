@@ -3,26 +3,26 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { awards, studio } from "@/lib/content";
-import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
+import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 
 const description =
   "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
 
 export const metadata: Metadata = {
-  title: "About Francesco Cappuccio",
+  title: "About",
   description,
   alternates: { canonical: absoluteUrl("/about") },
   openGraph: {
-    title: `About | ${siteName}`,
+    title: `About ${siteName}`,
     description,
     url: absoluteUrl("/about"),
     images: [{ url: imageUrl("/images/studio-portrait.jpg"), width: 1200, height: 1500, alt: "Francesco Cappuccio" }]
   },
   twitter: {
     card: "summary_large_image",
-    title: `About Francesco Cappuccio | ${siteName}`,
+    title: `About ${siteName}`,
     description,
-    images: [imageUrl("/og.png")]
+    images: [imageUrl(socialImage)]
   }
 };
 

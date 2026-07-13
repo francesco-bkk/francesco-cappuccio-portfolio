@@ -1,11 +1,13 @@
 export const siteUrl = "https://www.francescocappuccio.com";
 
-export const siteName = "Cappuccio Design Studio";
+export const siteName = "Francesco Cappuccio";
 
 export const siteDescription =
-  "Portfolio of Francesco Cappuccio and Cappuccio Design Studio, featuring sculptural lighting, collectible furniture, product design, and spatial works.";
+  "Personal portfolio of designer Francesco Cappuccio, featuring sculptural lighting, collectible furniture, product design, and spatial works.";
 
 export const contactEmail = "francesco@francescocappuccio.com";
+
+export const socialImage = "/images/og-home.jpg";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();

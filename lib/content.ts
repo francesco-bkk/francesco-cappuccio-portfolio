@@ -55,12 +55,12 @@ export const socialLinks = [
 ];
 
 export const studio = {
-  name: "CAPPUCCIODESIGNSTUDIO",
+  name: "FRANCESCOCAPPUCCIO",
   quote:
     '"The greatest challenge of being a creative individual is to maintain a childlike imagination while growing the constraints of acquired knowledge."',
   quoteBy: "Francesco Cappuccio",
   intro:
-    "With over three decades of experience, Cappuccio Design Studio has cultivated a reputation for design excellence, earning 35 international awards, including the Archiproducts Design Award 2024, Red Dot Design Award, and European Design Award.",
+    "With over three decades of experience, Francesco Cappuccio has cultivated a reputation for design excellence, earning 35 international awards, including the Archiproducts Design Award 2024, Red Dot Design Award, and European Design Award.",
   paragraphs: [
     "Our work spans a diverse spectrum, from sculptural lighting and immersive installations to large-scale architectural facades, each project driven by a deep sensitivity to space, light, and innovation.",
     "Rooted in the art of light, our practice explores its expressive and functional dimensions, crafting pieces that are both poetic and purposeful.",
@@ -69,7 +69,7 @@ export const studio = {
     "Collaboration lies at the heart of our process. Engaging with leading international brands and visionary clients allows us to push boundaries, challenge conventions, and remain steadfast in our curiosity, always seeking the unexpected, always guided by a commitment to meaningful form and lasting beauty."
   ],
   address: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi, Bangkok 10240, Thailand",
-  copyright: "© 2026 Cappuccio Design Studio"
+  copyright: "© 2026 Francesco Cappuccio"
 };
 
 export const awards = [

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { ProjectCard } from "@/components/ProjectCard";
 import { awards, featuredProjects, studio } from "@/lib/content";
-import { absoluteUrl, imageUrl, siteDescription, siteName } from "@/lib/seo";
+import { absoluteUrl, imageUrl, siteDescription, siteName, socialImage } from "@/lib/seo";
 
 const landingProject = {
   title: "The Pavilion Crown",
@@ -13,7 +13,7 @@ const landingProject = {
   image: "/images/pavilion-crown-1.png"
 };
 
-const homeShareImage = "/og.png";
+const homeShareImage = socialImage;
 
 export const metadata: Metadata = {
   title: {

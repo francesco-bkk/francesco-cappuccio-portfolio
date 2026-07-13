@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       name: "Francesco Cappuccio"
     },
     publisher: {
-      "@type": "Organization",
+      "@type": "Person",
       name: siteName,
       url: absoluteUrl("/")
     }
