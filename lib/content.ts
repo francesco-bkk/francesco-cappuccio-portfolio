@@ -69,7 +69,7 @@ export const studio = {
     "Collaboration lies at the heart of our process. Engaging with leading international brands and visionary clients allows us to push boundaries, challenge conventions, and remain steadfast in our curiosity, always seeking the unexpected, always guided by a commitment to meaningful form and lasting beauty."
   ],
   address: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi, Bangkok 10240, Thailand",
-  copyright: "@2025 fcdsbkk"
+  copyright: "© 2026 Cappuccio Design Studio"
 };
 
 export const awards = [

@@ -5,15 +5,24 @@ import type { Metadata } from "next";
 import { awards, studio } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
+const description =
+  "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
+
 export const metadata: Metadata = {
-  title: `About | ${siteName}`,
-  description: "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.",
+  title: "About Francesco Cappuccio",
+  description,
   alternates: { canonical: absoluteUrl("/about") },
   openGraph: {
     title: `About | ${siteName}`,
-    description: studio.intro,
+    description,
     url: absoluteUrl("/about"),
     images: [{ url: imageUrl("/images/studio-portrait.jpg"), width: 1200, height: 1500, alt: "Francesco Cappuccio" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `About Francesco Cappuccio | ${siteName}`,
+    description,
+    images: [imageUrl("/og.png")]
   }
 };
 
@@ -26,7 +35,7 @@ export default function AboutPage() {
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About</p>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone lg:mt-3">Bangkok · Global</p>
           </div>
-          <h1 className="max-w-4xl font-body text-[clamp(3.25rem,9vw,8.5rem)] font-light leading-[0.82] tracking-[-0.045em] text-ivory">
+          <h1 className="studio-display-title max-w-4xl">
             Light, form <span className="italic text-stone">&amp;</span> lasting beauty.
           </h1>
         </div>
@@ -34,17 +43,17 @@ export default function AboutPage() {
         <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-[1.28fr_0.72fr] lg:items-end">
           <div className="relative aspect-[4/5] overflow-hidden bg-panel sm:aspect-[16/10] lg:aspect-[1.28/1]">
             <Image
-              src="/images/hero-studio.jpg"
-              alt="Cappuccio Design Studio"
+              src="/images/studio-portrait.jpg"
+              alt="Francesco Cappuccio in the studio"
               fill
               priority
               sizes="(min-width: 1024px) 760px, calc(100vw - 40px)"
-              className="object-cover grayscale contrast-[0.96]"
+              className="object-cover object-[50%_14%] grayscale contrast-[0.96]"
             />
           </div>
           <div className="border-t border-ivory/10 pt-7">
             <ArrowDownRight aria-hidden="true" size={28} strokeWidth={1} className="text-stone" />
-            <p className="mt-16 font-body text-2xl font-light leading-[1.2] text-ivory sm:text-3xl lg:mt-24">{studio.intro}</p>
+            <p className="mt-16 font-body text-2xl font-light leading-[1.22] text-ivory sm:text-[2rem] lg:mt-24">{studio.intro}</p>
           </div>
         </div>
       </section>
@@ -55,7 +64,7 @@ export default function AboutPage() {
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">The practice</p>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-widest2 text-stone">Since 1993</p>
           </div>
-          <div className="grid gap-9 text-lg font-light leading-8 text-stone sm:text-xl sm:leading-9">
+          <div className="grid max-w-3xl gap-8 text-base font-light leading-8 text-stone sm:text-lg sm:leading-8">
             {studio.paragraphs.map((paragraph, index) => (
               <p key={paragraph} className={index === 0 ? "text-ivory" : undefined}>{paragraph}</p>
             ))}
@@ -67,7 +76,7 @@ export default function AboutPage() {
         <div className="flex items-end justify-between gap-8 border-t border-ivory/10 pt-8">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Recognition</p>
-            <h2 className="mt-5 font-body text-4xl font-light text-ivory sm:text-6xl">Major awards</h2>
+            <h2 className="studio-section-title mt-5">Major awards</h2>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-widest2 text-stone">35 international awards</span>
         </div>
@@ -82,7 +91,7 @@ export default function AboutPage() {
             </a>
           ))}
         </div>
-        <Link href="/contact" className="group mt-20 flex items-end justify-between gap-8 border-b border-ivory/20 pb-5 font-body text-[clamp(2.7rem,8vw,7rem)] font-light leading-[0.84] tracking-[-0.04em] text-ivory transition-colors duration-500 hover:text-stone">
+        <Link href="/contact" className="group mt-20 flex items-end justify-between gap-8 border-b border-ivory/20 pb-5 font-body text-[clamp(2.7rem,6vw,5.5rem)] font-light leading-[0.9] tracking-[-0.04em] text-ivory transition-colors duration-500 hover:text-stone">
           Let&apos;s collaborate
           <ArrowRight aria-hidden="true" size={42} strokeWidth={1} className="shrink-0 transition-transform duration-500 group-hover:translate-x-2" />
         </Link>

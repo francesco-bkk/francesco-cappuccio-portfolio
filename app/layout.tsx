@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { socialLinks, studio } from "@/lib/content";
-import { imageUrl, siteDescription, siteName, siteUrl } from "@/lib/seo";
+import { contactEmail, imageUrl, siteDescription, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -32,9 +32,20 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`
   },
   description: siteDescription,
+  keywords: [
+    "Francesco Cappuccio",
+    "Cappuccio Design Studio",
+    "lighting design",
+    "furniture design",
+    "product design",
+    "Bangkok design studio"
+  ],
   applicationName: siteName,
   creator: "Francesco Cappuccio",
   publisher: siteName,
+  category: "Design",
+  referrer: "origin-when-cross-origin",
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "/"
   },
@@ -73,25 +84,55 @@ export const metadata: Metadata = {
   }
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
+  themeColor: "#f7f5f0"
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteName,
-    alternateName: studio.name,
-    url: siteUrl,
-    founder: {
-      "@type": "Person",
-      name: "Francesco Cappuccio"
-    },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi",
-      addressLocality: "Bangkok",
-      postalCode: "10240",
-      addressCountry: "TH"
-    },
-    sameAs: socialLinks.map((link) => link.href)
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#studio`,
+        name: siteName,
+        alternateName: studio.name,
+        description: siteDescription,
+        url: siteUrl,
+        email: contactEmail,
+        image: imageUrl("/og.png"),
+        founder: { "@id": `${siteUrl}/#francesco-cappuccio` },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi",
+          addressLocality: "Bangkok",
+          postalCode: "10240",
+          addressCountry: "TH"
+        },
+        areaServed: "Worldwide",
+        sameAs: socialLinks.map((link) => link.href)
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#francesco-cappuccio`,
+        name: "Francesco Cappuccio",
+        jobTitle: "Designer and Architect",
+        worksFor: { "@id": `${siteUrl}/#studio` },
+        sameAs: socialLinks.map((link) => link.href)
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        name: siteName,
+        url: siteUrl,
+        description: siteDescription,
+        publisher: { "@id": `${siteUrl}/#studio` },
+        inLanguage: "en"
+      }
+    ]
   };
 
   return (

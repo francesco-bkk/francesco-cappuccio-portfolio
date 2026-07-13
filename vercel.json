@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/accessibility-statement",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-collections/:collection/:slug",
+      "destination": "/work/:slug",
+      "permanent": true
+    }
+  ]
+}

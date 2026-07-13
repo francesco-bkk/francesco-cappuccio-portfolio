@@ -24,7 +24,7 @@ export function ProjectCard({ project, priority = false, spanClassName }: Projec
         />
 
         <div className="grid gap-1.5">
-          <h3 className="font-body text-base font-light leading-snug text-ivory">{project.title}</h3>
+          <h3 className="font-body text-[1.05rem] font-light leading-snug text-ivory">{project.title}</h3>
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-stone">
             {project.eyebrow}
           </p>

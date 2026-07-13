@@ -16,7 +16,9 @@ const landingProject = {
 const homeShareImage = "/og.png";
 
 export const metadata: Metadata = {
-  title: `${siteName} | Lighting, Furniture & Product Design`,
+  title: {
+    absolute: `${siteName} | Lighting, Furniture & Product Design`
+  },
   description: siteDescription,
   alternates: {
     canonical: absoluteUrl("/")
@@ -219,7 +221,7 @@ export default function Home() {
           </div>
           <Link
             href="/contact"
-            className="group flex items-end justify-between gap-8 border-b border-ivory/20 pb-5 font-body text-[clamp(2.6rem,8vw,7rem)] font-light leading-[0.84] tracking-[-0.04em] text-ivory transition-colors duration-500 hover:text-stone"
+            className="group flex items-end justify-between gap-8 border-b border-ivory/20 pb-5 font-body text-[clamp(2.7rem,6vw,5.5rem)] font-light leading-[0.9] tracking-[-0.04em] text-ivory transition-colors duration-500 hover:text-stone"
           >
             Start a project
             <ArrowRight

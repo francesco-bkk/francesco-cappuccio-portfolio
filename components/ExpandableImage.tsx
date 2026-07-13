@@ -22,11 +22,6 @@ export function ExpandableImage({
   className = "aspect-[4/5]"
 }: ExpandableImageProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -72,7 +67,7 @@ export function ExpandableImage({
         </span>
       </button>
 
-      {isOpen && isMounted
+      {isOpen
         ? createPortal(
             <div
               className="fixed inset-0 z-50 overflow-y-auto bg-surface/95 p-4 backdrop-blur-sm sm:p-8"
@@ -86,11 +81,13 @@ export function ExpandableImage({
                 aria-label="Close image preview"
                 onClick={() => setIsOpen(false)}
               />
-              <div className="relative z-10 flex min-h-full items-center justify-center">
-                <img
+              <div className="relative z-10 h-[88vh] w-[92vw]">
+                <Image
                   src={src}
                   alt={alt}
-                  className="block max-h-[88vh] max-w-[92vw] object-contain shadow-sm"
+                  fill
+                  sizes="92vw"
+                  className="object-contain shadow-sm"
                 />
               </div>
               <button

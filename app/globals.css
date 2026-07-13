@@ -26,8 +26,43 @@ body {
   color: #111111;
 }
 
+@layer components {
+  .studio-container {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .studio-eyebrow {
+    @apply font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-stone;
+  }
+
+  .studio-page-title {
+    @apply font-body text-[clamp(3rem,4.5vw,4.5rem)] font-light leading-[0.94] tracking-[-0.035em] text-ivory;
+  }
+
+  .studio-display-title {
+    @apply font-body text-[clamp(3.25rem,6.6vw,6.75rem)] font-light leading-[0.88] tracking-[-0.045em] text-ivory;
+  }
+
+  .studio-section-title {
+    @apply font-body text-[clamp(2.5rem,4vw,3.75rem)] font-light leading-none tracking-[-0.03em] text-ivory;
+  }
+
+  .studio-field {
+    @apply grid gap-3 text-[0.95rem] leading-6 text-stone;
+  }
+
+  .studio-field input,
+  .studio-field textarea {
+    @apply w-full rounded-none border-0 border-b border-ivory/55 bg-transparent px-0 py-3 text-base font-light text-ivory outline-none transition-colors duration-300 focus:border-ivory;
+  }
+
+  .studio-field textarea {
+    @apply min-h-36 resize-y;
+  }
+}
+
 main {
-  animation: page-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes page-in {

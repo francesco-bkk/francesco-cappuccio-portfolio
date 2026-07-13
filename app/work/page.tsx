@@ -11,7 +11,7 @@ const categories = [
 ];
 
 export const metadata: Metadata = {
-  title: `Work | ${siteName}`,
+  title: "Selected Work",
   description:
     "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
   alternates: {
@@ -30,6 +30,13 @@ export const metadata: Metadata = {
         alt: "Cappuccio Design Studio work"
       }
     ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Selected Work | ${siteName}`,
+    description:
+      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
+    images: [imageUrl("/og.png")]
   }
 };
 
@@ -38,7 +45,7 @@ export default function WorkPage() {
     <main className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
       <header className="border-t border-ivory/10 pt-10">
         <div className="flex items-start justify-between gap-8">
-          <h1 className="font-body text-3xl font-light lowercase leading-none text-ivory sm:text-4xl">work</h1>
+          <h1 className="studio-page-title lowercase">work</h1>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-stone">
             {String(projects.length).padStart(2, "0")} works
           </p>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { navigation, studio } from "@/lib/content";
 
 export function Header() {
@@ -12,10 +12,6 @@ export function Header() {
 
   const isCurrent = (href: string) =>
     href === "/work" ? pathname.startsWith("/work") : pathname === href;
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-ivory/10 bg-obsidian/90 backdrop-blur-md">
@@ -74,6 +70,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setIsMenuOpen(false)}
                 aria-current={isCurrent(item.href) ? "page" : undefined}
                 className={`block border-b border-ivory/10 py-4 font-mono text-xs uppercase tracking-widest transition-colors duration-300 hover:text-ivory ${
                   isCurrent(item.href) ? "text-ivory" : "text-stone"
