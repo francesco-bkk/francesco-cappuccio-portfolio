@@ -297,7 +297,7 @@ export const projects: Project[] = [
   {
     slug: "scacco-matto",
     title: "Scacco Matto",
-    category: "featured",
+    category: "lighting",
     eyebrow: "Portable lamp",
     summary:
       "A portable lamp inspired by the radical design movement of the 1960s, transforming three magnetically connected elements into five different light sculptures.",

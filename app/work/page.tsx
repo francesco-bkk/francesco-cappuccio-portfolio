@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
-import { projects } from "@/lib/content";
+import { featuredProjects, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 
 const categories = [
@@ -62,7 +62,10 @@ export default function WorkPage() {
 
       <div className="mt-20 grid gap-y-24">
         {categories.map((category) => {
-          const categoryProjects = projects.filter((project) => project.category === category.value);
+          const categoryProjects =
+            category.value === "featured"
+              ? featuredProjects
+              : projects.filter((project) => project.category === category.value);
           return (
             <section key={category.value} id={category.value}>
               <div className="mb-8 flex items-center justify-between border-t border-ivory/10 pt-5">
