@@ -182,7 +182,8 @@ export const projects: Project[] = [
       paragraphs: [
         "Introducing \"Harvest,\" a captivating sculptural light installation at the SOMA Riverside Hotel . Infused with passion and artistry, this piece draws inspiration from the ocean's enchanting treasures, embodying the essence of its allure with a design reminiscent of a fisherman's steel net. The installation not only illuminates the space but also serves as a heartfelt homage to the vital importance of the sea and its bounty for the local fishing community, reminding us all of the beauty and fragility of our oceans.",
         "It's a poetic homage to the ocean's bounty, inviting guests to pause, look up, and reflect on our shared connection to nature's wonders."
-      ]
+      ],
+      awardLogo: "/images/awards/lit-lighting-design-awards-2025-winner.jpg"
     },
     detailImages: [
       "/images/harvest-2.png",
