@@ -10,6 +10,15 @@ const categories = [
   { label: "Featured", value: "featured" }
 ];
 
+const lightingProjectOrder = [
+  "mandarin-oriental-riverside-bangkok",
+  "damansara",
+  "wai",
+  "akuna-lighting-experience",
+  "harvest",
+  "quadra"
+];
+
 export const metadata: Metadata = {
   title: "Selected Work",
   description:
@@ -62,10 +71,20 @@ export default function WorkPage() {
 
       <div className="mt-20 grid gap-y-24">
         {categories.map((category) => {
-          const categoryProjects =
+          let categoryProjects =
             category.value === "featured"
               ? featuredProjects
               : projects.filter((project) => project.category === category.value);
+          if (category.value === "lighting") {
+            categoryProjects = [...categoryProjects].sort((a, b) => {
+              const aIndex = lightingProjectOrder.indexOf(a.slug);
+              const bIndex = lightingProjectOrder.indexOf(b.slug);
+              const aRank = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+              const bRank = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+              return aRank - bRank;
+            });
+          }
           return (
             <section key={category.value} id={category.value}>
               <div className="mb-8 flex items-center justify-between border-t border-ivory/10 pt-5">

@@ -284,7 +284,9 @@ export const projects: Project[] = [
           title: "A' Design Award",
           body: "Awarded in 2024."
         }
-      ]
+      ],
+      brand: "Lumere",
+      brandHref: "https://www.lumere.it"
     },
     detailImages: [
       "/images/cinque-terre-2.png",
@@ -690,6 +692,43 @@ export const projects: Project[] = [
       ]
     },
     image: "/images/project7.jpg"
+  },
+  {
+    slug: "quadra",
+    title: "Quadra",
+    category: "lighting",
+    eyebrow: "Lighting & Products",
+    summary:
+      "A bold geometric lighting composition pairing sculptural metal frames with double-engraved Murano glass.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Decorative lighting installation" },
+        { label: "Date", value: "July 2022" },
+        { label: "Location", value: "Stonehill Golf Club, Bangkok" },
+        { label: "Client", value: "Gulf Energy Thailand" }
+      ],
+      paragraphs: [
+        "Quadra was created for Gulf Energy Thailand at Stonehill Golf Club in Bangkok, translating the project's strong architectural rhythm into a family of pendant and wall luminaires.",
+        "Bold geometric metal frames are paired with double-engraved Murano glass. The deep, hand-worked texture catches and refracts the light, giving each square glass element crystalline depth and a warm, controlled glow.",
+        "Suspended throughout the lobby and repeated as wall lights, the modular composition brings visual continuity to the interior while balancing monumental scale with the precision of Venetian glass craftsmanship."
+      ],
+      clientLogo: {
+        src: "/images/clients/gulf-energy.png",
+        title: "Gulf Energy Thailand"
+      },
+      brand: "Vistosi",
+      brandHref: "https://vistosi.it/?lang=en",
+      links: [
+        {
+          label: "Project website",
+          href: "https://www.stonehill.co.th/",
+          text: "Stonehill Golf Club"
+        }
+      ]
+    },
+    detailImages: ["/images/quadra-2.png"],
+    image: "/images/quadra-1.png",
+    imagePosition: "50% 50%"
   },
   {
     slug: "aries-sofa",
