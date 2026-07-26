@@ -24,6 +24,11 @@ export type Project = {
       title: string;
       href?: string;
     }[];
+    clientLogo?: {
+      src: string;
+      title: string;
+      href?: string;
+    };
     links?: {
       label: string;
       href: string;
@@ -38,6 +43,9 @@ export type Project = {
   };
   detailImages?: string[];
   image: string;
+  hoverImage?: string;
+  imagePosition?: string;
+  hoverImagePosition?: string;
   featured?: boolean;
 };
 
@@ -187,10 +195,35 @@ export const projects: Project[] = [
     },
     detailImages: [
       "/images/harvest-2.png",
-      "/images/harvest-3.png",
       "/images/harvest-4.png"
     ],
-    image: "/images/harvest-1.png"
+    image: "/images/harvest-3.png",
+    hoverImage: "/images/harvest-1.png",
+    imagePosition: "50% 50%",
+    hoverImagePosition: "50% 50%"
+  },
+  {
+    slug: "bloom",
+    title: "Bloom",
+    category: "lighting",
+    eyebrow: "Lighting & Products",
+    summary:
+      "A sculptural floral chandelier that brings warm, intimate light and an organic statement presence to expansive interiors.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Sculptural chandelier" }
+      ],
+      paragraphs: [
+        "The warm-toned lighting within each flower softens the architectural space, blending seamlessly with the natural light from the expansive windows.",
+        "It invites a sense of calm and refined intimacy, while still maintaining a statement presence. This chandelier is ideal for villas where craftsmanship and quiet luxury are emphasized.",
+        "Bloom turns the ceiling into a canvas of organic beauty."
+      ]
+    },
+    detailImages: [],
+    image: "/images/bloom-day.jpg",
+    hoverImage: "/images/bloom-night.jpg",
+    imagePosition: "50% 50%",
+    hoverImagePosition: "50% 50%"
   },
   {
     slug: "falcons",
@@ -437,6 +470,17 @@ export const projects: Project[] = [
           body:
             "The installation asks viewers to look beyond imposed systems and locate meaning through conscious experience and choice."
         }
+      ],
+      clientLogo: {
+        src: "/images/clients/gulf-energy.png",
+        title: "Gulf Energy Development"
+      },
+      links: [
+        {
+          label: "Project website",
+          href: "https://www.stonehill.co.th/",
+          text: "Stonehill Golf Club"
+        }
       ]
     },
     detailImages: [
@@ -619,13 +663,31 @@ export const projects: Project[] = [
     summary:
       "Inspired by Gio Ponti, this wall lamp pairs glowing frosted glass orbs with the sharp modern lines of a metallic base.",
     details: {
+      meta: [
+        { label: "Project type", value: "Art installation" },
+        { label: "Date", value: "July 2022" },
+        { label: "Location", value: "Bangkok" },
+        { label: "Client", value: "Sarath Ratanavadi" }
+      ],
       paragraphs: [
+        "GIO' was designed for Sarath Ratanavadi, the founder and CEO of Gulf Energy Development, for the Stonehill Golf Club project in Bangkok.",
         "Inspired by the master, Gio Ponti, this wall lamp features glowing, frosted glass orbs that contrast beautifully with the sharp, modern lines of its metallic base.",
         "Bringing sophisticated mid-century flair to any space, the timeless design transforms functional illumination into a captivating architectural feature. The stacked, luminous spheres create a soft, ambient glow that gently washes across your walls, while the sleek rectangular backplate anchors the piece with striking geometric precision.",
         "This interplay of pure shapes and premium materials perfectly captures Ponti's visionary approach, offering an elegant, compact visual statement that elevates the atmosphere of contemporary and classic interiors alike."
       ],
+      clientLogo: {
+        src: "/images/clients/gulf-energy.png",
+        title: "Gulf Energy Development"
+      },
       brand: "Lightsculptures",
-      brandHref: "https://www.lightsculptures.co.th/"
+      brandHref: "https://www.lightsculptures.co.th/",
+      links: [
+        {
+          label: "Project website",
+          href: "https://www.stonehill.co.th/",
+          text: "Stonehill Golf Club"
+        }
+      ]
     },
     image: "/images/project7.jpg"
   },

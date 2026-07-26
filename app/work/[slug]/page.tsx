@@ -64,6 +64,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const detailImages = project.detailImages ?? [
+    `/images/${project.slug}-detail-1.jpg`,
+    `/images/${project.slug}-detail-2.jpg`
+  ];
+  const galleryImages = [
+    { src: project.image, alt: project.title },
+    ...(project.hoverImage
+      ? [{ src: project.hoverImage, alt: `${project.title} illuminated at night` }]
+      : []),
+    ...detailImages.map((image, index) => ({
+      src: image,
+      alt: `${project.title} detail ${index + 1}`
+    }))
+  ].filter(
+    (image, index, allImages) =>
+      allImages.findIndex((candidate) => candidate.src === image.src) === index
+  );
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -162,6 +180,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       </div>
                     </div>
                   ) : null}
+                  {project.details.clientLogo ? (
+                    <div className="grid gap-4 border-b border-ivory/10 pb-7 pt-1">
+                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Client / Sponsor</p>
+                      {project.details.clientLogo.href ? (
+                        <a
+                          href={project.details.clientLogo.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="relative block h-24 w-full max-w-[280px] transition-opacity hover:opacity-80"
+                        >
+                          <Image
+                            src={project.details.clientLogo.src}
+                            alt={project.details.clientLogo.title}
+                            fill
+                            sizes="280px"
+                            className="object-contain object-left"
+                          />
+                        </a>
+                      ) : (
+                        <div className="relative h-24 w-full max-w-[280px]">
+                          <Image
+                            src={project.details.clientLogo.src}
+                            alt={project.details.clientLogo.title}
+                            fill
+                            sizes="280px"
+                            className="object-contain object-left"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ) : null}
                   {project.details.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
@@ -244,17 +293,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="animate-fade-up delay-2 grid gap-6">
             <ExpandableImage
               src={project.image}
+              hoverSrc={project.hoverImage}
               alt={project.title}
+              hoverAlt={project.hoverImage ? `${project.title} illuminated at night` : undefined}
               priority
               sizes="(min-width: 1024px) 55vw, calc(100vw - 40px)"
               className="aspect-[4/5]"
+              imagePosition={project.imagePosition}
+              hoverImagePosition={project.hoverImagePosition}
+              galleryImages={galleryImages}
+              galleryIndex={galleryImages.findIndex((image) => image.src === project.image)}
+              hoverGalleryIndex={
+                project.hoverImage
+                  ? galleryImages.findIndex((image) => image.src === project.hoverImage)
+                  : undefined
+              }
             />
             <div className="grid gap-6 sm:grid-cols-2">
-              {(project.detailImages ?? [`/images/${project.slug}-detail-1.jpg`, `/images/${project.slug}-detail-2.jpg`]).map(
-                (image, index) => (
-                  <ExpandableImage key={image} src={image} alt={`${project.title} detail ${index + 1}`} />
-                )
-              )}
+              {detailImages.map((image, index) => (
+                <ExpandableImage
+                  key={image}
+                  src={image}
+                  alt={`${project.title} detail ${index + 1}`}
+                  galleryImages={galleryImages}
+                  galleryIndex={galleryImages.findIndex((galleryImage) => galleryImage.src === image)}
+                />
+              ))}
             </div>
           </div>
         </div>

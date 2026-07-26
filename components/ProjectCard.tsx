@@ -16,11 +16,19 @@ export function ProjectCard({ project, priority = false, spanClassName }: Projec
       <article className="grid gap-4">
         <ParallaxImage
           src={project.image}
+          hoverSrc={project.hoverImage}
           alt={project.title}
+          hoverAlt={project.hoverImage ? `${project.title} illuminated at night` : undefined}
           priority={priority}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={`relative overflow-hidden bg-panel ${imageClassName}`}
-          imageClassName="grayscale contrast-[0.96] transition duration-500 ease-out group-hover:grayscale-[65%] group-hover:opacity-90"
+          imagePosition={project.imagePosition}
+          hoverImagePosition={project.hoverImagePosition}
+          imageClassName={
+            project.hoverImage
+              ? "grayscale contrast-[0.96]"
+              : "grayscale contrast-[0.96] transition duration-500 ease-out group-hover:grayscale-[65%] group-hover:opacity-90"
+          }
         />
 
         <div className="grid gap-1.5">
