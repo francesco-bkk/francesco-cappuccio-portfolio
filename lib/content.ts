@@ -64,17 +64,21 @@ export const socialLinks = [
 
 export const studio = {
   name: "FRANCESCOCAPPUCCIO",
+  practiceTitle: "The practice",
   quote:
     '"The greatest challenge of being a creative individual is to maintain a childlike imagination while growing the constraints of acquired knowledge."',
   quoteBy: "Francesco Cappuccio",
   intro:
-    "With over three decades of experience, Francesco Cappuccio has cultivated a reputation for design excellence, earning 35 international awards, including the Archiproducts Design Award 2024, Red Dot Design Award, and European Design Award.",
+    "My work ranges from sculptural lighting and immersive installations to large-scale architectural facades, each project driven by a deep sensitivity to space, light, and innovation.",
   paragraphs: [
-    "Our work spans a diverse spectrum, from sculptural lighting and immersive installations to large-scale architectural facades, each project driven by a deep sensitivity to space, light, and innovation.",
-    "Rooted in the art of light, our practice explores its expressive and functional dimensions, crafting pieces that are both poetic and purposeful.",
-    "From luminous sculptures to integrated architectural systems, every creation is conceived as an experience, balancing technology with emotion.",
-    "In recent years, our creative vision has expanded to embrace collectible furniture and design objects, works that merge material experimentation with intentionality. These pieces reflect our pursuit of designs that are emotionally resonant, environmentally responsible, and timeless in their impact.",
-    "Collaboration lies at the heart of our process. Engaging with leading international brands and visionary clients allows us to push boundaries, challenge conventions, and remain steadfast in our curiosity, always seeking the unexpected, always guided by a commitment to meaningful form and lasting beauty."
+    "Rooted in the art of light, my practice explores its expressive and functional dimensions, creating works that are both poetic and purposeful. From luminous sculptures to integrated architectural systems, every creation is conceived as an experience, balancing technology with emotion.",
+    "My light sculptures are exhibited around the world in properties operated by leading hospitality brands, including Shangri-La, InterContinental, Banyan Tree, Hilton, and Sheraton.",
+    "More recently, my practice has expanded to embrace collectible furniture and design objects—works that combine material experimentation with purpose and intentionality. Each piece pursues the same ambition: to create designs that are emotionally resonant, environmentally responsible, and timeless in their impact.",
+    "Collaboration lies at the heart of my process. Working with leading international brands and visionary clients allows me to push boundaries, challenge conventions, and remain curious—always seeking the unexpected and always guided by a commitment to meaningful form and lasting beauty.",
+    "Working between Bangkok and Italy has taught me to treat *genius loci*—the spirit of place—as a creative strategy.",
+    "Each spatial light sculpture begins with its context: architecture, climate, culture, craftsmanship, and materials. These elements shape both the work and its relationship with the space.",
+    "A design conceived in Italy must evolve for a tropical courtyard, an Asian resort, or a desert interior. Its identity remains consistent, but its expression belongs to the place.",
+    "Consistency is the promise. Difference is the proof."
   ],
   address: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi, Bangkok 10240, Thailand",
   copyright: "© 2026 Francesco Cappuccio"
@@ -141,7 +145,8 @@ export const projects: Project[] = [
     detailImages: [
       "/images/mandarin-oriental-riverside-bangkok-detail-1.jpg",
       "/images/mandarin-oriental-riverside-bangkok-detail-2.jpg",
-      "/images/mandarin-oriental-4.jpg"
+      "/images/mandarin-oriental-4.jpg",
+      "/images/mandarin-oriental-riverside-bangkok-gallery-1.jpg"
     ],
     image: "/images/project1.jpg",
     featured: true
@@ -391,7 +396,13 @@ export const projects: Project[] = [
       "/images/pavilion-crown-5.png",
       "/images/pavilion-crown-6.png",
       "/images/pavilion-crown-7.png",
-      "/images/pavilion-crown-8.png"
+      "/images/pavilion-crown-8.png",
+      "/images/pavilion-crown-gallery-1.jpg",
+      "/images/pavilion-crown-gallery-2.jpg",
+      "/images/pavilion-crown-gallery-3.jpg",
+      "/images/pavilion-crown-gallery-4.jpg",
+      "/images/pavilion-crown-gallery-5.jpg",
+      "/images/pavilion-crown-gallery-6.jpg"
     ],
     image: "/images/pavilion-crown-1.png",
     featured: true
@@ -597,6 +608,7 @@ export const projects: Project[] = [
             "A sculptural chandelier for the dining room, composed of Murano glass tubes and integrated LED and spotlight illumination."
         }
       ],
+      awardLogo: "/images/awards/lit-lighting-design-awards-2023-winner.png",
       brand: "Lightsculptures",
       brandHref: "https://www.lightsculptures.co.th/"
     },
@@ -605,7 +617,6 @@ export const projects: Project[] = [
       "/images/akuna-lit-award-2.png",
       "/images/akuna-lighting-experience-detail-1.jpg",
       "/images/akuna-lighting-experience-detail-2.jpg",
-      "/images/akuna-lighting-experience-detail-3.jpg",
       "/images/akuna-lighting-experience-detail-4.jpg",
       "/images/akuna-lighting-experience-detail-5.jpg"
     ],
@@ -726,7 +737,13 @@ export const projects: Project[] = [
         }
       ]
     },
-    detailImages: ["/images/quadra-2.png"],
+    detailImages: [
+      "/images/quadra-2.png",
+      "/images/quadra-gallery-1.jpg",
+      "/images/quadra-gallery-2.jpg",
+      "/images/quadra-gallery-3.jpg",
+      "/images/quadra-gallery-4.jpg"
+    ],
     image: "/images/quadra-1.png",
     imagePosition: "50% 50%"
   },
@@ -769,7 +786,9 @@ const featuredProjectSlugs = [
   "mandarin-oriental-riverside-bangkok",
   "damansara",
   "scacco-matto",
-  "gio"
+  "gio",
+  "akuna-lighting-experience",
+  "falcons"
 ];
 
 export const featuredProjects = featuredProjectSlugs

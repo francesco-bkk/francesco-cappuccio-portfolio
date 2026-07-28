@@ -13,6 +13,24 @@ type ProjectPageProps = {
   }>;
 };
 
+const awardLogoDimensions: Record<string, { width: number; height: number }> = {
+  "/images/awards/archiproducts-awards-winner.jpg": { width: 2400, height: 981 },
+  "/images/awards/european-product-design-award-2019-gold.png": {
+    width: 2700,
+    height: 2400
+  },
+  "/images/awards/lit-lighting-design-awards-2023-winner.png": {
+    width: 1280,
+    height: 720
+  },
+  "/images/awards/lit-lighting-design-awards-2025-winner.jpg": {
+    width: 633,
+    height: 362
+  },
+  "/images/awards/muse-design-awards.png": { width: 464, height: 233 },
+  "/images/awards/red-dot-award.jpg": { width: 461, height: 356 }
+};
+
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
@@ -81,6 +99,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     (image, index, allImages) =>
       allImages.findIndex((candidate) => candidate.src === image.src) === index
   );
+  const awardLogos: { src: string; title: string; href?: string }[] =
+    project.details?.awardLogos ??
+    (project.details?.awardLogo
+      ? [
+          {
+            src: project.details.awardLogo,
+            title: `${project.title} award logo`
+          }
+        ]
+      : []);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -133,50 +161,55 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       ))}
                     </dl>
                   ) : null}
-                  {project.details.awardLogos?.length ? (
-                    <div className="grid gap-4 border-b border-ivory/10 pb-7 pt-1">
-                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Awards</p>
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        {project.details.awardLogos.map((award) => {
+                  <p className="border-b border-ivory/10 pb-7 text-ivory">
+                    Lighting designer: Francesco Cappuccio
+                  </p>
+                  {awardLogos.length ? (
+                    <div
+                      className="grid gap-6 border-b border-ivory/10 pb-12 pt-1 sm:pb-16"
+                      data-project-awards
+                    >
+                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
+                        Award logo
+                      </p>
+                      <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                        {awardLogos.map((award) => {
+                          const dimensions = awardLogoDimensions[award.src] ?? {
+                            width: 1600,
+                            height: 900
+                          };
                           const logo = (
-                            <div className="relative h-24 w-full">
-                              <Image
-                                src={award.src}
-                                alt={award.title}
-                                fill
-                                sizes="280px"
-                                className="object-contain object-left"
-                              />
-                            </div>
+                            <Image
+                              src={award.src}
+                              alt={award.title}
+                              width={dimensions.width}
+                              height={dimensions.height}
+                              sizes="(min-width: 640px) 280px, 70vw"
+                              className="h-24 w-auto max-w-full bg-white object-contain sm:h-28"
+                              data-award-logo
+                            />
                           );
 
                           return award.href ? (
                             <a
-                              key={award.src}
+                              key={`${award.src}-${award.title}`}
                               href={award.href}
                               target="_blank"
                               rel="noreferrer"
-                              className="transition-opacity hover:opacity-80"
+                              className="block max-w-full transition-opacity hover:opacity-80"
+                              aria-label={`View ${award.title}`}
                             >
                               {logo}
                             </a>
                           ) : (
-                            <div key={award.src}>{logo}</div>
+                            <div
+                              key={`${award.src}-${award.title}`}
+                              className="max-w-full"
+                            >
+                              {logo}
+                            </div>
                           );
                         })}
-                      </div>
-                    </div>
-                  ) : project.details.awardLogo ? (
-                    <div className="grid gap-4 border-b border-ivory/10 pb-7 pt-1">
-                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Award logo</p>
-                      <div className="relative h-24 w-full max-w-[280px]">
-                        <Image
-                          src={project.details.awardLogo}
-                          alt={`${project.title} award logo`}
-                          fill
-                          sizes="280px"
-                          className="object-contain object-left"
-                        />
                       </div>
                     </div>
                   ) : null}
@@ -285,7 +318,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   ) : null}
                 </>
               ) : (
-                <p>{project.summary}</p>
+                <>
+                  <p className="border-b border-ivory/10 pb-7 text-ivory">
+                    Lighting designer: Francesco Cappuccio
+                  </p>
+                  <p>{project.summary}</p>
+                </>
               )}
             </div>
           </div>

@@ -153,7 +153,7 @@ export default function Home() {
               />
             </div>
             <div className="max-w-none">
-              <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">About the studio</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">{studio.practiceTitle}</p>
               <p className="mt-7 max-w-[640px] font-body text-[1.72rem] font-light leading-[1.18] text-ivory sm:mt-8 sm:text-[2rem]">
                 {studio.intro}
               </p>

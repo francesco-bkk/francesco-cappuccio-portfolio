@@ -8,6 +8,16 @@ import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 const description =
   "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
 
+function renderEmphasis(text: string) {
+  return text.split(/(\*[^*]+\*)/g).map((part, index) =>
+    part.startsWith("*") && part.endsWith("*") ? (
+      <em key={`${part}-${index}`}>{part.slice(1, -1)}</em>
+    ) : (
+      part
+    )
+  );
+}
+
 export const metadata: Metadata = {
   title: "About",
   description,
@@ -61,13 +71,43 @@ export default function AboutPage() {
       <section className="border-y border-ivory/10 bg-surface">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.42fr_1fr] lg:gap-20 lg:py-28">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">The practice</p>
+            <h2 className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
+              {studio.practiceTitle}
+            </h2>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-widest2 text-stone">Since 1993</p>
           </div>
-          <div className="grid max-w-3xl gap-8 text-base font-light leading-8 text-stone sm:text-lg sm:leading-8">
-            {studio.paragraphs.map((paragraph, index) => (
-              <p key={paragraph} className={index === 0 ? "text-ivory" : undefined}>{paragraph}</p>
+          <div className="grid max-w-3xl gap-8 text-base font-light leading-7 text-stone sm:text-lg sm:leading-8">
+            {studio.paragraphs.slice(0, 4).map((paragraph, index) => (
+              <p
+                key={paragraph}
+                className={
+                  index === 0
+                    ? "text-ivory"
+                    : index === 1
+                      ? "font-normal text-ivory"
+                      : undefined
+                }
+              >
+                {renderEmphasis(paragraph)}
+              </p>
             ))}
+
+            <div className="mt-4 border-t border-ivory/10 pt-8">
+              <h3 className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
+                Place &amp; Context
+              </h3>
+            </div>
+
+            {studio.paragraphs.slice(4, 7).map((paragraph, index) => (
+              <p key={paragraph} className={index === 0 ? "text-ivory" : undefined}>
+                {renderEmphasis(paragraph)}
+              </p>
+            ))}
+
+            <p className="mt-4 border-t border-ivory/10 pt-8 font-body text-2xl font-light leading-tight text-ivory sm:text-3xl">
+              <span className="block">Consistency is the promise.</span>
+              <span className="block text-stone">Difference is the proof.</span>
+            </p>
           </div>
         </div>
       </section>
