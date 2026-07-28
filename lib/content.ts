@@ -73,9 +73,9 @@ export const studio = {
   paragraphs: [
     "Rooted in the art of light, my practice explores its expressive and functional dimensions, creating works that are both poetic and purposeful. From luminous sculptures to integrated architectural systems, every creation is conceived as an experience, balancing technology with emotion.",
     "My light sculptures are exhibited around the world in properties operated by leading hospitality brands, including Shangri-La, InterContinental, Banyan Tree, Hilton, and Sheraton.",
-    "More recently, my practice has expanded to embrace collectible furniture and design objects—works that combine material experimentation with purpose and intentionality. Each piece pursues the same ambition: to create designs that are emotionally resonant, environmentally responsible, and timeless in their impact.",
-    "Collaboration lies at the heart of my process. Working with leading international brands and visionary clients allows me to push boundaries, challenge conventions, and remain curious—always seeking the unexpected and always guided by a commitment to meaningful form and lasting beauty.",
-    "Working between Bangkok and Italy has taught me to treat *genius loci*—the spirit of place—as a creative strategy.",
+    "More recently, my practice has expanded to embrace collectible furniture and design objects. These works combine material experimentation with purpose and intentionality. Each piece pursues the same ambition: to create designs that are emotionally resonant, environmentally responsible, and timeless in their impact.",
+    "Collaboration lies at the heart of my process. Working with leading international brands and visionary clients allows me to push boundaries, challenge conventions, and remain curious. I continue to seek the unexpected, guided by a commitment to meaningful form and lasting beauty.",
+    "Working between Bangkok and Italy has taught me to treat *genius loci*, the spirit of place, as a creative strategy.",
     "Each spatial light sculpture begins with its context: architecture, climate, culture, craftsmanship, and materials. These elements shape both the work and its relationship with the space.",
     "A design conceived in Italy must evolve for a tropical courtyard, an Asian resort, or a desert interior. Its identity remains consistent, but its expression belongs to the place.",
     "Consistency is the promise. Difference is the proof."
