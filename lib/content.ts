@@ -69,7 +69,7 @@ export const studio = {
     '"The greatest challenge of being a creative individual is to maintain a childlike imagination while growing the constraints of acquired knowledge."',
   quoteBy: "Francesco Cappuccio",
   intro:
-    "My work ranges from sculptural lighting and immersive installations to large-scale architectural facades, each project driven by a deep sensitivity to space, light, and innovation.",
+    "With over three decades of experience, Francesco Cappuccio has cultivated a reputation for design excellence, earning 35 international awards, including the Archiproducts Design Award 2024, Red Dot Design Award, and European Design Award.",
   paragraphs: [
     "Rooted in the art of light, my practice explores its expressive and functional dimensions, creating works that are both poetic and purposeful. From luminous sculptures to integrated architectural systems, every creation is conceived as an experience, balancing technology with emotion.",
     "My light sculptures are exhibited around the world in properties operated by leading hospitality brands, including Shangri-La, InterContinental, Banyan Tree, Hilton, and Sheraton.",
