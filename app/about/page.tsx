@@ -8,6 +8,9 @@ import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 const description =
   "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
 
+const metaLabelClass =
+  "font-mono text-[11px] uppercase tracking-[0.24em] text-stone";
+
 function renderEmphasis(text: string) {
   return text.split(/(\*[^*]+\*)/g).map((part, index) =>
     part.startsWith("*") && part.endsWith("*") ? (
