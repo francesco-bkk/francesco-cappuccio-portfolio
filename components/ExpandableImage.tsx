@@ -21,6 +21,7 @@ type ExpandableImageProps = {
   className?: string;
   imagePosition?: string;
   hoverImagePosition?: string;
+  imageFit?: "cover" | "contain";
   galleryImages?: GalleryImage[];
   galleryIndex?: number;
   hoverGalleryIndex?: number;
@@ -36,6 +37,7 @@ export function ExpandableImage({
   className = "aspect-[4/5]",
   imagePosition,
   hoverImagePosition,
+  imageFit,
   galleryImages,
   galleryIndex = 0,
   hoverGalleryIndex
@@ -110,6 +112,7 @@ export function ExpandableImage({
           className="absolute inset-0"
           imagePosition={imagePosition}
           hoverImagePosition={hoverImagePosition}
+          fit={imageFit}
           imageClassName={
             hoverSrc
               ? "grayscale contrast-[0.96]"

@@ -15,6 +15,7 @@ type ParallaxImageProps = {
   hoverImageClassName?: string;
   imagePosition?: string;
   hoverImagePosition?: string;
+  fit?: "cover" | "contain";
   strength?: number;
 };
 
@@ -30,6 +31,7 @@ export function ParallaxImage({
   hoverImageClassName = "",
   imagePosition = "50% 50%",
   hoverImagePosition = imagePosition,
+  fit = "cover",
   strength = 22
 }: ParallaxImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,6 +39,10 @@ export function ParallaxImage({
   const frameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
+    if (fit === "contain") {
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) {
@@ -80,13 +86,13 @@ export function ParallaxImage({
         window.cancelAnimationFrame(frameRef.current);
       }
     };
-  }, [strength]);
+  }, [fit, strength]);
 
   return (
     <div ref={containerRef} className={className}>
       <div
         ref={imageLayerRef}
-        className="absolute inset-0 scale-[1.08] will-change-transform"
+        className={`absolute inset-0 ${fit === "cover" ? "scale-[1.08] will-change-transform" : ""}`}
       >
         <Image
           src={src}
@@ -95,7 +101,7 @@ export function ParallaxImage({
           priority={priority}
           sizes={sizes}
           style={{ objectPosition: imagePosition }}
-          className={`object-cover ${imageClassName}`}
+          className={`${fit === "contain" ? "object-contain" : "object-cover"} ${imageClassName}`}
         />
         {hoverSrc ? (
           <Image
@@ -105,7 +111,7 @@ export function ParallaxImage({
             priority={priority}
             sizes={sizes}
             style={{ objectPosition: hoverImagePosition }}
-            className={`object-cover opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-focus-visible:opacity-100 ${hoverImageClassName}`}
+            className={`${fit === "contain" ? "object-contain" : "object-cover"} opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-focus-visible:opacity-100 ${hoverImageClassName}`}
           />
         ) : null}
       </div>

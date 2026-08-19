@@ -338,6 +338,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               sizes="(min-width: 1024px) 55vw, calc(100vw - 40px)"
               className="aspect-[4/5]"
               imagePosition={project.imagePosition}
+              imageFit={project.slug === "scacco-matto" ? "contain" : undefined}
               hoverImagePosition={project.hoverImagePosition}
               galleryImages={galleryImages}
               galleryIndex={galleryImages.findIndex((image) => image.src === project.image)}
