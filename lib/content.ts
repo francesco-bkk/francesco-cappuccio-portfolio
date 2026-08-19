@@ -338,6 +338,7 @@ export const projects: Project[] = [
       brandHref: "https://www.lumere.it"
     },
     detailImages: [
+      "/images/project3.jpg",
       "/images/scacco-matto-detail-2.jpg",
       "/images/scacco-matto-detail-3.png",
       "/images/scacco-matto-detail-4.png",
@@ -345,7 +346,7 @@ export const projects: Project[] = [
       "/images/scacco-matto-detail-6.png",
       "/images/scacco-matto-detail-7.png"
     ],
-    image: "/images/project3.jpg",
+    image: "/images/scacco-matto-award-winner.png",
     featured: true
   },
   {
