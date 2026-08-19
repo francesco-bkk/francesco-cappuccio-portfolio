@@ -162,7 +162,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </dl>
                   ) : null}
                   <p className="border-b border-ivory/10 pb-7 text-ivory">
-                    Lighting designer: Francesco Cappuccio
+                    {project.role ?? "Lighting designer"}: Francesco Cappuccio
                   </p>
                   {awardLogos.length ? (
                     <div
@@ -320,7 +320,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               ) : (
                 <>
                   <p className="border-b border-ivory/10 pb-7 text-ivory">
-                    Lighting designer: Francesco Cappuccio
+                    {project.role ?? "Lighting designer"}: Francesco Cappuccio
                   </p>
                   <p>{project.summary}</p>
                 </>

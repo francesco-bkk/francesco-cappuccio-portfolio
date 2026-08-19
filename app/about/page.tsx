@@ -71,6 +71,32 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="border-y border-ivory/10 bg-surface" aria-label="Design philosophy and interview film">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-8 sm:py-16 md:grid-cols-[minmax(0,1fr)_minmax(280px,320px)] md:items-center md:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(340px,380px)] lg:gap-24 lg:py-20">
+          <p className="max-w-[10ch] font-body text-[clamp(2.8rem,5vw,5.5rem)] font-light leading-[0.94] tracking-[-0.04em] text-ivory">
+            <span className="block">Form follows function</span>
+            <span className="block text-stone">&amp; vice versa.</span>
+          </p>
+
+          <figure className="w-full max-w-[380px] overflow-hidden bg-obsidian md:justify-self-end">
+            <video
+              className="block aspect-[9/16] h-auto w-full"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/video/interview-vertier-poster.jpg"
+              aria-describedby="interview-caption"
+            >
+              <source src="/video/interview-vertier.mp4" type="video/mp4" />
+              Your browser does not support this video.
+            </video>
+            <figcaption id="interview-caption" className="sr-only">
+              A vertical interview film featuring Francesco Cappuccio.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="border-y border-ivory/10 bg-surface">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.42fr_1fr] lg:gap-20 lg:py-28">
           <div>
@@ -99,13 +125,12 @@ export default function AboutPage() {
               <div className="relative aspect-[3/4] overflow-hidden bg-panel">
                 <Image
                   src="/images/francesco-at-work.jpg"
-                  alt="Francesco Cappuccio examining a lighting component in the studio"
+                  alt="Francesco Cappuccio examining an object"
                   fill
                   sizes="(min-width: 1200px) 576px, (min-width: 640px) 70vw, calc(100vw - 40px)"
                   className="object-cover object-[50%_48%] grayscale contrast-[0.96]"
                 />
               </div>
-              <figcaption className={`${metaLabelClass} mt-4`}>In the studio</figcaption>
             </figure>
 
             <div className="mt-4 border-t border-ivory/10 pt-8">
@@ -120,10 +145,6 @@ export default function AboutPage() {
               </p>
             ))}
 
-            <p className="mt-4 border-t border-ivory/10 pt-8 font-body text-2xl font-light leading-tight text-ivory sm:text-3xl">
-              <span className="block">Consistency is the promise.</span>
-              <span className="block text-stone">Difference is the proof.</span>
-            </p>
           </div>
         </div>
       </section>

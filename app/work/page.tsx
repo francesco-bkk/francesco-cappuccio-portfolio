@@ -16,7 +16,8 @@ const lightingProjectOrder = [
   "wai",
   "akuna-lighting-experience",
   "harvest",
-  "quadra"
+  "quadra",
+  "amsterdam"
 ];
 
 export const metadata: Metadata = {

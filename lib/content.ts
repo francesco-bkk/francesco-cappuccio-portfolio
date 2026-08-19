@@ -43,6 +43,7 @@ export type Project = {
   };
   detailImages?: string[];
   image: string;
+  role?: string;
   hoverImage?: string;
   imagePosition?: string;
   hoverImagePosition?: string;
@@ -747,6 +748,50 @@ export const projects: Project[] = [
     ],
     image: "/images/quadra-1.png",
     imagePosition: "50% 50%"
+  },
+  {
+    slug: "amsterdam",
+    title: "Amsterdam",
+    category: "lighting",
+    eyebrow: "Lighting & Products",
+    summary:
+      "A polycarbonate chandelier inspired by the warm glow of Amsterdam's canal-house windows reflected in the water.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Chandelier" },
+        { label: "Material", value: "Polycarbonate" }
+      ],
+      paragraphs: [
+        "The large windows' light reflecting into the canals are what impressed me as a lighting designer when I visited Amsterdam. Photos are essentially slices of time. We take them to freeze a moment, to keep a memory safe so we can examine it later.",
+        "Because of the northern latitude and the historic need to pull every ounce of sunlight into those narrow canal houses, the windows are massive. At night, they transform. They become giant, glowing lightboxes. The dark, rigid window frames silhouette against the warmth of the interiors, and it all reflects into the dark water of the canals.",
+        "I wanted to materialize that memory with the \"Amsterdam\" chandelier and create this diffuse glow using polycarbonate. The result is a soft ambient light made possible by the large, bold shape of the fixture, designed just like a window. It is not just a decorative light, but it performs beautifully as a highly functional, diffuse light source."
+      ]
+    },
+    detailImages: [
+      "/images/amsterdam-lighting-1.jpg",
+      "/images/amsterdam-lighting-2.jpg",
+      "/images/amsterdam-lighting-3.jpg",
+      "/images/amsterdam-reference-watermarked.jpg"
+    ],
+    image: "/images/amsterdam-lighting-hero.png"
+  },
+  {
+    slug: "metro",
+    title: "Metro",
+    category: "furniture",
+    eyebrow: "Furniture",
+    summary:
+      "An architectural bench and stool collection rooted in industrial urbanism, defined by checker-plate surfaces, colour, and shadow.",
+    role: "Furniture designer",
+    details: {
+      meta: [{ label: "Project type", value: "Bench & stool collection" }],
+      paragraphs: [
+        "Rooted in industrial urbanism, Metro is an architectural study of volume, colour, and shadow. Essential forms and a rigorous profile allow the collection to move between seating, surface, and spatial marker.",
+        "Checker-plate elements bring a tactile, civic character to the pieces, while the distinct black, white, yellow, and orange finishes sharpen their graphic presence. Together, the bench and stools create a flexible family for interiors where furniture contributes directly to the composition of the room."
+      ]
+    },
+    detailImages: ["/images/metro-bench-2.jpg", "/images/metro-bench-3.jpg"],
+    image: "/images/metro-bench-1.jpg"
   },
   {
     slug: "aries-sofa",
