@@ -217,7 +217,6 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.58fr_1.25fr] lg:items-end lg:gap-12 lg:py-32">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Get in touch</p>
-            <p className="mt-10 max-w-xs text-sm leading-7 text-stone">{studio.address}</p>
           </div>
           <Link
             href="/contact"
