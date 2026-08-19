@@ -45,6 +45,7 @@ export type Project = {
   image: string;
   role?: string;
   shareToFacebook?: boolean;
+  shareToLinkedIn?: boolean;
   shareImage?: string;
   shareImageDimensions?: {
     width: number;
@@ -355,6 +356,7 @@ export const projects: Project[] = [
     ],
     image: "/images/scacco-matto-award-winner.png",
     shareToFacebook: true,
+    shareToLinkedIn: true,
     shareImage: "/images/scacco-matto-detail-3.png",
     shareImageDimensions: { width: 3839, height: 2880 },
     featured: true

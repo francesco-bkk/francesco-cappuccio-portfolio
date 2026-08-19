@@ -133,6 +133,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const facebookShareHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     absoluteUrl(`/work/${project.slug}`)
   )}`;
+  const linkedInShareHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    absoluteUrl(`/work/${project.slug}`)
+  )}`;
 
   return (
     <main>
@@ -322,21 +325,39 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       ))}
                     </div>
                   ) : null}
-                  {project.shareToFacebook ? (
+                  {project.shareToFacebook || project.shareToLinkedIn ? (
                     <div className="grid gap-4 border-t border-ivory/10 pt-7">
                       <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Share</p>
-                      <a
-                        href={facebookShareHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
-                        aria-label={`Post ${project.title} to Facebook`}
-                      >
-                        <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
-                          FB
-                        </span>
-                        <span>Post this project</span>
-                      </a>
+                      <div className="flex flex-wrap gap-x-7 gap-y-4">
+                        {project.shareToFacebook ? (
+                          <a
+                            href={facebookShareHref}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
+                            aria-label={`Post ${project.title} to Facebook`}
+                          >
+                            <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
+                              FB
+                            </span>
+                            <span>Post</span>
+                          </a>
+                        ) : null}
+                        {project.shareToLinkedIn ? (
+                          <a
+                            href={linkedInShareHref}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
+                            aria-label={`Post ${project.title} to LinkedIn`}
+                          >
+                            <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
+                              IN
+                            </span>
+                            <span>Post</span>
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
                   ) : null}
                 </>
