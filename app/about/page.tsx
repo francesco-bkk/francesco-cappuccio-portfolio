@@ -92,6 +92,19 @@ export default function AboutPage() {
               </p>
             ))}
 
+            <figure className="mt-6 max-w-[36rem] border-y border-ivory/10 py-6 sm:mt-8 sm:py-8">
+              <div className="relative aspect-[3/4] overflow-hidden bg-panel">
+                <Image
+                  src="/images/francesco-at-work.jpg"
+                  alt="Francesco Cappuccio examining a lighting component in the studio"
+                  fill
+                  sizes="(min-width: 1200px) 576px, (min-width: 640px) 70vw, calc(100vw - 40px)"
+                  className="object-cover object-[50%_48%] grayscale contrast-[0.96]"
+                />
+              </div>
+              <figcaption className={`${metaLabelClass} mt-4`}>In the studio</figcaption>
+            </figure>
+
             <div className="mt-4 border-t border-ivory/10 pt-8">
               <h3 className="font-mono text-[10px] uppercase tracking-widest2 text-stone">
                 Place &amp; Context
