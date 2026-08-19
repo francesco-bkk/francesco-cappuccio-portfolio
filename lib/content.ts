@@ -44,6 +44,12 @@ export type Project = {
   detailImages?: string[];
   image: string;
   role?: string;
+  shareToFacebook?: boolean;
+  shareImage?: string;
+  shareImageDimensions?: {
+    width: number;
+    height: number;
+  };
   hoverImage?: string;
   imagePosition?: string;
   hoverImagePosition?: string;
@@ -348,6 +354,9 @@ export const projects: Project[] = [
       "/images/scacco-matto-detail-7.png"
     ],
     image: "/images/scacco-matto-award-winner.png",
+    shareToFacebook: true,
+    shareImage: "/images/scacco-matto-detail-3.png",
+    shareImageDimensions: { width: 3839, height: 2880 },
     featured: true
   },
   {

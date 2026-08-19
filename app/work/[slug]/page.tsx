@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const shareImage = project.shareImage ?? project.image;
+  const shareImageDimensions = project.shareImageDimensions ?? { width: 1200, height: 1500 };
+
   return {
     title: project.title,
     description: project.summary,
@@ -58,9 +61,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       url: absoluteUrl(`/work/${project.slug}`),
       images: [
         {
-          url: imageUrl(project.image),
-          width: 1200,
-          height: 1500,
+          url: imageUrl(shareImage),
+          width: shareImageDimensions.width,
+          height: shareImageDimensions.height,
           alt: project.title
         }
       ]
@@ -69,7 +72,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       card: "summary_large_image",
       title: `${project.title} | ${siteName}`,
       description: project.summary,
-      images: [imageUrl(project.image)]
+      images: [imageUrl(shareImage)]
     }
   };
 }
@@ -127,6 +130,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       url: absoluteUrl("/")
     }
   };
+  const facebookShareHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    absoluteUrl(`/work/${project.slug}`)
+  )}`;
 
   return (
     <main>
@@ -314,6 +320,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                           </span>
                         </a>
                       ))}
+                    </div>
+                  ) : null}
+                  {project.shareToFacebook ? (
+                    <div className="grid gap-4 border-t border-ivory/10 pt-7">
+                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Share</p>
+                      <a
+                        href={facebookShareHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
+                        aria-label={`Post ${project.title} to Facebook`}
+                      >
+                        <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
+                          FB
+                        </span>
+                        <span>Post this project</span>
+                      </a>
                     </div>
                   ) : null}
                 </>
