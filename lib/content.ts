@@ -43,7 +43,6 @@ export type Project = {
   };
   detailImages?: string[];
   image: string;
-  role?: string;
   shareToFacebook?: boolean;
   shareToLinkedIn?: boolean;
   shareImage?: string;
@@ -793,7 +792,6 @@ export const projects: Project[] = [
     eyebrow: "Furniture",
     summary:
       "An architectural bench and stool collection rooted in industrial urbanism, defined by checker-plate surfaces, colour, and shadow.",
-    role: "Furniture designer",
     details: {
       meta: [{ label: "Project type", value: "Bench & stool collection" }],
       paragraphs: [
@@ -803,6 +801,32 @@ export const projects: Project[] = [
     },
     detailImages: ["/images/metro-bench-2.jpg", "/images/metro-bench-3.jpg"],
     image: "/images/metro-bench-1.jpg"
+  },
+  {
+    slug: "nexum",
+    title: "Nexum",
+    category: "furniture",
+    eyebrow: "Furniture",
+    summary: "Nexum — Connection, made solid.",
+    details: {
+      meta: [
+        { label: "Project type", value: "Coffee table" },
+        { label: "Designed for", value: "Vertier" },
+        { label: "Materials", value: "Wood structure, leather cover & laminated glass" }
+      ],
+      paragraphs: [
+        "Nexum — Connection, made solid.",
+        "Derived from the Latin for \"binding,\" this piece fuses overlapping biomorphic geometries into a continuous monolithic volume. It creates a fluid spatial node that disrupts orthogonal rigidity, anchoring circulation within dynamic architectural environments.",
+        "A wood structure, leather cover, and laminated glass define its material presence."
+      ]
+    },
+    detailImages: [
+      "/images/nexum-coffee-table-1.jpg",
+      "/images/nexum-coffee-table-2.jpg",
+      "/images/nexum-coffee-table-3.jpg",
+      "/images/nexum-coffee-table-4.jpg"
+    ],
+    image: "/images/nexum-coffee-table-hero.jpg"
   },
   {
     slug: "aries-sofa",
