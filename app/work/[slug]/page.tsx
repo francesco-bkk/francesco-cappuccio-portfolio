@@ -13,8 +13,23 @@ type ProjectPageProps = {
   }>;
 };
 
+type ShareControlsProps = {
+  projectTitle: string;
+  facebookShareHref: string;
+  linkedInShareHref: string;
+};
+
 const awardLogoDimensions: Record<string, { width: number; height: number }> = {
   "/images/awards/archiproducts-awards-winner.jpg": { width: 2400, height: 981 },
+  "/images/awards/scacco-matto-epda-2023.png": { width: 570, height: 494 },
+  "/images/awards/scacco-matto-a-design-award-2023-silver.png": {
+    width: 1200,
+    height: 1800
+  },
+  "/images/awards/scacco-matto-taipei-design-award-2023.jpeg": {
+    width: 1240,
+    height: 760
+  },
   "/images/awards/european-product-design-award-2019-gold.png": {
     width: 2700,
     height: 2400
@@ -30,6 +45,44 @@ const awardLogoDimensions: Record<string, { width: number; height: number }> = {
   "/images/awards/muse-design-awards.png": { width: 464, height: 233 },
   "/images/awards/red-dot-award.jpg": { width: 461, height: 356 }
 };
+
+function ShareControls({
+  projectTitle,
+  facebookShareHref,
+  linkedInShareHref
+}: ShareControlsProps) {
+  return (
+    <div className="grid gap-4 border-t border-ivory/10 pt-7">
+      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Share</p>
+      <div className="flex flex-wrap gap-x-7 gap-y-4">
+        <a
+          href={facebookShareHref}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
+          aria-label={`Post ${projectTitle} to Facebook`}
+        >
+          <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
+            FB
+          </span>
+          <span>Post</span>
+        </a>
+        <a
+          href={linkedInShareHref}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
+          aria-label={`Post ${projectTitle} to LinkedIn`}
+        >
+          <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
+            IN
+          </span>
+          <span>Post</span>
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -102,7 +155,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     (image, index, allImages) =>
       allImages.findIndex((candidate) => candidate.src === image.src) === index
   );
-  const awardLogos: { src: string; title: string; href?: string }[] =
+  const awardLogos: {
+    src: string;
+    title: string;
+    href?: string;
+  }[] =
     project.details?.awardLogos ??
     (project.details?.awardLogo
       ? [
@@ -112,6 +169,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           }
         ]
       : []);
+  const awardLogoSizeClass =
+    project.details?.awardLogoSize === "compact"
+      ? "h-[4.2rem] sm:h-[4.9rem]"
+      : "h-24 sm:h-28";
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -191,7 +252,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                               width={dimensions.width}
                               height={dimensions.height}
                               sizes="(min-width: 640px) 280px, 70vw"
-                              className="h-24 w-auto max-w-full bg-white object-contain sm:h-28"
+                              className={`${awardLogoSizeClass} w-auto max-w-full bg-white object-contain`}
                               data-award-logo
                             />
                           );
@@ -322,45 +383,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       ))}
                     </div>
                   ) : null}
-                  {project.shareToFacebook || project.shareToLinkedIn ? (
-                    <div className="grid gap-4 border-t border-ivory/10 pt-7">
-                      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Share</p>
-                      <div className="flex flex-wrap gap-x-7 gap-y-4">
-                        {project.shareToFacebook ? (
-                          <a
-                            href={facebookShareHref}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
-                            aria-label={`Post ${project.title} to Facebook`}
-                          >
-                            <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
-                              FB
-                            </span>
-                            <span>Post</span>
-                          </a>
-                        ) : null}
-                        {project.shareToLinkedIn ? (
-                          <a
-                            href={linkedInShareHref}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
-                            aria-label={`Post ${project.title} to LinkedIn`}
-                          >
-                            <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
-                              IN
-                            </span>
-                            <span>Post</span>
-                          </a>
-                        ) : null}
-                      </div>
-                    </div>
-                  ) : null}
+                  <ShareControls
+                    projectTitle={project.title}
+                    facebookShareHref={facebookShareHref}
+                    linkedInShareHref={linkedInShareHref}
+                  />
                 </>
               ) : (
                 <>
                   <p>{project.summary}</p>
+                  <ShareControls
+                    projectTitle={project.title}
+                    facebookShareHref={facebookShareHref}
+                    linkedInShareHref={linkedInShareHref}
+                  />
                 </>
               )}
             </div>

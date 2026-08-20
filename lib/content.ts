@@ -24,6 +24,7 @@ export type Project = {
       title: string;
       href?: string;
     }[];
+    awardLogoSize?: "compact";
     clientLogo?: {
       src: string;
       title: string;
@@ -43,8 +44,6 @@ export type Project = {
   };
   detailImages?: string[];
   image: string;
-  shareToFacebook?: boolean;
-  shareToLinkedIn?: boolean;
   shareImage?: string;
   shareImageDimensions?: {
     width: number;
@@ -326,10 +325,19 @@ export const projects: Project[] = [
           title: "Archiproducts Design Awards 2024"
         },
         {
-          src: "/images/awards/european-product-design-award-2019-gold.png",
-          title: "European Product Design Award"
+          src: "/images/awards/scacco-matto-epda-2023.png",
+          title: "European Product Design Award 2023"
+        },
+        {
+          src: "/images/awards/scacco-matto-a-design-award-2023-silver.png",
+          title: "A' Design Award & Competition, Silver Winner 2023"
+        },
+        {
+          src: "/images/awards/scacco-matto-taipei-design-award-2023.jpeg",
+          title: "Taipei Design Award 2023"
         }
       ],
+      awardLogoSize: "compact",
       paragraphs: [
         "Scacco Matto is inspired by the radical design movement of the 1960s and encourages audiences to explore and interact with shapes and light. This portable lamp features three magnetically connected elements that can be transformed into five different light sculptures, sparking renewed interest in how light influences the appearance, ambiance, and atmosphere of homes.",
         "It can serve as a vase, a sculpture, or as a way to direct light to a specific area. The five combinations evoke the game of chess, which is reflected in the name Scacco Matto, the Italian term for checkmate."
@@ -354,8 +362,6 @@ export const projects: Project[] = [
       "/images/scacco-matto-detail-7.png"
     ],
     image: "/images/scacco-matto-award-winner.png",
-    shareToFacebook: true,
-    shareToLinkedIn: true,
     shareImage: "/images/scacco-matto-detail-3.png",
     shareImageDimensions: { width: 3839, height: 2880 },
     featured: true
