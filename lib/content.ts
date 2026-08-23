@@ -6,6 +6,7 @@ export type Project = {
   category: ProjectCategory;
   eyebrow: string;
   summary: string;
+  facebookPost: string;
   details?: {
     meta?: {
       label: string;
@@ -129,6 +130,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "For generations, Mandarin Oriental, Bangkok has been a sanctuary on the Chao Phraya River, inspiring royalty, writers, artists and travellers alike.",
+    facebookPost: `Mandarin Oriental riverside Bangkok
+
+For generations, Mandarin Oriental, Bangkok has been a sanctuary on the Chao Phraya River, shaped by the memory of royalty, writers, artists and travellers. As the 2025 renovation begins, the lighting language draws on that legacy through selected Murano pieces.
+
+A vintage wall sconce combines transparent frosted glass leaves with a chrome frame, while the Salice chandelier brings cascading translucent petals into the dining suite beneath its recessed dome.
+
+Together, these elements introduce a soft, handcrafted luminosity that sits comfortably between the hotel's history and its next chapter.`,
     details: {
       paragraphs: [
         "For generations, Mandarin Oriental, Bangkok has been a sanctuary on the Chao Phraya River, inspiring royalty, writers, artists and travellers alike. In 2025, the renovation begins."
@@ -164,6 +172,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A lighting study focused on path light devices that cast decorative patterned shadows across walkways and walls.",
+    facebookPost: `Deco path light
+
+Deco is a lighting study that begins with the relationship between light, pattern and material. The path light devices cast decorative, traditional-patterned shadows across walkways and adjacent walls, turning movement through the landscape into a sequence of illuminated textures.
+
+By integrating the fixture into a handrail system, utility and ornament become part of the same architectural gesture.
+
+The lighting remains dark-sky compliant, giving the pathway atmosphere and identity without contributing unnecessary light pollution.`,
     details: {
       meta: [
         { label: "Project type", value: "Path light" },
@@ -192,6 +207,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A sculptural light installation for SOMA Riverside Hotel inspired by the sea, fishing nets, and the bounty of the ocean.",
+    facebookPost: `Harvest
+
+Harvest is a sculptural light installation created for SOMA Riverside Hotel in Phnom Penh. It draws its form from the sea, fishing nets and the bounty of the ocean.
+
+The composition recalls a fisherman's steel net and becomes a tribute to the local fishing community, whose life and livelihood remain closely connected to the water.
+
+The work brings light into the hotel while inviting guests to pause, look up and reflect on the beauty and fragility of the ocean.`,
     details: {
       meta: [
         { label: "Project type", value: "Light sculptures" },
@@ -220,6 +242,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A sculptural floral chandelier that brings warm, intimate light and an organic statement presence to expansive interiors.",
+    facebookPost: `Bloom
+
+Bloom is a sculptural floral chandelier conceived for expansive interiors where light needs to feel warm, intimate and present without becoming heavy.
+
+Each flower carries a warm glow that softens the architectural space and works alongside the natural light from large windows. The composition gives the ceiling an organic focus while maintaining a calm, refined atmosphere.
+
+Designed for villas and interiors where craftsmanship and quiet luxury are central, Bloom turns the ceiling into a field of light and form.`,
     details: {
       meta: [
         { label: "Project type", value: "Sculptural chandelier" }
@@ -243,6 +272,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A collection of illuminated falcon sculptures designed for museum galleries and upscale hotel lobbies across the Middle East.",
+    facebookPost: `Falcons
+
+Falcons is a collection of illuminated sculptures made from laser-cut aluminium, cast brass and crystal. The works are conceived for museum galleries and hotel lobbies across the Middle East, where sculpture and light can establish a strong sense of arrival.
+
+The falcon has long been a valued partner in the hunt, linked to trust, respect and survival. This cultural memory informs the collection without reducing the pieces to an illustration.
+
+Each sculpture brings material precision and a luminous presence to the interior.`,
     details: {
       paragraphs: [
         "Introducing Falcons by francescocappuccio, a collection of illuminated sculptures crafted from laser-cut aluminum, cast brass, and crystals. Perfect for prestigious museum galleries and upscale hotel lobbies in the Middle East, these pieces are designed to elevate the atmosphere and create a space that embodies artistic sophistication.",
@@ -274,6 +310,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A capsule collection of five portable lamps inspired by the colors, villages, and coastal landscape of Liguria.",
+    facebookPost: `Cinque Terre
+
+Cinque Terre is a capsule collection of five portable lamps inspired by the Ligurian villages of Riomaggiore, Manarola, Corniglia, Vernazza and Monterosso.
+
+Each lamp is handcrafted from bent and painted metal, available in cordless LED and wired versions. The palette moves from red, orange and yellow to green and blue, echoing the houses, hills and sea of the Italian coast.
+
+Small functional details, including a gutter and hooks, allow the lamp to support everyday personal objects as well as light.`,
     details: {
       meta: [
         { label: "Project type", value: "Portable lamp" },
@@ -314,6 +357,13 @@ export const projects: Project[] = [
     eyebrow: "Portable lamp",
     summary:
       "A portable lamp inspired by the radical design movement of the 1960s, transforming three magnetically connected elements into five different light sculptures.",
+    facebookPost: `Scacco Matto
+
+Scacco Matto is a portable lamp inspired by the radical design movement of the 1960s. Three magnetically connected elements can be rearranged into five different light sculptures, inviting people to explore how form changes light, atmosphere and use.
+
+The object can become a vase, a sculpture, or a focused source of light for a specific area.
+
+Its five possible combinations recall the game of chess. Scacco Matto is the Italian term for checkmate.`,
     details: {
       meta: [
         { label: "Photo", value: "Gaetano Del Mauro" },
@@ -372,6 +422,13 @@ export const projects: Project[] = [
     category: "lighting",
     eyebrow: "Lighting & Products",
     summary: "A curved lighting facade and drop-off area for Pavilion Damansara Heights Mall.",
+    facebookPost: `The Pavilion Crown
+
+The Pavilion Crown is a curved lighting facade and drop-off area designed for the main entrance of Pavilion Damansara Heights Mall in Kuala Lumpur. The cladding also works as a functional sunshade, reducing solar gain while giving the arrival sequence a distinct identity.
+
+The pattern takes inspiration from Italian Bugnato, with hand-blown glass ornaments cut like princess diamonds to catch daylight as a subtle sparkle.
+
+At night, DMX control turns the facade into a pixelated field of light for celebrations. Recycled glass and aluminium support the project's material approach.`,
     details: {
       meta: [
         { label: "Prize", value: "Winner in LED Exterior Lighting Design" },
@@ -431,6 +488,13 @@ export const projects: Project[] = [
     category: "furniture",
     eyebrow: "Collectible pieces",
     summary: "A preview collection of furniture and objects focused on material clarity and domestic rituals.",
+    facebookPost: `Home collection 2026 preview
+
+This is a preview collection of furniture and objects developed around material clarity and domestic rituals.
+
+The pieces consider the familiar actions of everyday life and give them a more deliberate physical presence. Form, surface and use are treated together, allowing each object to remain quiet while contributing character to the home.
+
+More of the collection will follow as the work develops.`,
     image: "/images/project5.jpg",
     featured: true
   },
@@ -441,6 +505,13 @@ export const projects: Project[] = [
     eyebrow: "Curated Art",
     summary:
       "A crystalline bird carries a single flowing silk thread, becoming a luminous tribute to the Silk Road and the bonds between East and West.",
+    facebookPost: `The Bird and the Silk Thread
+
+The Bird and the Silk Thread captures a moment of luminous flight: a crystalline bird carries a single flowing ribbon, its silk thread.
+
+The work is a tribute to the Silk Road, where objects, ideas and cultures travelled between East and West. Precision-cut crystal wings refract light into shifting hues, while the thread becomes a symbol of the invisible but enduring connections between lands, people and generations.
+
+Light moves through the sculpture as trade once moved along the Silk Road, carrying stories of craft, beauty and exchange.`,
     details: {
       meta: [
         { label: "Field", value: "Curated art" },
@@ -477,6 +548,13 @@ export const projects: Project[] = [
     eyebrow: "Curated Art",
     summary:
       "A light sculpture for Sarath Ratanavadi that moves from framed constraint toward raw crystal, personal awakening, and inner light.",
+    facebookPost: `Framed
+
+Framed is a light sculpture designed for Sarath Ratanavadi in Bangkok. It considers the journey from constraint toward personal awakening and inner light.
+
+The central frame represents the pressures of modern life: conformity, external influence and imposed values. As the rigid frames detach and transform into raw crystal, the work moves toward the search for truth, freedom and self-guidance.
+
+The installation invites the viewer to look beyond fixed systems and to find meaning through conscious experience and choice.`,
     details: {
       meta: [
         { label: "Project type", value: "Art installation" },
@@ -533,6 +611,13 @@ export const projects: Project[] = [
     eyebrow: "Curated Art",
     summary:
       "A three-artist interpretive triptych merging Bangkok's hedonism with the cautionary tale of Adam and Eve from the Book of Genesis.",
+    facebookPost: `Original Sin
+
+Original Sin is a three-artist interpretive triptych that merges the hedonism of Bangkok with the cautionary tale of Adam and Eve.
+
+The work brings together a Thai-silk-inspired glass bust of Eve by Alexi Silk, a bronzed Garden of Eden by Francesco Cappuccio, and Serpentine with the Apple of Temptation by Grant Gramezy.
+
+A Thai king cobra waits below the suspended scene, interrupting its beauty with the threat of consequence. The installation relocates an ancient story of desire and temptation within a contemporary Bangkok atmosphere.`,
     details: {
       meta: [
         { label: "Project type", value: "Art installation" },
@@ -568,6 +653,13 @@ export const projects: Project[] = [
     eyebrow: "Furniture",
     summary:
       "A modern 2-in-1 furniture piece that combines a comfortable bench with an angled shoe storage rack for entryways, homes, and semi-public spaces.",
+    facebookPost: `Hill 2-in-1 Bench & Storage
+
+Hill is a compact furniture piece designed for the entryway. It combines a comfortable bench with an angled shoe-storage rack, bringing seating and organisation together in one clear profile.
+
+The steel construction gives the piece a strong, graphic presence while keeping the form minimal and practical for homes and semi-public spaces.
+
+Hill makes daily essentials easier to place, store and reach without adding visual clutter to the room.`,
     details: {
       meta: [
         { label: "Project type", value: "Bench / storage" },
@@ -601,6 +693,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A lighting project for Le Meridien Saigon that turns the idea of flowing water into a layered sequence of light, glass, and shadow.",
+    facebookPost: `Akuna lighting experience
+
+Akuna was created for Le Meridien Saigon, taking its name from an Australian Aboriginal term for flowing water. The project explores water in its three states: solid, liquid and gas.
+
+In the lift lobby, On the Rocks sconces suggest melting ice. In the private room, the ice becomes a chandelier with dimmable downlight. At the counter, ten illuminated drops express the liquid state, while the Waves chandelier creates a suspended splash above the chef table.
+
+Waves is built from 300 twisted Murano glass tubes and 800 straight glass tubes. Recycled glass and aluminium fittings form part of the material approach.`,
     details: {
       meta: [
         { label: "Project type", value: "Lighting design / product" },
@@ -648,6 +747,15 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       'A sculptural chandelier for Sofitel that transforms the Thai "Wai" greeting into orchid-like steel petals and 1200 handcrafted recycled-glass water droplets.',
+    facebookPost: `WAI
+
+Based on Sofitel's French heritage and Thailand's longstanding relationship with France, this sculptural chandelier reflects the traditional Thai greeting known as the Wai, a gesture of respect and friendship.
+
+The Wai combines a slight bow with palms pressed together. Two delicate orchid-like steel petals are arranged to capture the suspended moment before that gesture reaches its symmetrical culmination.
+
+The composition is completed by 1200 handcrafted water droplets made from recycled glass. Their placement was developed through an algorithm to suggest the splash created by the union of the two petals.
+
+The work also recalls Songkran and becomes a quiet symbol of welcome, inclusivity and graciousness.`,
     details: {
       meta: [
         { label: "Designer", value: "Francesco Cappuccio" },
@@ -693,6 +801,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "Inspired by Gio Ponti, this wall lamp pairs glowing frosted glass orbs with the sharp modern lines of a metallic base.",
+    facebookPost: `GIO'
+
+GIO' was designed for Sarath Ratanavadi at Stonehill Golf Club in Bangkok. Inspired by Gio Ponti, the wall lamp pairs glowing frosted glass orbs with the sharp, modern geometry of a metallic base.
+
+The stacked spheres create a soft ambient glow across the wall, while the rectangular backplate gives the composition a precise architectural anchor.
+
+The piece brings a compact mid-century character to the interior, turning functional illumination into a measured visual statement.`,
     details: {
       meta: [
         { label: "Project type", value: "Art installation" },
@@ -729,6 +844,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A bold geometric lighting composition pairing sculptural metal frames with double-engraved Murano glass.",
+    facebookPost: `Quadra
+
+Quadra was created for Gulf Energy Thailand at Stonehill Golf Club in Bangkok. The lighting family translates the project's strong architectural rhythm into pendant and wall luminaires.
+
+Sculptural metal frames are paired with double-engraved Murano glass. Its deep, hand-worked surface catches and refracts light, giving each square element crystalline depth and a warm, controlled glow.
+
+Repeated through the lobby and as wall lights, the modular composition brings continuity to the interior while balancing monumental scale with Venetian glass craftsmanship.`,
     details: {
       meta: [
         { label: "Project type", value: "Decorative lighting installation" },
@@ -772,6 +894,13 @@ export const projects: Project[] = [
     eyebrow: "Lighting & Products",
     summary:
       "A polycarbonate chandelier inspired by the warm glow of Amsterdam's canal-house windows reflected in the water.",
+    facebookPost: `Amsterdam
+
+Amsterdam began with a personal memory of the large canal-house windows glowing at night and reflecting into the dark water. At this northern latitude, the historic houses use generous windows to draw every possible ounce of daylight inside. At night, those windows become warm lightboxes.
+
+The Amsterdam chandelier translates that image into a large, bold polycarbonate form. Its shape is conceived as a window, using a diffuse glow to bring atmosphere as well as functional light.
+
+The work materialises a moment of the city: dark frames, warm interiors and their reflections on the canal.`,
     details: {
       meta: [
         { label: "Project type", value: "Chandelier" },
@@ -798,6 +927,13 @@ export const projects: Project[] = [
     eyebrow: "Furniture",
     summary:
       "An architectural bench and stool collection rooted in industrial urbanism, defined by checker-plate surfaces, colour, and shadow.",
+    facebookPost: `Metro
+
+Metro is a bench and stool collection rooted in industrial urbanism. It is an architectural study of volume, colour and shadow, with essential forms that can act as seating, surface or spatial marker.
+
+Checker-plate elements bring a tactile, civic character to the pieces. Black, white, yellow and orange finishes sharpen their graphic presence.
+
+Together, the bench and stools form a flexible family for interiors where furniture contributes directly to the composition of the room.`,
     details: {
       meta: [{ label: "Project type", value: "Bench & stool collection" }],
       paragraphs: [
@@ -814,6 +950,13 @@ export const projects: Project[] = [
     category: "furniture",
     eyebrow: "Furniture",
     summary: "Nexum — Connection, made solid.",
+    facebookPost: `Nexum
+
+Nexum, connection made solid, is a coffee table designed for Vertier. Its name comes from the Latin word for binding.
+
+Overlapping biomorphic geometries are brought together as one continuous, monolithic volume. The piece creates a fluid spatial node, disrupting orthogonal rigidity and anchoring circulation within dynamic architectural environments.
+
+A wood structure, leather cover and laminated glass define the table's material presence, balancing tactile softness with a precise, durable surface.`,
     details: {
       meta: [
         { label: "Project type", value: "Coffee table" },
@@ -827,12 +970,51 @@ export const projects: Project[] = [
       ]
     },
     detailImages: [
-      "/images/nexum-coffee-table-1.jpg",
+      "/images/nexum-coffee-table-hero.jpg",
       "/images/nexum-coffee-table-2.jpg",
       "/images/nexum-coffee-table-3.jpg",
       "/images/nexum-coffee-table-4.jpg"
     ],
-    image: "/images/nexum-coffee-table-hero.jpg"
+    image: "/images/nexum-coffee-table-1.jpg"
+  },
+  {
+    slug: "hinge",
+    title: "HINGE",
+    category: "furniture",
+    eyebrow: "Furniture",
+    summary:
+      "A coffee table that exposes its folded-steel structure, black marble and crystal-clear glass in one visible structural composition.",
+    facebookPost: `HINGE
+
+The HINGE Table is a deliberate exercise in structural honesty. Seeking to elevate the utilitarian language of the workshop sawhorse, the design reimagines a heavy-duty door hinge as its central structural spine.
+
+The folded steel base deliberately eliminates concealment, leaving high-load joints exposed so physical tension becomes the defining aesthetic. A 12 mm crystal-clear glass surface locks precisely over black marble, protecting the natural stone while giving the heavy composition an illusion of cantilevered weightlessness.
+
+Raw steel, decorative stone and invisible glass, held in visible tension.`,
+    details: {
+      meta: [
+        { label: "Project type", value: "Coffee table" },
+        { label: "Designed for", value: "Vertier" },
+        { label: "Materials", value: "Folded steel / black marble / 12 mm crystal-clear glass" }
+      ],
+      paragraphs: [
+        "The HINGE Table is a deliberate exercise in structural honesty. Seeking to elevate the utilitarian language of the workshop sawhorse, the design reimagines a heavy-duty door hinge as its central structural spine.",
+        "The folded steel base deliberately eliminates concealment, leaving high-load joints exposed so pure physical tension becomes the defining aesthetic.",
+        "To resolve the functional limits of porous natural stone, a 12 mm crystal-clear glass surface locks precisely over the black marble. This protects the material while granting the heavy composition an illusion of cantilevered weightlessness.",
+        "Raw steel, decorative stone, and invisible glass, held in visible tension."
+      ],
+      brand: "Vertier"
+    },
+    detailImages: [
+      "/images/hinge-table-detail-angle.jpg",
+      "/images/hinge-table-hinge-detail.jpg",
+      "/images/hinge-table-side.jpg",
+      "/images/hinge-table-marble-detail.jpg",
+      "/images/hinge-table-context.jpg"
+    ],
+    image: "/images/hinge-table-hero.jpg",
+    hoverImage: "/images/hinge-table-detail-angle.jpg",
+    imagePosition: "50% 65%"
   },
   {
     slug: "aries-sofa",
@@ -840,6 +1022,13 @@ export const projects: Project[] = [
     category: "furniture",
     eyebrow: "Furniture",
     summary: "A furniture piece with a soft architectural profile and an intentionally calm presence.",
+    facebookPost: `Aries Sofa
+
+Aries is a sofa inspired by the idea of strength wrapped in softness. Its deep, enveloping form and thick textures evoke the experience of sinking into warm, natural wool, like being held within the protective coat of a ram.
+
+The piece is made from sustainably sourced high-density wool and eco-friendly materials, creating a tactile connection to nature within the interior.
+
+Aries is conceived as a quiet sensory experience of warmth, texture and grounding calm.`,
     details: {
       meta: [
         { label: "Project type", value: "Sofa" },

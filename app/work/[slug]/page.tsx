@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { ExpandableImage } from "@/components/ExpandableImage";
+import { ProjectShareControls } from "@/components/ProjectShareControls";
 import { getProject, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
@@ -11,12 +12,6 @@ type ProjectPageProps = {
   params: Promise<{
     slug: string;
   }>;
-};
-
-type ShareControlsProps = {
-  projectTitle: string;
-  facebookShareHref: string;
-  linkedInShareHref: string;
 };
 
 const awardLogoDimensions: Record<string, { width: number; height: number }> = {
@@ -45,44 +40,6 @@ const awardLogoDimensions: Record<string, { width: number; height: number }> = {
   "/images/awards/muse-design-awards.png": { width: 464, height: 233 },
   "/images/awards/red-dot-award.jpg": { width: 461, height: 356 }
 };
-
-function ShareControls({
-  projectTitle,
-  facebookShareHref,
-  linkedInShareHref
-}: ShareControlsProps) {
-  return (
-    <div className="grid gap-4 border-t border-ivory/10 pt-7">
-      <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Share</p>
-      <div className="flex flex-wrap gap-x-7 gap-y-4">
-        <a
-          href={facebookShareHref}
-          target="_blank"
-          rel="noreferrer"
-          className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
-          aria-label={`Post ${projectTitle} to Facebook`}
-        >
-          <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
-            FB
-          </span>
-          <span>Post</span>
-        </a>
-        <a
-          href={linkedInShareHref}
-          target="_blank"
-          rel="noreferrer"
-          className="group inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory transition-colors hover:text-stone"
-          aria-label={`Post ${projectTitle} to LinkedIn`}
-        >
-          <span className="flex h-8 w-8 items-center justify-center border border-ivory/30 text-[10px] transition-colors group-hover:border-stone">
-            IN
-          </span>
-          <span>Post</span>
-        </a>
-      </div>
-    </div>
-  );
-}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -383,19 +340,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       ))}
                     </div>
                   ) : null}
-                  <ShareControls
+                  <ProjectShareControls
                     projectTitle={project.title}
                     facebookShareHref={facebookShareHref}
                     linkedInShareHref={linkedInShareHref}
+                    facebookPost={project.facebookPost}
                   />
                 </>
               ) : (
                 <>
                   <p>{project.summary}</p>
-                  <ShareControls
+                  <ProjectShareControls
                     projectTitle={project.title}
                     facebookShareHref={facebookShareHref}
                     linkedInShareHref={linkedInShareHref}
+                    facebookPost={project.facebookPost}
                   />
                 </>
               )}
