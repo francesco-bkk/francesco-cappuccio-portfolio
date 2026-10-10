@@ -1,4 +1,6 @@
-import Image from "next/image";
+import { ExpandableImage } from "@/components/ExpandableImage";
+import { BalancedImageRow } from "@/components/BalancedImageRow";
+import imageDimensions from "@/lib/project-image-dimensions.json";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
@@ -83,6 +85,13 @@ const pieces: CollectionPiece[] = [
 ];
 
 export default function VertierCollectionPage() {
+  const photograph = (src: string, alt: string, gallery: { src: string; alt: string }[], priority = false) => {
+    const [width, height] = (imageDimensions as Record<string, number[]>)[src];
+    return <ExpandableImage key={src} src={src} alt={alt} priority={priority}
+      className="" aspectRatio={width / height} imageFit="contain"
+      galleryImages={gallery} galleryIndex={gallery.findIndex((image) => image.src === src)}
+      sizes="(min-width: 1280px) 1184px, calc(100vw - 40px)" />;
+  };
   return (
     <main className="bg-obsidian">
       <div className="mx-auto max-w-7xl px-5 pb-24 pt-10 sm:px-8 lg:pb-32">
@@ -101,9 +110,7 @@ export default function VertierCollectionPage() {
         </header>
 
         <figure className="mt-8">
-          <div className="relative aspect-[4/5] overflow-hidden bg-panel sm:aspect-[16/11]">
-            <Image src="/images/vertier-collection-room.jpg" alt="Vertier collection with sculptural red furniture and HINGE table" fill priority sizes="(min-width: 1280px) 1184px, 100vw" className="object-cover object-center" />
-          </div>
+          {photograph("/images/vertier-collection-room.jpg", "Vertier collection with sculptural red furniture and HINGE table", [{ src: "/images/vertier-collection-room.jpg", alt: "Vertier collection with sculptural red furniture and HINGE table" }], true)}
           <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-stone">Vertier × Francesco Cappuccio / Collection view</figcaption>
         </figure>
 
@@ -113,37 +120,34 @@ export default function VertierCollectionPage() {
         </div>
 
         <div className="space-y-24 pt-20 lg:space-y-36 lg:pt-28">
-          {pieces.map((piece, index) => (
-            <section key={piece.name} className={`grid items-start gap-8 lg:gap-x-16 ${piece.wideSecondary ? "lg:grid-cols-[0.8fr_1.2fr] lg:gap-y-16" : "lg:grid-cols-2 lg:gap-y-10"}`}>
-              <div className={`space-y-5 ${index % 2 ? "lg:order-2" : ""}`}>
-                <div className={`relative overflow-hidden bg-panel ${piece.wideSecondary ? "aspect-[3/2]" : "aspect-[4/5]"}`}>
-                  <Image src={piece.image} alt={piece.alt} fill sizes={piece.wideSecondary ? "(min-width: 1024px) 680px, 100vw" : "(min-width: 1024px) 560px, 100vw"} className="object-cover" />
+          {pieces.map((piece) => {
+            const gallery = [
+              { src: piece.image, alt: piece.alt },
+              ...(piece.secondaryImage && piece.secondaryAlt ? [{ src: piece.secondaryImage, alt: piece.secondaryAlt }] : []),
+              ...(piece.tertiaryImage && piece.tertiaryAlt ? [{ src: piece.tertiaryImage, alt: piece.tertiaryAlt }] : [])
+            ];
+            const ratios = gallery.map(({ src }) => {
+              const [width, height] = (imageDimensions as Record<string, number[]>)[src];
+              return width / height;
+            });
+            return <section key={piece.name} className="space-y-8 lg:space-y-12">
+              <div className="grid gap-6 border-t border-ivory/15 pt-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+                <div>
+                  <div className="flex justify-between font-mono text-[10px] uppercase tracking-widest2 text-stone"><span>{piece.number} / 03</span><span>{piece.type}</span></div>
+                  <h2 className="mt-6 font-display text-[clamp(4.2rem,7vw,8rem)] font-light leading-[0.9] tracking-[-0.045em] text-ivory">{piece.name}</h2>
                 </div>
-                {piece.wideSecondary && <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">01 / Overhead view</p>}
-                {!piece.wideSecondary && piece.secondaryImage && piece.secondaryAlt && piece.secondaryWidth && piece.secondaryHeight && (
-                  <Image src={piece.secondaryImage} alt={piece.secondaryAlt} width={piece.secondaryWidth} height={piece.secondaryHeight} sizes="(min-width: 1024px) 560px, 100vw" className="h-auto w-full bg-panel" />
-                )}
-              </div>
-              <div className={`flex flex-col border-t border-ivory/15 pt-5 lg:pt-8 ${piece.tertiaryImage ? "h-full lg:self-stretch" : "lg:sticky lg:top-28 lg:self-start"} ${index % 2 ? "lg:order-1" : ""}`}>
-                <div className="flex justify-between font-mono text-[10px] uppercase tracking-widest2 text-stone"><span>{piece.number} / 03</span><span>{piece.type}</span></div>
-                <h2 className="mt-14 font-display text-[clamp(4.2rem,7vw,8rem)] font-light leading-[0.9] tracking-[-0.045em] text-ivory lg:mt-24">{piece.name}</h2>
-                <p className="mt-8 max-w-md text-base leading-8 text-stone">{piece.text}</p>
-                {piece.href && <Link href={piece.href} className="mt-8 inline-flex w-fit items-center gap-3 border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory hover:text-stone">Explore the project <ArrowUpRight size={15} aria-hidden="true" /></Link>}
-                {piece.tertiaryImage && piece.tertiaryAlt && piece.tertiaryWidth && piece.tertiaryHeight && (
-                  <figure className="mt-12 lg:mt-auto lg:pt-16">
-                    <Image src={piece.tertiaryImage} alt={piece.tertiaryAlt} width={piece.tertiaryWidth} height={piece.tertiaryHeight} sizes="(min-width: 1024px) 560px, 100vw" className="h-auto w-full bg-panel" />
-                    <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-widest2 text-stone">Side profile / HINGE</figcaption>
-                  </figure>
-                )}
-              </div>
-              {piece.wideSecondary && piece.secondaryImage && piece.secondaryAlt && piece.secondaryWidth && piece.secondaryHeight && (
-                <div className="grid gap-8 lg:order-3 lg:col-span-2 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-                  <Image src={piece.secondaryImage} alt={piece.secondaryAlt} width={piece.secondaryWidth} height={piece.secondaryHeight} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto w-full bg-panel" />
-                  <div className="border-t border-ivory/15 pt-5 font-mono text-[10px] uppercase tracking-widest2 text-stone lg:pt-8">02 / Profile view</div>
+                <div className="lg:self-end">
+                  <p className="max-w-xl text-base leading-8 text-stone">{piece.text}</p>
+                  {piece.href && <Link href={piece.href} className="mt-6 inline-flex w-fit items-center gap-3 border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory hover:text-stone">Explore the project <ArrowUpRight size={15} aria-hidden="true" /></Link>}
                 </div>
-              )}
-            </section>
-          ))}
+              </div>
+              <BalancedImageRow ratios={ratios} label={piece.name.toLowerCase()}>
+                {gallery.map(({ src, alt }) => photograph(src, alt, gallery))}
+              </BalancedImageRow>
+              {piece.wideSecondary && <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">01 / Overhead view · 02 / Profile view</p>}
+              {piece.tertiaryImage && <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">HINGE / Complete view · Exposed joint · Side profile</p>}
+            </section>;
+          })}
         </div>
 
         <CollectionShareControls url={absoluteUrl("/work/vertier-collection")} title={title} description={description} />

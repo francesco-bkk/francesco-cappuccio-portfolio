@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+
+const subscribeToShareSupport = () => () => {};
+const getShareSupport = () => typeof navigator.share === "function";
+const getServerShareSupport = () => false;
 
 type Props = { url: string; title: string; description: string };
 
 export function CollectionShareControls({ url, title, description }: Props) {
   const [copied, setCopied] = useState(false);
+  const supportsShare = useSyncExternalStore(subscribeToShareSupport, getShareSupport, getServerShareSupport);
   const facebook = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
   const linkedIn = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
 
@@ -25,7 +30,7 @@ export function CollectionShareControls({ url, title, description }: Props) {
         <a href={facebook} target="_blank" rel="noopener noreferrer" className="border-b border-ivory pb-2 hover:text-stone" aria-label={`Share ${title} on Facebook`}>Facebook ↗</a>
         <a href={linkedIn} target="_blank" rel="noopener noreferrer" className="border-b border-ivory pb-2 hover:text-stone" aria-label={`Share ${title} on LinkedIn`}>LinkedIn ↗</a>
         <button type="button" onClick={copyLink} className="border-b border-ivory pb-2 text-left hover:text-stone">{copied ? "Link copied" : "Copy link"}</button>
-        {typeof navigator !== "undefined" && typeof navigator.share === "function" && (
+        {supportsShare && (
           <button type="button" onClick={() => void navigator.share({ title, text: description, url }).catch(() => {})} className="border-b border-ivory pb-2 text-left hover:text-stone">More options ↗</button>
         )}
       </div>

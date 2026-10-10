@@ -19,6 +19,7 @@ type ExpandableImageProps = {
   priority?: boolean;
   sizes?: string;
   className?: string;
+  aspectRatio?: number;
   imagePosition?: string;
   hoverImagePosition?: string;
   imageFit?: "cover" | "contain";
@@ -35,6 +36,7 @@ export function ExpandableImage({
   priority = false,
   sizes = "(min-width: 640px) 50vw, 100vw",
   className = "aspect-[4/5]",
+  aspectRatio,
   imagePosition,
   hoverImagePosition,
   imageFit,
@@ -100,6 +102,7 @@ export function ExpandableImage({
         onBlur={() => setIsHoverImageActive(false)}
         onClick={openExpandedImage}
         className={`group relative w-full overflow-hidden bg-panel text-left ${className}`}
+        style={aspectRatio ? { aspectRatio } : undefined}
         aria-label={`Open larger view of ${alt}`}
       >
         <ParallaxImage
