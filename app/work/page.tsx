@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { featuredProjects, projects } from "@/lib/content";
-import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
+import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
+
+const workDescription =
+  "Explore Francesco Cappuccio's lighting design and light sculptures, alongside selected furniture and art collaborations.";
 
 const categories = [
   { label: "Lighting", value: "lighting" },
@@ -16,6 +19,7 @@ const lightingProjectOrder = [
   "mandarin-oriental-riverside-bangkok",
   "damansara",
   "wai",
+  "falcons",
   "akuna-lighting-experience",
   "harvest",
   "quadra",
@@ -24,31 +28,28 @@ const lightingProjectOrder = [
 
 export const metadata: Metadata = {
   title: "Selected Work",
-  description:
-    "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
+  description: workDescription,
   alternates: {
     canonical: absoluteUrl("/work")
   },
   openGraph: {
     title: `Work | ${siteName}`,
-    description:
-      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
+    description: workDescription,
     url: absoluteUrl("/work"),
     images: [
       {
-        url: imageUrl("/images/project1.jpg"),
-        width: 1200,
-        height: 900,
-        alt: "Cappuccio Design Studio work"
+        url: imageUrl("/images/bird-silk-thread-1.png"),
+        width: 1083,
+        height: 1655,
+        alt: "The Bird and the Silk Thread light sculpture by Francesco Cappuccio"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     title: `Selected Work | ${siteName}`,
-    description:
-      "Explore Cappuccio Design Studio projects across sculptural lighting, furniture, curated art, product design, and spatial works.",
-    images: [imageUrl(socialImage)]
+    description: workDescription,
+    images: [imageUrl("/images/bird-silk-thread-1.png")]
   }
 };
 
@@ -62,17 +63,20 @@ export default function WorkPage() {
             {String(projects.length).padStart(2, "0")} works
           </p>
         </div>
+        <p className="mt-6 max-w-xl text-sm leading-7 text-stone">
+          Lighting design and light sculpture, alongside selected furniture and art collaborations.
+        </p>
       </header>
 
-      <Link href="/work/vertier-collection" className="group mt-12 grid gap-6 border-t border-ivory/15 pt-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-12" aria-label="Explore the Vertier furniture collection">
-        <div className="relative aspect-[16/10] overflow-hidden bg-panel">
-          <Image src="/images/vertier-collection-room.jpg" alt="Vertier furniture collection" fill sizes="(min-width: 1024px) 680px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" />
+      <Link href="/work/the-bird-and-the-silk-thread" className="work-feature group mt-12 grid gap-8 border-t border-ivory/15 pt-6 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 md:grid-cols-[0.85fr_1.15fr] md:items-center lg:gap-16" aria-label="Explore The Bird and the Silk Thread light sculpture">
+        <div className="relative aspect-[1083/1655] w-full max-w-[440px] overflow-hidden bg-panel">
+          <Image src="/images/bird-silk-thread-1.png" alt="The Bird and the Silk Thread, a luminous crystal bird suspended above a flowing silk thread" fill priority sizes="(min-width: 640px) 440px, calc(100vw - 40px)" className="work-feature-image object-contain" />
         </div>
         <div className="pb-2">
-          <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Collection / Vertier</p>
-          <h2 className="mt-5 font-display text-5xl font-light leading-none text-ivory sm:text-7xl">Form in <em>tension.</em></h2>
-          <p className="mt-6 max-w-sm text-sm leading-7 text-stone">MUAY, NEXUM and HINGE by Francesco Cappuccio for Vertier.</p>
-          <span className="mt-7 inline-block border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory">View collection ↗</span>
+          <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Featured / Light sculpture</p>
+          <h2 className="mt-5 font-display text-5xl font-light leading-none text-ivory sm:text-6xl lg:text-7xl">The Bird and the <em>Silk Thread.</em></h2>
+          <p className="mt-6 max-w-md text-sm leading-7 text-stone">A luminous tribute to the Silk Road. A crystalline bird carries a flowing silk thread, bringing light, material and movement together in a sculptural installation.</p>
+          <span className="mt-7 inline-flex items-center gap-2 border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory">Explore the light sculpture <span className="work-feature-arrow inline-block" aria-hidden="true">↗</span></span>
         </div>
       </Link>
 
