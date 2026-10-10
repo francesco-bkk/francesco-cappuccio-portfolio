@@ -22,9 +22,9 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
   const sources = project.slug === "framed"
     ? [1, 8, 9, 2, 3, 4, 6, 7, 5].map((number) => `/images/framed-${number}.png`)
     : originalSources;
-  const gallery = sources.map((src, index) => ({ src, alt: index === 0
+  const gallery = sources.map((src, index) => ({ src, alt: project.imageMetadata?.descriptions[src] ?? (index === 0
     ? project.slug === "damansara" ? "The Pavilion Crown — illuminated glass facade detail" : project.title
-    : `${project.title} — project photograph ${index + 1}` }));
+    : `${project.title} — project photograph ${index + 1}`) }));
   const portraits = new Set([4, 5, 6, 8].map((number) => `/images/pavilion-crown-${number}.png`));
   const photograph = (src: string, priority = false, opening = false) => {
     const index = sources.indexOf(src);

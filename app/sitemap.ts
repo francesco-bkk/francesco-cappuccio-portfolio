@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/content";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, imageUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
@@ -54,7 +54,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl(`/work/${project.slug}`),
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: project.featured ? 0.85 : 0.75
+      priority: project.featured ? 0.85 : 0.75,
+      ...(project.imageMetadata
+        ? { images: Object.keys(project.imageMetadata.descriptions).map(imageUrl) }
+        : {})
     }))
   ];
 }

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ProjectGalleryLayout } from "@/components/ProjectGalleryLayout";
 import { getProject, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
+import imageDimensions from "@/lib/project-image-dimensions.json";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -51,18 +52,19 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const seoTitle = project.seoTitle ?? project.title;
   const shareImage = project.shareImage ?? project.image;
   const shareImageDimensions = project.shareImageDimensions ?? { width: 1200, height: 1500 };
 
   return {
-    title: project.title,
+    title: seoTitle,
     description: project.summary,
     alternates: {
       canonical: absoluteUrl(`/work/${project.slug}`)
     },
     openGraph: {
       type: "article",
-      title: `${project.title} | ${siteName}`,
+      title: `${seoTitle} | ${siteName}`,
       description: project.summary,
       url: absoluteUrl(`/work/${project.slug}`),
       images: [
@@ -70,13 +72,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
           url: imageUrl(shareImage),
           width: shareImageDimensions.width,
           height: shareImageDimensions.height,
-          alt: project.title
+          alt: project.imageMetadata?.descriptions[shareImage] ?? project.title
         }
       ]
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | ${siteName}`,
+      title: `${seoTitle} | ${siteName}`,
       description: project.summary,
       images: [imageUrl(shareImage)]
     }
@@ -105,13 +107,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           }
         ]
       : []);
+  const imageMetadata = project.imageMetadata;
+  const projectImages = imageMetadata
+    ? Object.entries(imageMetadata.descriptions).map(([src, description]) => {
+        const dimensions = (imageDimensions as Record<string, number[]>)[src];
+        return {
+          "@type": "ImageObject",
+          contentUrl: imageUrl(src),
+          description,
+          creditText: imageMetadata.creditText,
+          copyrightNotice: imageMetadata.copyrightNotice,
+          creator: {
+            "@type": "Person",
+            name: imageMetadata.creator,
+            url: absoluteUrl("/")
+          },
+          ...(dimensions ? { width: dimensions[0], height: dimensions[1] } : {})
+        };
+      })
+    : undefined;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
     description: project.summary,
     url: absoluteUrl(`/work/${project.slug}`),
-    image: imageUrl(project.image),
+    image: projectImages ?? imageUrl(project.image),
     creator: {
       "@type": "Person",
       name: "Francesco Cappuccio"

@@ -7,6 +7,13 @@ export type Project = {
   additionalCategories?: ProjectCategory[];
   eyebrow: string;
   summary: string;
+  seoTitle?: string;
+  imageMetadata?: {
+    creator: string;
+    creditText: string;
+    copyrightNotice: string;
+    descriptions: Record<string, string>;
+  };
   facebookPost: string;
   details?: {
     meta?: {
@@ -269,10 +276,27 @@ Designed for villas and interiors where craftsmanship and quiet luxury are centr
   {
     slug: "falcons",
     title: "Falcons",
+    seoTitle: "Falcons | Falcon Light Sculptures",
     category: "lighting",
-    eyebrow: "Lighting & Products",
+    eyebrow: "Falcon light sculptures",
     summary:
-      "A collection of illuminated falcon sculptures designed for museum galleries and upscale hotel lobbies across the Middle East.",
+      "Falcons by Francesco Cappuccio: illuminated falcon sculptures exploring wings and flight through aluminium, brass and crystal. View the original project images.",
+    shareImageDimensions: { width: 1062, height: 1597 },
+    imageMetadata: {
+      creator: "Francesco Cappuccio",
+      creditText: "Francesco Cappuccio",
+      copyrightNotice: "© Francesco Cappuccio",
+      descriptions: {
+        "/images/falcons-1.png": "Shahin, an illuminated falcon sculpture with raised wings suspended in a stone atrium, from Falcons by Francesco Cappuccio.",
+        "/images/falcons-2.png": "Nova falcon light sculpture with openwork feathers and points of light across its raised wing, in an arched stone interior.",
+        "/images/falcons-3.png": "Abstract falcon wing light sculpture with curved, patterned feather forms in a stone gallery with pointed arches.",
+        "/images/falcons-4.png": "Faras, two golden illuminated falcon forms suspended one above the other beneath a skylight in a tall stone atrium.",
+        "/images/falcons-5.png": "Silver-toned falcon light sculpture with a sweeping raised wing and long feather forms in a circular stone hall.",
+        "/images/falcons-6.png": "Three illuminated falcon sculptures suspended at different heights in a tall glazed lobby.",
+        "/images/falcons-7.png": "Abstract falcon light sculpture with two curved wings and overlapping illuminated feather forms against a dark background.",
+        "/images/falcons-8.png": "Falcon light sculpture with broad upward wings casting a patterned shadow across the floor of a circular stone hall."
+      }
+    },
     facebookPost: `Falcons
 
 Falcons is a collection of illuminated sculptures made from laser-cut aluminium, cast brass and crystal. The works are conceived for museum galleries and hotel lobbies across the Middle East, where sculpture and light can establish a strong sense of arrival.
@@ -281,9 +305,10 @@ The falcon has long been a valued partner in the hunt, linked to trust, respect 
 
 Each sculpture brings material precision and a luminous presence to the interior.`,
     details: {
+      meta: [{ label: "Design & images", value: "Francesco Cappuccio" }],
       paragraphs: [
-        "Introducing Falcons by francescocappuccio, a collection of illuminated sculptures crafted from laser-cut aluminum, cast brass, and crystals. Perfect for prestigious museum galleries and upscale hotel lobbies in the Middle East, these pieces are designed to elevate the atmosphere and create a space that embodies artistic sophistication.",
-        "In a historical tapestry rich with tradition, falcons were cherished partners in the hunt, vital to the sustenance of their communities. This ancient practice established an unbreakable bond between humans and these magnificent birds, an alliance forged in trust, respect, and a shared pursuit that transcends mere survival, turning each flight into a dance of devotion and harmony between two remarkable spirits."
+        "Falcons is a collection of illuminated falcon sculptures designed by Francesco Cappuccio. The collection explores figurative and abstract interpretations of wings and flight, conceived in laser-cut aluminium, cast brass and crystal for museum galleries and large hotel lobbies in the Middle East.",
+        "The falcon's place in Middle Eastern culture informs the collection: a hunting companion associated with trust, respect and survival. These original project images explore how suspended forms, patterned feathers and light can shape the experience of an interior."
       ],
       links: [
         {
@@ -502,11 +527,22 @@ More of the collection will follow as the work develops.`,
   {
     slug: "the-bird-and-the-silk-thread",
     title: "The Bird and the Silk Thread",
+    seoTitle: "The Bird and the Silk Thread | Crystal Sculpture",
     category: "curated-art",
     additionalCategories: ["lighting"],
     eyebrow: "Lighting / Curated Art",
     summary:
-      "A crystalline bird carries a single flowing silk thread, becoming a luminous tribute to the Silk Road and the bonds between East and West.",
+      "The Bird and the Silk Thread by Francesco Cappuccio: a crystal bird light sculpture inspired by the Silk Road. Explore the original design and detail images.",
+    shareImageDimensions: { width: 1083, height: 1655 },
+    imageMetadata: {
+      creator: "Francesco Cappuccio",
+      creditText: "Francesco Cappuccio",
+      copyrightNotice: "© Francesco Cappuccio",
+      descriptions: {
+        "/images/bird-silk-thread-1.png": "The Bird and the Silk Thread by Francesco Cappuccio: a suspended crystal bird with a raised wing and long flowing tail, carrying a ribbon in its beak in a tall stone atrium.",
+        "/images/bird-silk-thread-2.png": "Close-up of the crystal bird's head, showing its dark eye, translucent beak and layered crystal feathers, from The Bird and the Silk Thread."
+      }
+    },
     facebookPost: `The Bird and the Silk Thread
 
 The Bird and the Silk Thread captures a moment of luminous flight: a crystalline bird carries a single flowing ribbon, its silk thread.
@@ -516,12 +552,13 @@ The work is a tribute to the Silk Road, where objects, ideas and cultures travel
 Light moves through the sculpture as trade once moved along the Silk Road, carrying stories of craft, beauty and exchange.`,
     details: {
       meta: [
+        { label: "Design & images", value: "Francesco Cappuccio" },
         { label: "Field", value: "Lighting / Curated art" },
         { label: "Project type", value: "Light sculpture" },
         { label: "Material", value: "Precision-cut crystal" }
       ],
       paragraphs: [
-        "Grace in motion, The Bird and the Silk Thread captures a moment of luminous flight, a crystalline bird carrying a single flowing ribbon, its silk thread.",
+        "The Bird and the Silk Thread is a crystal bird light sculpture designed by Francesco Cappuccio. A suspended bird carries a single flowing ribbon, its silk thread, capturing a moment of luminous flight.",
         "This ethereal form becomes both a messenger and a symbol: a tribute to the ancient Silk Road, where caravans carried treasures, ideas, and cultures between East and West.",
         "The bird's radiant wings, crafted from precision-cut crystal, refract light into shifting hues, echoing the endless horizons of that historic journey. The silk thread it carries speaks of connection, the invisible yet enduring bonds that link lands, people, and generations.",
         "Light flows through the sculpture as trade once flowed along the Silk Road, weaving together stories of beauty, craftsmanship, and exchange.",
