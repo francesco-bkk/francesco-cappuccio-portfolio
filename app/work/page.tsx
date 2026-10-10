@@ -89,7 +89,11 @@ export default function WorkPage() {
           let categoryProjects =
             category.value === "featured"
               ? featuredProjects
-              : projects.filter((project) => project.category === category.value);
+              : projects.filter(
+                  (project) =>
+                    project.category === category.value ||
+                    project.additionalCategories?.some((value) => value === category.value)
+                );
           if (category.value === "lighting") {
             categoryProjects = [...categoryProjects].sort((a, b) => {
               const aIndex = lightingProjectOrder.indexOf(a.slug);

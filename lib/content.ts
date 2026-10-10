@@ -4,6 +4,7 @@ export type Project = {
   slug: string;
   title: string;
   category: ProjectCategory;
+  additionalCategories?: ProjectCategory[];
   eyebrow: string;
   summary: string;
   facebookPost: string;
@@ -502,7 +503,8 @@ More of the collection will follow as the work develops.`,
     slug: "the-bird-and-the-silk-thread",
     title: "The Bird and the Silk Thread",
     category: "curated-art",
-    eyebrow: "Curated Art",
+    additionalCategories: ["lighting"],
+    eyebrow: "Lighting / Curated Art",
     summary:
       "A crystalline bird carries a single flowing silk thread, becoming a luminous tribute to the Silk Road and the bonds between East and West.",
     facebookPost: `The Bird and the Silk Thread
@@ -514,7 +516,7 @@ The work is a tribute to the Silk Road, where objects, ideas and cultures travel
 Light moves through the sculpture as trade once moved along the Silk Road, carrying stories of craft, beauty and exchange.`,
     details: {
       meta: [
-        { label: "Field", value: "Curated art" },
+        { label: "Field", value: "Lighting / Curated art" },
         { label: "Project type", value: "Light sculpture" },
         { label: "Material", value: "Precision-cut crystal" }
       ],
@@ -545,7 +547,8 @@ Light moves through the sculpture as trade once moved along the Silk Road, carry
     slug: "framed",
     title: "Framed",
     category: "curated-art",
-    eyebrow: "Curated Art",
+    additionalCategories: ["lighting"],
+    eyebrow: "Lighting / Curated Art",
     summary:
       "A light sculpture for Sarath Ratanavadi that moves from framed constraint toward raw crystal, personal awakening, and inner light.",
     facebookPost: `Framed
