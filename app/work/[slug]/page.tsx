@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { ExpandableImage } from "@/components/ExpandableImage";
+import { PavilionProjectLayout } from "@/components/PavilionProjectLayout";
 import { ProjectShareControls } from "@/components/ProjectShareControls";
 import { getProject, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
@@ -161,7 +162,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+      {project.slug === "damansara" ? <PavilionProjectLayout project={project}
+        facebookShareHref={facebookShareHref} linkedInShareHref={linkedInShareHref} /> : <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
         <Link
           href="/work"
           className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-stone transition-colors duration-300 hover:text-ivory"
@@ -394,7 +396,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </main>
   );
 }
