@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { getImageDescription } from "@/lib/image-seo";
 import type { Project } from "@/lib/content";
 
 type ProjectCardProps = {
@@ -17,8 +18,8 @@ export function ProjectCard({ project, priority = false, spanClassName }: Projec
         <ParallaxImage
           src={project.image}
           hoverSrc={project.hoverImage}
-          alt={project.title}
-          hoverAlt={project.hoverImage ? `${project.title} illuminated at night` : undefined}
+          alt={getImageDescription(project.image, project.title)}
+          hoverAlt={project.hoverImage ? getImageDescription(project.hoverImage, project.title) : undefined}
           priority={priority}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={`relative overflow-hidden bg-panel ${imageClassName}`}

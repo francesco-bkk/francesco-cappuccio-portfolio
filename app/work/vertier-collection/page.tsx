@@ -7,6 +7,8 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { CollectionShareControls } from "@/components/CollectionShareControls";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
+import { collectionImages, getImageDescription, imagePageStructuredData, serializeStructuredData } from "@/lib/image-seo";
+
 const title = "Vertier × Francesco Cappuccio";
 const description = "A furniture collection for Vertier: MUAY, NEXUM and HINGE explore the balance of softness, volume and exposed structure.";
 
@@ -87,13 +89,14 @@ const pieces: CollectionPiece[] = [
 export default function VertierCollectionPage() {
   const photograph = (src: string, alt: string, gallery: { src: string; alt: string }[], priority = false) => {
     const [width, height] = (imageDimensions as Record<string, number[]>)[src];
-    return <ExpandableImage key={src} src={src} alt={alt} priority={priority}
+    return <ExpandableImage key={src} src={src} alt={getImageDescription(src, alt)} priority={priority}
       className="" aspectRatio={width / height} imageFit="contain"
-      galleryImages={gallery} galleryIndex={gallery.findIndex((image) => image.src === src)}
+      galleryImages={gallery.map(image => ({ ...image, alt: getImageDescription(image.src, image.alt) }))} galleryIndex={gallery.findIndex((image) => image.src === src)}
       sizes="(min-width: 1280px) 1184px, calc(100vw - 40px)" />;
   };
   return (
     <main className="bg-obsidian">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(imagePageStructuredData("/work/vertier-collection/", title, collectionImages)) }} />
       <div className="mx-auto max-w-7xl px-5 pb-24 pt-10 sm:px-8 lg:pb-32">
         <Link href="/work" className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest2 text-stone hover:text-ivory">
           <ArrowLeft size={15} aria-hidden="true" /> All work
@@ -106,6 +109,7 @@ export default function VertierCollectionPage() {
           <div className="max-w-md lg:justify-self-end">
             <p className="font-body text-lg font-light leading-relaxed text-ivory sm:text-xl">Three pieces, one material conversation: the softness of leather, the weight of sculptural volume and the precision of exposed steel.</p>
             <p className="mt-6 font-mono text-[10px] uppercase tracking-widest2 text-stone">Designed by Francesco Cappuccio for Vertier</p>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-stone">Photography: Vertier</p>
           </div>
         </header>
 

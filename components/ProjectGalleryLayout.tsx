@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { ExpandableImage } from "@/components/ExpandableImage";
 import { BalancedImageRow } from "@/components/BalancedImageRow";
 import { ProjectShareControls } from "@/components/ProjectShareControls";
+import { getImageDescription, getProjectImageCredits, getProjectImageSources } from "@/lib/image-seo";
 import type { Project } from "@/lib/content";
 import imageDimensions from "@/lib/project-image-dimensions.json";
 
@@ -15,16 +16,8 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
 }) {
   const hero = project.image;
   const entrance = "/images/pavilion-crown-7.png";
-  const originalSources = [hero, ...(project.hoverImage ? [project.hoverImage] : []), ...(project.detailImages ?? [
-    `/images/${project.slug}-detail-1.jpg`, `/images/${project.slug}-detail-2.jpg`
-  ])]
-    .filter((src, index, all) => all.indexOf(src) === index);
-  const sources = project.slug === "framed"
-    ? [1, 8, 9, 2, 3, 4, 6, 7, 5].map((number) => `/images/framed-${number}.png`)
-    : originalSources;
-  const gallery = sources.map((src, index) => ({ src, alt: project.imageMetadata?.descriptions[src] ?? (index === 0
-    ? project.slug === "damansara" ? "The Pavilion Crown — illuminated glass facade detail" : project.title
-    : `${project.title} — project photograph ${index + 1}`) }));
+  const sources = getProjectImageSources(project);
+  const gallery = sources.map(src => ({ src, alt: getImageDescription(src, project.title) }));
   const portraits = new Set([4, 5, 6, 8].map((number) => `/images/pavilion-crown-${number}.png`));
   const photograph = (src: string, priority = false, opening = false) => {
     const index = sources.indexOf(src);
@@ -32,7 +25,7 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
     return <ExpandableImage key={src} src={src} alt={gallery[index].alt} priority={priority || opening}
       className="" aspectRatio={width / height} imageFit="contain"
       hoverSrc={priority ? project.hoverImage : undefined}
-      hoverAlt={project.hoverImage ? `${project.title} illuminated at night` : undefined}
+      hoverAlt={project.hoverImage ? getImageDescription(project.hoverImage, project.title) : undefined}
       hoverGalleryIndex={project.hoverImage ? sources.indexOf(project.hoverImage) : undefined}
       imagePosition={priority ? project.imagePosition : undefined}
       hoverImagePosition={priority ? project.hoverImagePosition : undefined}
@@ -51,6 +44,7 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
     </BalancedImageRow>;
   };
   const details = project.details;
+  const imageCredits = getProjectImageCredits(project);
   const pairedOpening = !["damansara", "framed"].includes(project.slug) && sources.length > 1;
   const openingCount = sources.length === 3 ? 3 : 2;
   const [heroWidth, heroHeight] = (imageDimensions as Record<string, number[]>)[hero] ?? [4, 5];
@@ -77,7 +71,7 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
       <div className={`my-12 grid gap-10 border-b border-ivory/10 pb-12 lg:my-16 lg:gap-20 lg:pb-16 ${hasFacts ? "lg:grid-cols-[0.8fr_1.2fr]" : ""}`}>
         {hasFacts ? <div>
           <dl className="grid gap-x-6 gap-y-6 sm:grid-cols-2">
-            {details?.meta?.map((item) => <div key={item.label}>
+            {[...imageCredits, ...(details?.meta ?? [])].map((item) => <div key={item.label}>
               <dt className="font-mono text-[10px] uppercase tracking-widest2 text-stone">{item.label}</dt>
               <dd className="mt-2 text-sm leading-6 text-ivory">{item.value}</dd>
             </div>)}
@@ -97,6 +91,7 @@ export function ProjectGalleryLayout({ project, facebookShareHref, linkedInShare
           </div>}
         </div> : null}
         <div className="grid max-w-3xl content-start gap-6 text-base leading-7 text-stone">
+          {!hasFacts && imageCredits.map(item => <p key={item.label} className="font-mono text-[10px] uppercase tracking-widest2">{item.label}: {item.value}</p>)}
           {details?.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           {!details && <p>{project.summary}</p>}
           {details?.features?.map((feature) => <div key={feature.title}>

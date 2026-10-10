@@ -5,6 +5,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { featuredProjects, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
 
+import { getImageDescription, imagePageStructuredData, serializeStructuredData } from "@/lib/image-seo";
+
 const workDescription =
   "Explore Francesco Cappuccio's lighting design and light sculptures, alongside selected furniture and art collaborations.";
 
@@ -56,6 +58,7 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <main className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(imagePageStructuredData("/work/", "Selected work by Francesco Cappuccio", ["/images/bird-silk-thread-1.png", ...projects.flatMap(project => [project.image, ...(project.hoverImage ? [project.hoverImage] : [])])])) }} />
       <header className="border-t border-ivory/10 pt-10">
         <div className="flex items-start justify-between gap-8">
           <h1 className="studio-page-title lowercase">work</h1>
@@ -70,7 +73,7 @@ export default function WorkPage() {
 
       <Link href="/work/the-bird-and-the-silk-thread" className="work-feature group mt-12 grid gap-8 border-t border-ivory/15 pt-6 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 md:grid-cols-[0.85fr_1.15fr] md:items-center lg:gap-16" aria-label="Explore The Bird and the Silk Thread light sculpture">
         <div className="relative aspect-[1083/1655] w-full max-w-[440px] overflow-hidden bg-panel">
-          <Image src="/images/bird-silk-thread-1.png" alt="The Bird and the Silk Thread, a luminous crystal bird suspended above a flowing silk thread" fill priority sizes="(min-width: 640px) 440px, calc(100vw - 40px)" className="work-feature-image object-contain" />
+          <Image src="/images/bird-silk-thread-1.png" alt={getImageDescription("/images/bird-silk-thread-1.png", "The Bird and the Silk Thread")} fill priority sizes="(min-width: 640px) 440px, calc(100vw - 40px)" className="work-feature-image object-contain" />
         </div>
         <div className="pb-2">
           <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Featured / Light sculpture</p>

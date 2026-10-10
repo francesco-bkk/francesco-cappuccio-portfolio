@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { awards, studio } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 
+import { getImageDescription, imagePageStructuredData, profileImages, serializeStructuredData } from "@/lib/image-seo";
+
 const description =
   "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
 
@@ -39,6 +41,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(imagePageStructuredData("/about/", "About Francesco Cappuccio", profileImages)) }} />
       <section className="border-b border-ivory/10 bg-surface" aria-label="About Francesco Cappuccio">
         <div className="mx-auto max-w-7xl px-5 pb-16 pt-14 sm:px-8 lg:pb-24 lg:pt-20">
           <div className="flex items-center justify-between gap-6 border-t border-ivory/15 pt-5 font-mono text-[10px] uppercase tracking-widest2 text-stone">
@@ -83,7 +86,7 @@ export default function AboutPage() {
           <div className="relative aspect-[4/5] overflow-hidden bg-panel sm:aspect-[5/4] lg:aspect-[4/5]">
             <Image
               src="/images/studio-portrait.jpg"
-              alt="Francesco Cappuccio in the studio"
+              alt={getImageDescription("/images/studio-portrait.jpg", "Francesco Cappuccio portrait")}
               fill
               sizes="(min-width: 1024px) 520px, (min-width: 640px) 90vw, calc(100vw - 40px)"
               className="object-cover object-[50%_14%] grayscale contrast-[0.96]"
@@ -124,7 +127,7 @@ export default function AboutPage() {
             <figure className="relative aspect-[3/4] w-full max-w-[34rem] overflow-hidden bg-panel lg:justify-self-end">
               <Image
                 src="/images/francesco-at-work.jpg"
-                alt="Francesco Cappuccio examining an object"
+                alt={getImageDescription("/images/francesco-at-work.jpg", "Francesco Cappuccio examining an object")}
                 fill
                 sizes="(min-width: 1024px) 510px, (min-width: 640px) 80vw, calc(100vw - 40px)"
                 className="object-cover object-[50%_48%] grayscale contrast-[0.96]"

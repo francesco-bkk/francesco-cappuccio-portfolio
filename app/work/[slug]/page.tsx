@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ProjectGalleryLayout } from "@/components/ProjectGalleryLayout";
 import { getProject, projects } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName } from "@/lib/seo";
-import imageDimensions from "@/lib/project-image-dimensions.json";
+import { getImageDescription, getImageStructuredData, getProjectImageSources, getProjectSearchMetadata, serializeStructuredData } from "@/lib/image-seo";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -52,34 +52,36 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
-  const seoTitle = project.seoTitle ?? project.title;
+  const search = getProjectSearchMetadata(project);
+  const seoTitle = search.title;
   const shareImage = project.shareImage ?? project.image;
-  const shareImageDimensions = project.shareImageDimensions ?? { width: 1200, height: 1500 };
+  const shareImageData = getImageStructuredData(shareImage);
+  const shareImageDimensions = { width: shareImageData.width ?? 1200, height: shareImageData.height ?? 1500 };
 
   return {
     title: seoTitle,
-    description: project.summary,
+    description: search.description,
     alternates: {
-      canonical: absoluteUrl(`/work/${project.slug}`)
+      canonical: absoluteUrl(`/work/${project.slug}/`)
     },
     openGraph: {
       type: "article",
       title: `${seoTitle} | ${siteName}`,
-      description: project.summary,
-      url: absoluteUrl(`/work/${project.slug}`),
+      description: search.description,
+      url: absoluteUrl(`/work/${project.slug}/`),
       images: [
         {
           url: imageUrl(shareImage),
           width: shareImageDimensions.width,
           height: shareImageDimensions.height,
-          alt: project.imageMetadata?.descriptions[shareImage] ?? project.title
+          alt: getImageDescription(shareImage, project.title)
         }
       ]
     },
     twitter: {
       card: "summary_large_image",
       title: `${seoTitle} | ${siteName}`,
-      description: project.summary,
+      description: search.description,
       images: [imageUrl(shareImage)]
     }
   };
@@ -107,32 +109,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           }
         ]
       : []);
-  const imageMetadata = project.imageMetadata;
-  const projectImages = imageMetadata
-    ? Object.entries(imageMetadata.descriptions).map(([src, description]) => {
-        const dimensions = (imageDimensions as Record<string, number[]>)[src];
-        return {
-          "@type": "ImageObject",
-          contentUrl: imageUrl(src),
-          description,
-          creditText: imageMetadata.creditText,
-          copyrightNotice: imageMetadata.copyrightNotice,
-          creator: {
-            "@type": "Person",
-            name: imageMetadata.creator,
-            url: absoluteUrl("/")
-          },
-          ...(dimensions ? { width: dimensions[0], height: dimensions[1] } : {})
-        };
-      })
-    : undefined;
+  const projectImages = getProjectImageSources(project).map(getImageStructuredData);
+  const search = getProjectSearchMetadata(project);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
-    description: project.summary,
-    url: absoluteUrl(`/work/${project.slug}`),
-    image: projectImages ?? imageUrl(project.image),
+    description: search.description,
+    mainEntityOfPage: absoluteUrl(`/work/${project.slug}/`),
+    url: absoluteUrl(`/work/${project.slug}/`),
+    image: projectImages,
     creator: {
       "@type": "Person",
       name: "Francesco Cappuccio"
@@ -154,7 +140,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: serializeStructuredData(structuredData) }}
       />
       <ProjectGalleryLayout project={project}
         awards={awardLogos.map((award) => ({ ...award, ...(awardLogoDimensions[award.src] ?? { width: 1600, height: 900 }) }))}

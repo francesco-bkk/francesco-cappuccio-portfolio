@@ -7,6 +7,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { awards, featuredProjects, studio } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteDescription, siteName, socialImage } from "@/lib/seo";
 
+import { getImageDescription, imagePageStructuredData, serializeStructuredData } from "@/lib/image-seo";
+
 const landingProject = {
   title: "The Pavilion Crown",
   href: "/work/damansara",
@@ -47,6 +49,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(imagePageStructuredData("/", "Francesco Cappuccio portfolio", [landingProject.image, ...featuredProjects.flatMap(project => [project.image, ...(project.hoverImage ? [project.hoverImage] : [])]), "/images/vertier-collection-room.jpg", "/images/project3.jpg", "/images/studio-portrait.jpg"])) }} />
       <section className="border-b border-ivory/10 bg-obsidian">
         <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:pb-20">
           <Link
@@ -56,7 +59,7 @@ export default function Home() {
           >
             <ParallaxImage
               src={landingProject.image}
-              alt={landingProject.title}
+              alt={getImageDescription(landingProject.image, landingProject.title)}
               priority
               sizes="(min-width: 1280px) 1184px, calc(100vw - 40px)"
               className="absolute inset-0"
@@ -127,7 +130,7 @@ export default function Home() {
               <div className="relative aspect-[1.12/1] overflow-hidden bg-transparent">
                 <Image
                   src="/images/project3.jpg"
-                  alt="Scacco Matto portable lamp"
+                  alt={getImageDescription("/images/project3.jpg", "Scacco Matto portable lamp")}
                   fill
                   sizes="(min-width: 1024px) 620px, calc(100vw - 40px)"
                   className="scale-[1.18] object-contain grayscale contrast-[0.96] transition duration-700 group-hover:scale-[1.2] group-hover:grayscale-[70%]"
@@ -165,7 +168,7 @@ export default function Home() {
             <div className="relative aspect-square w-full self-start overflow-hidden bg-panel lg:aspect-[4/5]">
               <Image
                 src="/images/studio-portrait.jpg"
-                alt="Francesco Cappuccio portrait"
+                alt={getImageDescription("/images/studio-portrait.jpg", "Francesco Cappuccio portrait")}
                 fill
                 sizes="(min-width: 1024px) 45vw, calc(100vw - 40px)"
                 className="scale-[1.12] object-cover object-[50%_14%] grayscale contrast-[0.96] transition-all duration-700 hover:grayscale-[70%]"
