@@ -92,20 +92,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-ivory/10 bg-obsidian">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24">
-          <div className="mb-8 flex items-center justify-between border-t border-ivory/15 pt-5 font-mono text-[10px] uppercase tracking-widest2 text-stone">
-            <span>Featured collaboration</span><span>Vertier / Furniture</span>
-          </div>
-          <Link href="/work/vertier-collection" className="group grid gap-7 lg:grid-cols-[1.35fr_0.65fr] lg:items-end lg:gap-12" aria-label="Explore the Vertier furniture collection">
-            <div className="relative aspect-[4/5] overflow-hidden bg-panel sm:aspect-[16/10]">
-              <Image src="/images/vertier-collection-room.jpg" alt="Vertier furniture collection with red sculptural seating and HINGE table" fill sizes="(min-width: 1024px) 760px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" />
+      <section aria-labelledby="akuna-heading" className="border-b border-ivory/10 bg-obsidian">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+          <Link
+            href="/work/akuna-lighting-experience"
+            aria-label="View the Akuna restaurant lighting project"
+            className="group grid items-end gap-6 lg:grid-cols-[1.65fr_0.75fr] lg:gap-12"
+          >
+            <div className="relative aspect-[3/2] overflow-hidden bg-panel">
+              <Image
+                src="/images/project6.jpg"
+                alt={getImageDescription("/images/project6.jpg", "Sculptural glass lighting above the dining room at Akuna")}
+                fill
+                sizes="(min-width: 1280px) 806px, (min-width: 1024px) 65vw, calc(100vw - 40px)"
+                className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.015]"
+              />
             </div>
-            <div className="border-t border-ivory/15 pt-6 lg:border-0 lg:pb-3">
-              <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Francesco Cappuccio × Vertier</p>
-              <h2 className="mt-7 font-display text-[clamp(4.5rem,8vw,8rem)] font-light leading-[0.82] tracking-[-0.045em] text-ivory">Form in<br /><em>tension.</em></h2>
-              <p className="mt-8 max-w-sm text-sm leading-7 text-stone">MUAY, NEXUM and HINGE. Three furniture pieces shaped by softness, volume and structure.</p>
-              <span className="mt-10 inline-flex border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory">Explore the collection ↗</span>
+            <div className="border-t border-ivory/15 pt-5 lg:pb-1">
+              <h2 id="akuna-heading" className="font-display text-5xl font-light leading-none tracking-[-0.035em] text-ivory lg:text-7xl">Akuna</h2>
+              <p className="mt-4 max-w-sm font-body text-lg leading-snug text-stone">Restaurant lighting at Le Méridien Saigon</p>
+              <span className="mt-8 inline-flex items-center gap-3 border-b border-ivory pb-1 font-mono text-[10px] uppercase tracking-widest2 text-ivory">
+                View project <ArrowRight aria-hidden="true" size={15} strokeWidth={1.5} />
+              </span>
             </div>
           </Link>
         </div>
@@ -159,6 +167,25 @@ export default function Home() {
               <ProjectCard key={project.slug} project={project} priority={index < 2} />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-ivory/10 bg-obsidian">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24">
+          <div className="mb-8 flex items-center justify-between border-t border-ivory/15 pt-5 font-mono text-[10px] uppercase tracking-widest2 text-stone">
+            <span>Featured collaboration</span><span>Vertier / Furniture</span>
+          </div>
+          <Link href="/work/vertier-collection" className="group grid gap-7 lg:grid-cols-[1.35fr_0.65fr] lg:items-end lg:gap-12" aria-label="Explore the Vertier furniture collection">
+            <div className="relative aspect-[4/5] overflow-hidden bg-panel sm:aspect-[16/10]">
+              <Image src="/images/vertier-collection-room.jpg" alt="Vertier furniture collection with red sculptural seating and HINGE table" fill sizes="(min-width: 1024px) 760px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" />
+            </div>
+            <div className="border-t border-ivory/15 pt-6 lg:border-0 lg:pb-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">Francesco Cappuccio × Vertier</p>
+              <h2 className="mt-7 font-display text-[clamp(4.5rem,8vw,8rem)] font-light leading-[0.82] tracking-[-0.045em] text-ivory">Form in<br /><em>tension.</em></h2>
+              <p className="mt-8 max-w-sm text-sm leading-7 text-stone">MUAY, NEXUM and HINGE. Three furniture pieces shaped by softness, volume and structure.</p>
+              <span className="mt-10 inline-flex border-b border-ivory pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory">Explore the collection ↗</span>
+            </div>
+          </Link>
         </div>
       </section>
 
