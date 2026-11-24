@@ -17,7 +17,7 @@ export default function PrivacyPage() {
           <h1 className="studio-page-title mt-8">Privacy</h1>
         </div>
         <div className="max-w-3xl space-y-8 text-base font-light leading-8 text-stone">
-          <p className="text-ivory">Last updated: 13 July 2026</p>
+          <p className="text-ivory">Last updated: 24 November 2026</p>
           <p>
             This portfolio does not use advertising cookies, user accounts, or
             on-site analytics. Standard technical logs may be processed by the
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
           <p>
             External links are governed by the privacy policies of their
             respective services. To ask about, correct, or delete information
-            you have emailed to the studio, contact{" "}
+            you have emailed to Francesco Cappuccio, contact{" "}
             <a
               href={`mailto:${contactEmail}`}
               className="text-ivory underline decoration-ivory/25 underline-offset-4"
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
             href="/contact"
             className="inline-block font-mono text-[11px] uppercase tracking-widest text-ivory underline decoration-ivory/25 underline-offset-4"
           >
-            Contact the studio
+            Contact Francesco
           </Link>
         </div>
       </div>

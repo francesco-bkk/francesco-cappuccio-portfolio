@@ -19,14 +19,14 @@ const homeShareImage = socialImage;
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${siteName} | Lighting, Furniture & Product Design`
+    absolute: `${siteName} | Lighting Designer`
   },
   description: siteDescription,
   alternates: {
     canonical: absoluteUrl("/")
   },
   openGraph: {
-    title: `${siteName} | Lighting, Furniture & Product Design`,
+    title: `${siteName} | Lighting Designer`,
     description: siteDescription,
     url: absoluteUrl("/"),
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Lighting, Furniture & Product Design`,
+    title: `${siteName} | Lighting Designer`,
     description: siteDescription,
     images: [imageUrl(homeShareImage)]
   }
@@ -186,7 +186,7 @@ export default function Home() {
                 href="/about"
                 className="group mt-10 inline-flex items-center gap-4 border-b border-ivory pb-1 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-stone"
               >
-                Discover the studio
+                About Francesco
                 <ArrowRight
                   aria-hidden="true"
                   size={16}

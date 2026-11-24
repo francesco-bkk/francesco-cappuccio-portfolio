@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { navigation, socialLinks, studio } from "@/lib/content";
 
+import { contactEmail } from "@/lib/seo";
+
 export function Footer() {
   return (
     <footer className="border-t border-ivory/10 bg-surface text-ivory">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-8 md:grid-cols-[1.15fr_auto_1fr] md:gap-16 lg:py-16">
         <div>
           <p className="font-mono text-[11px] font-medium uppercase tracking-widest2 text-ivory">{studio.name}</p>
-          <p className="mt-5 max-w-xs text-sm leading-6 text-stone">{studio.address}</p>
+          <a href={`mailto:${contactEmail}`} className="mt-4 inline-block text-sm leading-6 text-stone underline decoration-ivory/20 underline-offset-4 hover:text-ivory">{contactEmail}</a>
         </div>
 
         <div className="flex gap-6 md:justify-center">

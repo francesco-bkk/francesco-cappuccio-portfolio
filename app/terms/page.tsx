@@ -16,10 +16,10 @@ export default function TermsPage() {
           <h1 className="studio-page-title mt-8">Terms</h1>
         </div>
         <div className="max-w-3xl space-y-8 text-base font-light leading-8 text-stone">
-          <p className="text-ivory">Last updated: 13 July 2026</p>
+          <p className="text-ivory">Last updated: 24 November 2026</p>
           <p>
-            This website presents the work of Francesco Cappuccio and
-            Cappuccio Design Studio. Its content is provided for portfolio and
+            This website presents the work of Francesco Cappuccio.
+            Its content is provided for portfolio and
             general information purposes.
           </p>
           <p>

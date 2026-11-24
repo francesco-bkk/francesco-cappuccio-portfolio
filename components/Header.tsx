@@ -20,7 +20,8 @@ export function Header() {
           href="/"
           className="min-w-0 max-w-[calc(100vw-6rem)] truncate font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ivory transition-colors duration-300 hover:text-stone sm:max-w-none sm:text-sm sm:tracking-[0.14em] lg:text-[15px]"
         >
-          {studio.name}
+          <span className="block">{studio.name}</span>
+          <span className="mt-1 block font-body text-[11px] font-normal normal-case leading-tight tracking-normal text-stone sm:text-xs">{studio.profession}</span>
         </Link>
 
         <nav className="hidden items-center gap-10 sm:flex">

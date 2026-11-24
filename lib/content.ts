@@ -78,7 +78,8 @@ export const socialLinks = [
 ];
 
 export const studio = {
-  name: "FRANCESCOCAPPUCCIO",
+  name: "Francesco Cappuccio",
+  profession: "Lighting Designer",
   practiceTitle: "The practice",
   quote:
     '"The greatest challenge of being a creative individual is to maintain a childlike imagination while growing the constraints of acquired knowledge."',
@@ -95,7 +96,6 @@ export const studio = {
     "A design conceived in Italy must evolve for a tropical courtyard, an Asian resort, or a desert interior. Its identity remains consistent, but its expression belongs to the place.",
     "Consistency is the promise. Difference is the proof."
   ],
-  address: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi, Bangkok 10240, Thailand",
   copyright: "© 2026 Francesco Cappuccio"
 };
 

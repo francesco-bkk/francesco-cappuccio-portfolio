@@ -8,7 +8,7 @@ import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
 import { getImageDescription, imagePageStructuredData, profileImages, serializeStructuredData } from "@/lib/image-seo";
 
 const description =
-  "The practice, philosophy, and international recognition of Francesco Cappuccio and Cappuccio Design Studio.";
+  "The work and design philosophy of Francesco Cappuccio, lighting designer.";
 
 function renderEmphasis(text: string) {
   return text.split(/(\*[^*]+\*)/g).map((part, index) =>
@@ -93,7 +93,7 @@ export default function AboutPage() {
             />
           </div>
           <div className="max-w-2xl border-t border-ivory/15 pt-6">
-            <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">01 / The designer</p>
+            <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone">01 / Lighting designer</p>
             <h2 id="francesco-heading" className="mt-7 font-body text-[clamp(2.8rem,5vw,5rem)] font-light leading-[0.98] tracking-[-0.04em] text-ivory">
               Francesco Cappuccio
             </h2>

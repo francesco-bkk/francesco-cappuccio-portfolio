@@ -3,7 +3,7 @@ export const siteUrl = "https://www.francescocappuccio.com";
 export const siteName = "Francesco Cappuccio";
 
 export const siteDescription =
-  "Personal portfolio of designer Francesco Cappuccio, featuring sculptural lighting, collectible furniture, product design, and spatial works.";
+  "Architectural lighting and bespoke luminaires by Francesco Cappuccio, with selected furniture, objects and art collaborations.";
 
 export const contactEmail = "francesco@francescocappuccio.com";
 

@@ -28,13 +28,12 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Designer`,
+    default: `${siteName} | Lighting Designer`,
     template: `%s | ${siteName}`
   },
   description: siteDescription,
   keywords: [
     "Francesco Cappuccio",
-    "Cappuccio Design Studio",
     "lighting design",
     "furniture design",
     "product design",
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: `${siteName} | Designer`,
+    title: `${siteName} | Lighting Designer`,
     description: siteDescription,
     images: [
       {
@@ -67,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Designer`,
+    title: `${siteName} | Lighting Designer`,
     description: siteDescription,
     images: [imageUrl(socialImage)]
   },
@@ -96,35 +95,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
-        "@id": `${siteUrl}/#studio`,
-        name: "Cappuccio Design Studio",
-        alternateName: "CappuccioDesignStudio",
-        description:
-          "The Bangkok-based design practice led by Francesco Cappuccio.",
-        url: siteUrl,
-        email: contactEmail,
-        image: imageUrl(socialImage),
-        founder: { "@id": `${siteUrl}/#francesco-cappuccio` },
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "2/1, Soi Ramkhamhaeng 12, Yeak 4, Hua Mak, Bangkapi",
-          addressLocality: "Bangkok",
-          postalCode: "10240",
-          addressCountry: "TH"
-        },
-        areaServed: "Worldwide",
-        sameAs: socialLinks.map((link) => link.href)
-      },
-      {
         "@type": "Person",
         "@id": `${siteUrl}/#francesco-cappuccio`,
         name: "Francesco Cappuccio",
-        jobTitle: "Designer and Architect",
+        jobTitle: studio.profession,
         url: siteUrl,
         email: contactEmail,
         image: imageUrl("/images/studio-portrait.jpg"),
-        worksFor: { "@id": `${siteUrl}/#studio` },
         address: {
           "@type": "PostalAddress",
           addressLocality: "Bangkok",

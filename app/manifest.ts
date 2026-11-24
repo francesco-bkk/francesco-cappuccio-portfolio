@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Francesco Cappuccio",
     short_name: "Francesco Cappuccio",
     description:
-      "The personal portfolio of designer Francesco Cappuccio.",
+      "The personal portfolio of lighting designer Francesco Cappuccio.",
     start_url: "/",
     display: "standalone",
     background_color: "#f7f5f0",
