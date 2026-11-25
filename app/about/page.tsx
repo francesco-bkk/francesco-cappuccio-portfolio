@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import type { Metadata } from "next";
 import { awards, studio } from "@/lib/content";
 import { absoluteUrl, imageUrl, siteName, socialImage } from "@/lib/seo";
@@ -9,6 +9,9 @@ import { getImageDescription, imagePageStructuredData, profileImages, serializeS
 
 const description =
   "The work and design philosophy of Francesco Cappuccio, lighting designer.";
+
+const profileLinkClass =
+  "group inline-flex min-h-11 items-center gap-3 border-b border-ivory/30 font-mono text-[10px] uppercase tracking-widest2 text-ivory transition-colors hover:border-ivory hover:text-stone focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4";
 
 function renderEmphasis(text: string) {
   return text.split(/(\*[^*]+\*)/g).map((part, index) =>
@@ -100,9 +103,14 @@ export default function AboutPage() {
             <p className="mt-10 max-w-[33ch] font-body text-[clamp(1.5rem,2.5vw,2.1rem)] font-light leading-[1.22] text-ivory">
               {studio.intro}
             </p>
-            <Link href="/work" className="group mt-10 inline-flex items-center gap-4 border-b border-ivory/30 pb-2 font-mono text-[10px] uppercase tracking-widest2 text-ivory transition-colors hover:text-stone">
-              Explore selected work <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-2">
+              <a href="/francesco-cappuccio-lighting-design-cv.pdf" download="Francesco Cappuccio - Lighting Design CV.pdf" className={profileLinkClass}>
+                Download CV (PDF) <Download aria-hidden="true" size={16} strokeWidth={1.5} />
+              </a>
+              <Link href="/work" className={profileLinkClass}>
+                Explore selected work <ArrowRight aria-hidden="true" size={16} className="transition-transform motion-safe:group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
